@@ -471,32 +471,36 @@
 
     (function() {
 
-        const panel = document.getElementById('logo-panel');
+    const inviteCode = '4Wbk2x7qXn';
 
-        let dragging = false;
-        let offsetX = 0;
-        let offsetY = 0;
+    async function updateStats() {
 
-        panel.addEventListener('mousedown', function(e) {
-            dragging = true;
+        try {
 
-            const rect = panel.getBoundingClientRect();
-            offsetX = e.clientX - rect.left;
-            offsetY = e.clientY - rect.top;
-        });
+            const response = await fetch(
+                `https://discord.com/api/v9/invites/${inviteCode}?with_counts=true`
+            );
 
-        document.addEventListener('mousemove', function(e) {
-            if (!dragging) return;
-            panel.style.left = (e.clientX - offsetX) + 'px';
-            panel.style.top = (e.clientY - offsetY) + 'px';
-            panel.style.right = 'auto';
-        });
+            const data = await response.json();
 
-        document.addEventListener('mouseup', function() {
-            dragging = false;
-        });
+            if (data.approximate_presence_count !== undefined) {
+                document.getElementById('discord-online').innerText =
+                    data.approximate_presence_count;
+            }
 
-    })();
+            if (data.approximate_member_count !== undefined) {
+                document.getElementById('discord-total').innerText =
+                    data.approximate_member_count;
+            }
+
+        } catch (e) {}
+
+    }
+
+    updateStats();
+    setInterval(updateStats, 60000);
+
+})();
 </script>
 
 </body>
