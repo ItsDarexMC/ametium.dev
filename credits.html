@@ -1,0 +1,337 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ametium Credits</title>
+    <link rel="icon" type="image/png" href="ametium.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        html,body{
+            background:#111111;
+            color:white;
+            font-family:'Poppins',sans-serif;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 64px;
+            background: #1a1a1a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+        .logo img {
+            width: 30px;
+            height: auto;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #a0a0a0;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+        .credits-section{
+            width:100%;
+            max-width:1200px;
+            margin:auto;
+            padding:130px 40px 80px 40px;
+        }
+        .credits-title{
+            font-size:42px;
+            font-weight:700;
+            margin-bottom: 40px;
+        }
+        .credits-category-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.5px;
+            margin: 40px 0 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 8px;
+        }
+        .credits-grid{
+            display:flex;
+            flex-direction:column;
+            gap:24px;
+        }
+        @media(min-width: 768px) {
+            .credits-grid.columns-2 {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .credit-card{
+            background:#161616;
+            border:1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 32px;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .credit-card:hover {
+            transform: translateY(-6px);
+        }
+        .credit-card.card-owner:hover {
+            border-color: rgba(144, 0, 255, 0.4);
+            box-shadow: 0 6px 20px rgba(144, 0, 255, 0.1);
+        }
+        .credit-card.card-sunny:hover {
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.1);
+        }
+        .credit-card.card-vicore:hover {
+            border-color: rgba(139, 69, 19, 0.4);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.1);
+        }
+        .credit-card.card-contributor:hover {
+            border-color: rgba(255, 0, 0, 0.4);
+            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.1);
+        }
+        .credit-card.card-booster:hover {
+            border-color: rgba(244, 127, 203, 0.4);
+            box-shadow: 0 6px 20px rgba(244, 127, 203, 0.1);
+        }
+        .role-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: rgba(144, 0, 255, 0.2);
+            border: 1px solid #9000ff;
+            color: #c480ff;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .role-badge.helper {
+            background: rgba(255, 0, 0, 0.15);
+            border: 1px solid #ff0000;
+            color: #ff4d4d;
+        }
+        .role-badge.booster {
+            background: rgba(244, 127, 203, 0.2);
+            border: 1px solid #f47fcb;
+            color: #f47fcb;
+        }
+        .role-badge.alliance-vicore {
+            background: rgba(139, 69, 19, 0.2);
+            border: 1px solid #8b4513;
+            color: #cd853f;
+        }
+        .role-badge.alliance-sunny {
+            background: rgba(255, 215, 0, 0.15);
+            border: 1px solid #ffd700;
+            color: #ffd700;
+        }
+        .credit-name{
+            font-size:28px;
+            font-weight:700;
+            margin-bottom: 8px;
+        }
+        .credit-desc{
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .alliance-members {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .social-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #ffffff;
+            background: #202020;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        .social-btn:hover {
+            background: #ffffff;
+            color: #111111;
+            border-color: #ffffff;
+        }
+        .footer{
+            border-top:1px solid rgba(255,255,255,0.05);
+            padding:40px;
+            text-align:center;
+            color:rgba(255,255,255,0.45);
+            font-size:13px;
+        }
+
+        @media(max-width:900px) {
+            .navbar {
+                height: auto;
+                padding: 8px 0;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px 24px;
+            }
+            .nav-links {
+                gap: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .credits-section {
+                padding-top: 160px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .credits-title {
+                font-size: 32px;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .credits-category-title {
+                text-align: center;
+                margin: 30px 0 15px 0;
+            }
+            .credit-card {
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .social-links {
+                justify-content: center;
+                gap: 10px;
+            }
+            .social-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="ametium.png" alt="Logo">
+            <span>Ametium Development</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="update.html">Updates</a>
+            <a href="credits.html" style="color: #ffffff;">Credits</a>
+            <a href="https://discord.gg/4Wbk2x7qXn">Discord</a>
+        </div>
+    </div>
+</nav>
+
+<section class="credits-section">
+    <div class="credits-title">Team & Credits</div>
+
+    <div class="credits-category-title">Owner</div>
+    <div class="credits-grid">
+        <div class="credit-card card-owner">
+            <span class="role-badge"><i class="fas fa-crown"></i> Founder</span>
+            <div class="credit-name">ItsDarexMC</div>
+            <div class="credit-desc">Ametium Development Founder.</div>
+            <div class="social-links">
+                <a href="https://github.com/ItsDarexMC" target="_blank" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://tiktok.com/@ItsDarexMC" target="_blank" class="social-btn"><i class="fab fa-tiktok"></i> TikTok</a>
+                <a href="https://youtube.com/@ItsDarexMC" target="_blank" class="social-btn"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="https://tiktok.com/@Ametium" target="_blank" class="social-btn"><i class="fab fa-tiktok"></i> TikTok Ametium</a>
+                <a href="https://youtube.com/@Ametium" target="_blank" class="social-btn"><i class="fab fa-youtube"></i> YouTube Ametium</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="credits-category-title">Alliances</div>
+    <div class="credits-grid columns-2">
+        <div class="credit-card card-sunny">
+            <span class="role-badge alliance-sunny"><i class="fas fa-handshake"></i> Alliance</span>
+            <div class="credit-name">Sunny Development</div>
+            <div class="credit-desc">Alliance between Sunny Development and Ametium. Represented by <span class="alliance-members">yGatusito & Twozhi</span>.</div>
+            <div class="social-links">
+                <a href="https://discord.gg/n3ffSY7wPb" target="_blank" class="social-btn"><i class="fab fa-discord"></i> Discord Sunny</a>
+            </div>
+        </div>
+
+        <div class="credit-card card-vicore">
+            <span class="role-badge alliance-vicore"><i class="fas fa-handshake"></i> Alliance</span>
+            <div class="credit-name">Vicoré Development</div>
+            <div class="credit-desc">Alliance between Vicoré Development and Ametium. Represented by <span class="alliance-members">saturnus25 & Alguien.1</span>.</div>
+            <div class="social-links">
+                <a href="https://discord.gg/DTUbmUyCft" target="_blank" class="social-btn"><i class="fab fa-discord"></i> Discord Vicore</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="credits-category-title">Contributors & Boosters</div>
+    <div class="credits-grid columns-2">
+        <div class="credit-card card-contributor">
+            <span class="role-badge helper"><i class="fas fa-code"></i> Contributor</span>
+            <div class="credit-name">HOLASSOYGOD</div>
+            <div class="credit-desc">Project collaborator. Has supported the development of the InfiniteAnchor module.</div>
+        </div>
+
+        <div class="credit-card card-booster">
+            <span class="role-badge booster"><i class="fas fa-rocket"></i> Server Booster</span>
+            <div class="credit-name">K1llerHacker_gg</div>
+            <div class="credit-desc">Special thanks for supporting our community by boosting the official Discord server.</div>
+        </div>
+    </div>
+</section>
+
+<div class="footer">
+    © 2026 Ametium Development. All rights reserved.
+</div>
+
+</body>
+</html>
