@@ -4,20 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ametium Development</title>
+
     <link rel="icon" type="image/png" href="ametium.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        html, body {
+
+        html,
+        body {
             background: #111111;
             color: white;
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
         }
+
         body {
             min-height: 100vh;
         }
@@ -34,6 +40,7 @@
             justify-content: center;
             z-index: 1000;
         }
+
         .nav-container {
             width: 100%;
             max-width: 1200px;
@@ -42,6 +49,7 @@
             justify-content: space-between;
             align-items: center;
         }
+
         .logo {
             display: flex;
             align-items: center;
@@ -51,14 +59,17 @@
             letter-spacing: 0.5px;
             color: #ffffff;
         }
+
         .logo img {
             width: 30px;
             height: auto;
         }
+
         .nav-links {
             display: flex;
             gap: 28px;
         }
+
         .nav-links a {
             text-decoration: none;
             color: #a0a0a0;
@@ -66,16 +77,20 @@
             font-weight: 500;
             transition: color 0.2s ease;
         }
+
         .nav-links a:hover {
             color: #ffffff;
         }
+
         .hero {
             width: 100%;
             padding-top: 72px;
         }
+
         .hero-container {
             width: 100%;
         }
+
         .hero-video {
             width: 100%;
             height: 60vh;
@@ -85,6 +100,7 @@
             display: flex;
             align-items: center;
         }
+
         .bg-video {
             position: absolute;
             top: 50%;
@@ -94,15 +110,17 @@
             object-fit: cover;
             transform: translate(-50%, -50%);
             z-index: 0;
-            filter: blur(0px);
+            filter: blur(8px);
             vertical-align: bottom;
         }
+
         .hero-overlay {
             position: absolute;
             inset: 0;
             background: rgba(17, 17, 17, 0.4);
             z-index: 1;
         }
+
         .hero-content {
             position: absolute;
             left: 8%;
@@ -111,10 +129,12 @@
             z-index: 2;
             max-width: 700px;
         }
+
         .hero-title {
             font-size: 52px;
             font-weight: 700;
         }
+
         .hero-description {
             margin-top: 18px;
             color: rgba(255,255,255,0.72);
@@ -122,6 +142,7 @@
             line-height: 1.8;
             max-width: 620px;
         }
+
         .discord-stats {
             display: flex;
             gap: 38px;
@@ -129,10 +150,12 @@
             margin-bottom: 34px;
             align-items: flex-start;
         }
+
         .discord-block {
             display: flex;
             flex-direction: column;
         }
+
         .discord-label {
             font-size: 11px;
             font-weight: 500;
@@ -140,16 +163,19 @@
             color: rgba(255,255,255,0.55);
             line-height: 1;
         }
+
         .discord-value {
             margin-top: 8px;
             font-size: 18px;
             font-weight: 600;
             line-height: 1;
         }
+
         .hero-buttons {
             display: flex;
             gap: 18px;
         }
+
         .primary-btn {
             padding: 16px 30px;
             border-radius: 14px;
@@ -160,10 +186,12 @@
             font-weight: 600;
             transition: 0.2s;
         }
+
         .primary-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 0 25px rgba(90,0,150,0.45);
         }
+
         .secondary-btn {
             padding: 16px 30px;
             border-radius: 14px;
@@ -175,15 +203,18 @@
             font-weight: 600;
             transition: 0.2s;
         }
+
         .secondary-btn:hover {
             background: #252525;
         }
+
         .info-section {
             width: 100%;
             max-width: 1500px;
             margin: auto;
             padding: 80px 40px;
         }
+
         .section-heading {
             font-size: 28px;
             font-weight: 300;
@@ -191,27 +222,32 @@
             margin-bottom: 32px;
             color: rgba(255, 255, 255, 0.5);
         }
+
         .info-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 18px;
         }
+
         .info-card {
             background: #1a1a1a;
             border: 1px solid rgba(255,255,255,0.05);
             border-radius: 24px;
             padding: 28px;
         }
+
         .info-title {
             font-size: 20px;
             font-weight: 600;
         }
+
         .info-text {
             margin-top: 12px;
             color: rgba(255,255,255,0.68);
             line-height: 1.8;
             font-size: 14px;
         }
+
         .footer {
             border-top: 1px solid rgba(255,255,255,0.05);
             padding: 40px;
@@ -219,13 +255,16 @@
             color: rgba(255,255,255,0.45);
             font-size: 13px;
         }
+
         @media(max-width:900px) {
             .info-grid {
                 grid-template-columns: 1fr;
             }
+
             .hero-video {
                 height: 100vh;
             }
+
             .hero-content {
                 left: 30px;
                 right: 30px;
@@ -233,38 +272,48 @@
                 bottom: auto;
                 transform: translateY(-50%);
             }
+
             .hero-title {
                 font-size: 38px;
             }
+
             .nav-container {
                 flex-direction: column;
                 gap: 12px;
                 padding: 12px 24px;
             }
+
             .navbar {
                 height: auto;
                 padding: 8px 0;
             }
+
             .hero {
                 padding-top: 100px;
             }
+
             .nav-links {
                 gap: 16px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
+
             .discord-stats {
                 gap: 20px;
                 flex-wrap: wrap;
             }
+
             .hero-buttons {
                 flex-direction: column;
                 gap: 12px;
             }
-            .primary-btn, .secondary-btn {
+
+            .primary-btn,
+            .secondary-btn {
                 text-align: center;
                 width: 100%;
             }
+
             .info-section {
                 padding: 40px 20px;
             }
@@ -275,7 +324,7 @@
 <nav class="navbar">
     <div class="nav-container">
         <div class="logo">
-            <img src="ametium.png">
+            <img src="ametium.png" alt="Ametium Logo">
             <span>Ametium Development</span>
         </div>
         <div class="nav-links">
@@ -290,30 +339,44 @@
 <section class="hero">
     <div class="hero-container">
         <div class="hero-video">
-            <video class="bg-video" autoplay loop muted playsinline preload="auto" poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
-                <source src="video.mp4" type="video/mp4">
-            </video>
+            <img src="image.png" alt="Hero Background" class="bg-video">
+
             <div class="hero-overlay"></div>
+
             <div class="hero-content">
-                <div class="hero-title"><span style="color: #5a0096;">Ametium</span> Utility Mod</div>
-                <div class="hero-description">A Meteor Client addon for Minecraft 1.21.11 focused on anarchy gameplay, PvP and utility modules.</div>
+                <div class="hero-title">
+                    <span style="color: #5a0096;">Ametium</span> Utility Mod
+                </div>
+
+                <div class="hero-description">
+                    A Meteor Client addon for Minecraft 1.21.11 focused on anarchy gameplay, PvP and utility modules.
+                </div>
+
                 <div class="discord-stats">
                     <div class="discord-block">
                         <div class="discord-label">Discord Members</div>
                         <div class="discord-value" id="discord-members">0</div>
                     </div>
+
                     <div class="discord-block">
                         <div class="discord-label">Version</div>
                         <div class="discord-value">1.21.11</div>
                     </div>
+
                     <div class="discord-block">
-                        <div class="discord-label">Lastest Build</div>
+                        <div class="discord-label">Latest Build</div>
                         <div class="discord-value">3.2</div>
                     </div>
                 </div>
+
                 <div class="hero-buttons">
-                    <a href="https://discord.gg/4Wbk2x7qXn" class="primary-btn">Join Discord</a>
-                    <a href="update.html" class="secondary-btn">Updates</a>
+                    <a href="https://discord.gg/4Wbk2x7qXn" class="primary-btn">
+                        Join Discord
+                    </a>
+
+                    <a href="update.html" class="secondary-btn">
+                        Updates
+                    </a>
                 </div>
             </div>
         </div>
