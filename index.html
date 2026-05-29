@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
+
 
         html,
         body {
@@ -169,6 +169,20 @@
             font-size: 18px;
             font-weight: 600;
             line-height: 1;
+        }
+
+        .version-container {
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .version-tag {
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #ffffff;
         }
 
         .hero-buttons {
@@ -349,7 +363,7 @@
                 </div>
 
                 <div class="hero-description">
-                    A Meteor Client addon for Minecraft 1.21.11 focused on anarchy gameplay, PvP and utility modules.
+                    A Meteor Client addon focused on anarchy gameplay, PvP and utility modules.
                 </div>
 
                 <div class="discord-stats">
@@ -359,10 +373,11 @@
                     </div>
 
                     <div class="discord-block">
-                        <div class="discord-label">Version</div>
-                        <div class="discord-value">1.21.11</div>
+                        <div class="discord-label">Versions</div>
+                        <div class="version-container">
+                            <span class="version-tag">1.21.1 - 1.21.8 - 1.21.11</span>
+                        </div>
                     </div>
-
                     <div class="discord-block">
                         <div class="discord-label">Latest Build</div>
                         <div class="discord-value">3.2</div>
