@@ -100,13 +100,12 @@
             z-index: 1;
         }
 
-        /* Bloque Ametium rígido: mantiene el tamaño exacto siempre */
         .menu-container {
             position: absolute;
             top: 55%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 120px; /* Tamaño fijo inalterable */
+            width: 120px;
             background: rgba(20, 20, 20, 0.65);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -195,7 +194,6 @@
             color: #ffffff;
         }
 
-        /* Cuadro de descripción adaptable según el contenido */
         .desc-box {
             position: absolute;
             width: auto;
@@ -227,7 +225,6 @@
             word-wrap: break-word;
         }
 
-        /* El Media Query solo reordena el navbar en móviles sin tocar el ClickGUI */
         @media(max-width:900px) {
             .navbar {
                 height: auto;
@@ -249,9 +246,7 @@
 
 <body>
 
-<video class="bg-video" autoplay loop muted playsinline preload="auto" poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
-    <source src="video.mp4" type="video/mp4">
-</video>
+<img src="image.png" class="bg-video">
 
 <nav class="navbar">
     <div class="nav-container">
@@ -334,14 +329,12 @@
             descText.innerText = item.getAttribute('data-desc');
             descBox.classList.add('visible');
 
-            // Posicionamiento dinámico en base al menú arrastrado
             const itemRect = item.getBoundingClientRect();
             const menuRect = menu.getBoundingClientRect();
             const descRect = descBox.getBoundingClientRect();
 
             let targetLeft = menuRect.right + 6;
 
-            // Si el Tooltip se sale de la pantalla derecha, salta al lado izquierdo
             if (targetLeft + descRect.width > window.innerWidth) {
                 targetLeft = menuRect.left - descRect.width - 6;
             }
@@ -362,7 +355,6 @@
         }
     });
 
-    // Eventos de arrastre nativos tanto en PC como soporte básico táctil
     function startDrag(clientX, clientY) {
         isDragging = false;
         descBox.classList.remove('visible');
