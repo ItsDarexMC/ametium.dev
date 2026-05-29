@@ -1,1 +1,581 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ametium Updates</title>
+
+    <link rel="icon" type="image/png" href="ametium.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html,body{
+            background:#111111;
+            color:white;
+            font-family:'Poppins',sans-serif;
+        }
+
+        .plus, .plus-group{color:#00cc52;font-weight:600;}
+        .minus, .minus-group{color:#ff3b3b;font-weight:600;}
+        .warn, .warn-group{color:#4da3ff;font-weight:600;}
+        .warn2, .warn2-group{color:#ffd84d;font-weight:600;}
+
+      .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 64px;
+            background: #1a1a1a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+
+        .logo img {
+            width: 30px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #a0a0a0;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .updates-section{
+            width:100%;
+            max-width:1200px;
+
+            margin:auto;
+
+            padding:130px 40px 80px 40px;
+        }
+
+        .updates-title{
+            font-size:42px;
+            font-weight:700;
+        }
+
+        .updates-list{
+            margin-top:40px;
+
+            display:flex;
+            flex-direction:column;
+
+            gap:18px;
+        }
+
+      .update-box{
+    background:#161616;
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius: 8px; /* antes 22px */
+    overflow:hidden;
+}
+
+        .update-header{
+            padding:24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor:pointer;
+        }
+
+        .update-version{
+            font-size:24px;
+            font-weight:700;
+        }
+
+        .update-icon {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .update-box.active .update-icon {
+            transform: rotate(180deg);
+        }
+
+        .update-content{
+            max-height:0;
+            overflow:hidden;
+            background:#151515;
+            transition:max-height 0.3s ease;
+        }
+
+        .update-inner{
+            padding:24px;
+            border-top:1px solid rgba(255,255,255,0.04);
+            color:rgba(255,255,255,0.7);
+            line-height:1.8;
+            font-size:14px;
+        }
+
+        .footer{
+            border-top:1px solid rgba(255,255,255,0.05);
+            padding:40px;
+            text-align:center;
+            color:rgba(255,255,255,0.45);
+            font-size:13px;
+        }
+
+        .changelog {
+            font-family: inherit;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        @media(max-width:900px) {
+            .navbar {
+                height: auto;
+                padding: 8px 0;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px 24px;
+            }
+            .nav-links {
+                gap: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .updates-section {
+                padding-top: 160px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .updates-title {
+                font-size: 32px;
+                text-align: center;
+            }
+            .update-header {
+                padding: 18px;
+            }
+            .update-version {
+                font-size: 20px;
+            }
+            .update-inner {
+                padding: 18px;
+            }
+            .changelog {
+                font-size: 12px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <div class="logo">
+            <img src="ametium.png">
+            <span>Ametium Development</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="update.html" style="color: #ffffff;">Updates</a>
+            <a href="credits.html">Credits</a>
+            <a href="https://discord.gg/4Wbk2x7qXn">Discord</a>
+        </div>
+
+    </div>
+
+</nav>
+
+<section class="updates-section">
+
+    <div class="updates-title">
+        Changelogs
+    </div>
+
+    <div class="updates-list">
+
+        <div class="update-box">
+            <div class="update-header" onclick="toggleUpdate(this)">
+                <div class="update-version">3.2</div>
+                <div class="update-icon">▼</div>
+            </div>
+            <div class="update-content">
+                <div class="update-inner">
+<pre class="changelog">
+<span class="warn-group"><span class="warn">[!]</span> "InfiniteAnchor" fixed
+╚ Removed options "Attack Survival, Creative, Spectator"
+╚ New option: "Priority Targets"</span>
+<span class="warn-group"><span class="warn">[!]</span> "MaceCriticals" renamed
+╚ Now: "AutoMace"</span>
+<span class="warn-group"><span class="warn">[!]</span> "SuperAnchor" optimized
+╚ Increased attack speed</span>
+<span class="warn-group"><span class="warn">[!]</span> "TriggerBot" fixed
+╚ You can now select any entity
+╚ "Max Delay" and "Min Delay" merged into "Attack Delay"
+╚ New option: "Ignore Friends"</span>
+<span class="warn-group"><span class="warn">[!]</span> "AutoMace" improved
+╚ Now kills instantly</span>
+<span class="minus-group"><span class="minus">[-]</span> Removed module "InventoryDupe"</span>
+<span class="minus-group"><span class="minus">[-]</span> Removed module "ShulkerIcon"</span>
+<span class="minus-group"><span class="minus">[-]</span> Removed module "SuperTrap"
+╚ Had too many issues; will return improved in future updates</span>
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="update-box">
+            <div class="update-header" onclick="toggleUpdate(this)">
+                <div class="update-version">3.1</div>
+                <div class="update-icon">▼</div>
+            </div>
+            <div class="update-content">
+            <div class="update-inner">
+<pre class="changelog">
+<span class="plus-group"><span class="plus">[+]</span> New module "InfiniteAnchor"
+╚ AnchorAura with extended range (Beta)</span>
+<span class="plus-group"><span class="plus">[+]</span> New module "SuperTrap"
+╚ AutoTrap with extended range</span>
+<span class="warn-group"><span class="warn">[!]</span> "SuperEz" renamed
+╚ Now: "AutoEz"</span>
+<span class="warn-group"><span class="warn">[!]</span> "SuperMine" renamed
+╚ Now: "AutoMine"</span>
+<span class="warn-group"><span class="warn">[!]</span> "AutoMine" fixed
+╚ Render color now changes based on progress
+╚ Improved mining technology</span>
+<span class="warn-group"><span class="warn">[!]</span> "BetterSurround" renamed
+╚ Now: "Surround+"</span>
+<span class="warn2-group"><span class="warn2">[!]</span> Module "InfiniteAnchor"
+╚ May fail through walls
+╚ Recommended Place Delay 5</span>
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="update-box">
+            <div class="update-header" onclick="toggleUpdate(this)">
+                <div class="update-version">3.0</div>
+                <div class="update-icon">▼</div>
+            </div>
+            <div class="update-content">
+                <div class="update-inner">
+<pre class="changelog">
+<span class="warn-group"><span class="warn">[!]</span> New "AnchorMacro" mode format
+ ╚ "Instant" & "Delay"</span>
+<span class="warn-group"><span class="warn">[!]</span> TriggerBot fixed
+ ╚ Now much less detectable</span>
+<span class="warn-group"><span class="warn">[!]</span> SuperSurround improved
+ ╚ New mode: "Place Delay"</span>
+<span class="warn-group"><span class="warn">[!]</span> SuperMine fixed
+ ╚ Now searches for all tools</span>
+<span class="warn-group"><span class="warn">[!]</span> Main icon fixed</span>
+<span class="minus-group"><span class="minus">[-]</span> Removed module "AntiSurround"
+ ╚ Meteor already includes Auto City</span>
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="update-box">
+            <div class="update-header" onclick="toggleUpdate(this)">
+                <div class="update-version">2.9</div>
+                <div class="update-icon">▼</div>
+            </div>
+            <div class="update-content">
+                <div class="update-inner">
+<pre class="changelog">
+<span class="warn-group"><span class="warn">[!]</span> New module "AnchorMacro"
+ ╚ Ghost & Legit AutoAnchor</span>
+<span class="warn-group"><span class="warn">[!]</span> New module "CrystalMacro"
+ ╚ Ghost & Legit AutoCrystal</span>
+<span class="warn-group"><span class="warn">[!]</span> "SuperEz" fixed
+ ╚ You will no longer mention yourself on pop/death</span>
+<span class="warn-group"><span class="warn">[!]</span> Option renamed in "InventorySync"
+ ╚ "Legit" mode renamed to "Delay"</span>
+<span class="warn-group"><span class="warn">[!]</span> Option renamed in "ShulkerRefill"
+ ╚ "Legit" mode renamed to "Delay"</span>
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="update-box">
+            <div class="update-header" onclick="toggleUpdate(this)">
+                <div class="update-version">2.8</div>
+                <div class="update-icon">▼</div>
+            </div>
+            <div class="update-content">
+                <div class="update-inner">
+<pre class="changelog">
+<span class="warn-group"><span class="warn">[!]</span> New "Ametium" tab
+ ╚ Direct access in Meteor header with official links</span>
+<span class="warn-group"><span class="warn">[!]</span> New module "SuperEz"
+ ╚ Sends taunt messages on kill, death, or pop</span>
+<span class="warn-group"><span class="warn">[!]</span> New module "SilentAttack"
+ ╚ Attacks silently without moving the hand</span>
+<span class="warn-group"><span class="warn">[!]</span> "PlayerTP" improved (Beta)
+ ╚ Now goes through walls and can travel long distances</span>
+<span class="warn-group"><span class="warn">[!]</span> "ChatManager" renamed
+ ╚ Now: "ChatCleaner"</span>
+<span class="warn-group"><span class="warn">[!]</span> "AnvilEnchant" renamed
+ ╚ Now: "AutoEnchant"</span>
+<span class="warn-group"><span class="warn">[!]</span>  "PosAnchor" renamed
+ ╚ Now: "PosFreeze"</span>
+<span class="minus-group"><span class="minus">[-]</span> Removed module "AirWalk"</span>
+<span class="warn2-group"><span class="warn2">[!]</span> "PlayerTP" module
+ ╚ May not work if the target is inside a block</span>
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="update-box">
+            <div class="update-header" onclick="toggleUpdate(this)">
+                <div class="update-version">2.7</div>
+                <div class="update-icon">▼</div>
+            </div>
+            <div class="update-content">
+                <div class="update-inner">
+<pre class="changelog">
+<span class="plus-group"><span class="plus">[+]</span> General "Ametium" changes
+ ╚ All modules are now in the "Ametium" category</span>
+<span class="plus-group"><span class="plus">[+]</span> New module "AutoLogin"
+ ╚ Automatically executes /login with your password</span>
+<span class="plus-group"><span class="plus">[+]</span> New HUD module "PlayerData"
+ ╚ Format: ItsDarexMC [20ms] [20hp] [X 100 Y 60 Z 100]</span>
+<span class="warn-group"><span class="warn">[!]</span> NoBadEffects improved
+ ╚ New option: "Slow Falling"</span>
+<span class="warn-group"><span class="warn">[!]</span> AnvilEnchant improved
+ ╚ New mode: "Instant"</span>
+<span class="warn-group"><span class="warn">[!]</span> AutoGrind improved
+ ╚ New mode: "Instant"</span>
+<span class="warn-group"><span class="warn">[!]</span> CombatInformation improved
+ ╚ New format: ItsDarexMC popped a totem x2 [40ms] [2hp]</span>
+<span class="warn-group"><span class="warn">[!]</span> SuperAnchor improved
+ ╚ Option: "Ignore Friends"</span>
+<span class="warn-group"><span class="warn">[!]</span> SuperAura improved
+ ╚ Option: "Ignore Friends"</span>
+<span class="warn-group"><span class="warn">[!]</span> SuperCrystal improved
+ ╚ Option: "Ignore Friends"</span>
+<span class="warn-group"><span class="warn">[!]</span> ChatFilter renamed
+ ╚ Now: "ChatManager"</span>
+<span class="minus-group"><span class="minus">[-]</span> Removed module "AutoExcavator"</span>
+<span class="minus-group"><span class="minus">[-]</span> Removed module "CoordBackup"</span>
+<span class="minus-group"><span class="minus">[-]</span> Removed module "CrystalClicker"</span>
+<span class="minus-group"><span class="minus">[-]</span> Removed module "GhostMode"</span>
+<span class="minus-group"><span class="minus">[-]</span> Removed module "LegitTotem"</span>
+<span class="minus-group"><span class="minus">[-]</span> Removed module "SpawnerESP"</span>
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="update-box">
+            <div class="update-header" onclick="toggleUpdate(this)">
+                <div class="update-version">2.6</div>
+                <div class="update-icon">▼</div>
+            </div>
+            <div class="update-content">
+                <div class="update-inner">
+<pre class="changelog">
+<span class="plus-group"><span class="plus">[+]</span> New module "SuperVClip"
+╚ Allows you to move through blocks vertically to reach the desired position. Includes Panic Mode (Low Health, Totem Pops).</span>
+<span class="plus-group"><span class="plus">[+]</span> New module "CrystalClicker"
+╚ Automatically places and breaks crystals.</span>
+<span class="plus-group"><span class="plus">[+]</span> New module "InventoryDupe"
+╚ Automatically duplicates items using the inventory.</span>
+<span class="plus-group"><span class="plus">[+]</span> New module "AirWalk"
+╚ Allows you to walk on air.</span>
+<span class="warn-group"><span class="warn">[!]</span> "NoBadEffects" fixed
+╚ Now removes levitation 100%</span>
+<span class="warn-group"><span class="warn">[!]</span> "InventorySync" fixed
+╚ Drop Extra Items: Smart cleanup. Drops extra items that do not belong to the saved kit.</span>
+<span class="warn-group"><span class="warn">[!]</span> "BetterTags" fixed
+╚ Your own nametag no longer blocks first-person view when looking up
+╚ Improved rendering</span>
+<span class="warn-group"><span class="warn">[!]</span> "CombatInformation" fixed
+╚ Optimized HUD: Removed unnecessary information</span>
+<span class="warn-group"><span class="warn">[!]</span> General module system repair</span>
+<span class="minus-group"><span class="minus">[-]</span> Fixed small synchronization bugs</span>
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="update-box">
+            <div class="update-header" onclick="toggleUpdate(this)">
+                <div class="update-version">2.5</div>
+                <div class="update-icon">▼</div>
+            </div>
+            <div class="update-content">
+                <div class="update-inner">
+<pre class="changelog">
+<span class="plus-group"><span class="plus">[+]</span> Ametium Addon - New website: "Ametiumdevelopment.com"</span>
+<span class="plus-group"><span class="plus">[+]</span> Ametium Addon - Addon and development renamed from: "Amethyst" to: "Ametium"</span>
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="update-box">
+            <div class="update-header" onclick="toggleUpdate(this)">
+                <div class="update-version">2.4</div>
+                <div class="update-icon">▼</div>
+            </div>
+            <div class="update-content">
+                <div class="update-inner">
+<pre class="changelog">
+<span class="plus-group"><span class="plus">[+]</span> Ametium Addon - New module: "PosAnchor"
+╚ Freezes you in your position</span>
+<span class="warn-group"><span class="warn">[!]</span> MaceAura renamed to "MaceCriticals"
+╚ Optimized impact technology</span>
+<span class="warn-group"><span class="warn">[!]</span> SilentWeapon renamed to "SilentHand"
+╚ Full change from combat to utility interaction
+╚ Silent use of utility items</span>
+<span class="warn-group"><span class="warn">[!]</span> FarmKill renamed to "ShulkerRefill"
+╚ Now allows a customizable item
+╚ Fills your inventory with a specific item from shulkers</span>
+<span class="warn-group"><span class="warn">[!]</span> InventorySync - New options: "Drop Box", "Drop Inv", "Drop All"</span>
+<span class="warn-group"><span class="warn">[!]</span> SuperMine - Mining methods fixed</span>
+<span class="minus-group"><span class="minus">[-]</span> Ametium Addon - Module removed: "NoPackets"</span>
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="update-box">
+            <div class="update-header" onclick="toggleUpdate(this)">
+                <div class="update-version">2.3</div>
+                <div class="update-icon">▼</div>
+            </div>
+            <div class="update-content">
+                <div class="update-inner">
+<pre class="changelog">
+<span class="plus-group"><span class="plus">[+]</span> New purple splash screen</span>
+<span class="plus-group"><span class="plus">[+]</span> New official website: Ametiumdevelopment.com</span>
+<span class="plus-group"><span class="plus">[+]</span> New module: "MaceAura"
+╚ Instakill with mace</span>
+<span class="plus-group"><span class="plus">[+]</span> New module: "DiscordRPC"
+╚ Discord presence for Ametium Development</span>
+<span class="minus-group"><span class="minus">[-]</span> Category removed: "AmeLegit"</span>
+<span class="minus-group"><span class="minus">[-]</span> Module removed: "CrystalClicker"</span>
+<span class="minus-group"><span class="minus">[-]</span> Module removed: "AnchorMacro"</span>
+<span class="minus-group"><span class="minus">[-]</span> Module removed: "DoubleAnchor"</span>
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="update-box">
+            <div class="update-header" onclick="toggleUpdate(this)">
+                <div class="update-version">2.2</div>
+                <div class="update-icon">▼</div>
+            </div>
+            <div class="update-content">
+                <div class="update-inner">
+<pre class="changelog">
+<span class="plus-group"><span class="plus">[+]</span> New module: "ShulkerIcon"
+╚ Shows the most frequent item inside shulkers</span>
+<span class="plus-group"><span class="plus">[+]</span> New module: "FarmKill"
+╚ Automatically manages crystals and shulkers</span>
+<span class="plus-group"><span class="plus">[+]</span> New module: "NoBadEffects"
+╚ Removes negative effects</span>
+<span class="warn-group"><span class="warn">[!]</span> InventorySync - New options: "Drop All" and "Drop Chest"</span>
+<span class="warn-group"><span class="warn">[!]</span> FrameDupe - New options: "Auto Placer" and "Render"
+╚ Improved system</span>
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="update-box">
+            <div class="update-header" onclick="toggleUpdate(this)">
+                <div class="update-version">2.1</div>
+                <div class="update-icon">▼</div>
+            </div>
+            <div class="update-content">
+                <div class="update-inner">
+<pre class="changelog">
+<span class="plus-group"><span class="plus">[+]</span> New HUD option added: "Combat Information"</span>
+<span class="plus-group"><span class="plus">[+]</span> New module added: "InventorySync"</span>
+<span class="plus-group"><span class="plus">[+]</span> New module added: "SuperAura"</span>
+<span class="plus-group"><span class="plus">[+]</span> New module added: "SuperMine"</span>
+<span class="plus-group"><span class="plus">[+]</span> New module added: "SuperSurround"</span>
+<span class="warn-group"><span class="warn">[!]</span>  AutoExcavator - Bug fixed: clicks now work correctly</span>
+</pre>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="footer">
+    © 2026 Ametium Development. All rights reserved.
+</div>
+
+<script>
+    function toggleUpdate(element){
+        const box = element.parentElement;
+        const content = element.nextElementSibling;
+
+        box.classList.toggle('active');
+
+        if(content.style.maxHeight){
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    }
+</script>
+
+</body>
+</html>
