@@ -28,29 +28,6 @@
             min-height: 100vh;
         }
 
-        .bg-wrapper {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: calc(100% - 94px);
-            overflow: hidden;
-            z-index: 0;
-        }
-
-        .bg-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: blur(8px);
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(17, 17, 17, 0.6);
-        }
-
         .navbar {
             position: fixed;
             top: 0;
@@ -106,22 +83,56 @@
             color: #ffffff;
         }
 
-        .archive-section {
+        .archive-hero {
             width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 140px 24px 60px 24px;
+            padding-top: 64px;
             flex: 1;
-            position: relative;
-            z-index: 2;
-            text-align: center;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+        }
+
+        .archive-hero-container {
+            width: 100%;
+            height: 60vh;
+            overflow: hidden;
+            position: relative;
+            background: #111111;
+            display: flex;
+            align-items: center;
             justify-content: center;
         }
 
+        .bg-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            filter: blur(8px);
+            vertical-align: bottom;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(17, 17, 17, 0.4);
+            z-index: 1;
+        }
+
+        .archive-section {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 800px;
+            padding: 0 24px;
+            text-align: center;
+        }
+
         .archive-header {
-            margin-bottom: 54px;
+            margin-bottom: 40px;
         }
 
         .archive-title {
@@ -134,7 +145,7 @@
         }
 
         .archive-subtitle {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.72);
             font-size: 18px;
             font-weight: 400;
         }
@@ -142,12 +153,12 @@
         .links-list {
             display: flex;
             flex-direction: column;
-            gap: 28px;
+            gap: 24px;
             align-items: center;
         }
 
         .archive-link {
-            font-size: 40px;
+            font-size: 44px;
             font-weight: 700;
             color: #ffffff;
             text-decoration: none;
@@ -164,20 +175,40 @@
 
         .footer {
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            height: 94px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 40px;
+            text-align: center;
             color: rgba(255, 255, 255, 0.45);
             font-size: 13px;
             background: #111111;
-            position: relative;
-            z-index: 2;
             width: 100%;
-            margin-top: auto;
         }
 
         @media(max-width:900px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px 24px;
+            }
+
+            .navbar {
+                height: auto;
+                padding: 8px 0;
+            }
+
+            .archive-hero {
+                padding-top: 100px;
+            }
+
+            .archive-hero-container {
+                height: 100vh;
+            }
+
+            .nav-links {
+                gap: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
             .archive-title {
                 font-size: 42px;
             }
@@ -187,42 +218,12 @@
             }
 
             .archive-link {
-                font-size: 32px;
-            }
-
-            .nav-container {
-                flex-direction: column;
-                gap: 14px;
-                padding: 16px 24px;
-            }
-
-            .navbar {
-                height: auto;
-                position: relative;
-            }
-
-            .archive-section {
-                padding-top: 40px;
-            }
-
-            .nav-links {
-                gap: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .bg-wrapper {
-                height: calc(100% - 94px);
+                font-size: 34px;
             }
         }
     </style>
 </head>
 <body>
-
-<div class="bg-wrapper">
-    <img src="image.png" alt="Hero Background" class="bg-image">
-    <div class="hero-overlay"></div>
-</div>
 
 <nav class="navbar">
     <div class="nav-container">
@@ -240,16 +241,23 @@
     </div>
 </nav>
 
-<section class="archive-section">
-    <div class="archive-header">
-        <h1 class="archive-title">Version Archive</h1>
-        <p class="archive-subtitle">Download Ametium older version builds.</p>
-    </div>
+<section class="archive-hero">
+    <div class="archive-hero-container">
+        <img src="image.png" alt="Hero Background" class="bg-image">
+        <div class="hero-overlay"></div>
 
-    <div class="links-list">
-        <a href="Ametium-Addon-3.3-1.21.11.jar" download class="archive-link">1.21.11</a>
-        <a href="Ametium-Addon-3.3-1.21.8.jar" download class="archive-link">1.21.8</a>
-        <a href="Ametium-Addon-3.3-1.21.1.jar" download class="archive-link">1.21.1</a>
+        <div class="archive-section">
+            <div class="archive-header">
+                <h1 class="archive-title">Version Archive</h1>
+                <p class="archive-subtitle">Download Ametium older version builds.</p>
+            </div>
+
+            <div class="links-list">
+                <a href="Ametium-Addon-3.3-1.21.11.jar" download class="archive-link">1.21.11</a>
+                <a href="Ametium-Addon-3.3-1.21.8.jar" download class="archive-link">1.21.8</a>
+                <a href="Ametium-Addon-3.3-1.21.1.jar" download class="archive-link">1.21.1</a>
+            </div>
+        </div>
     </div>
 </section>
 
