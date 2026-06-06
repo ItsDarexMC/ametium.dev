@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ametium Development</title>
+    <link rel="icon" type="image/png" href="ametium.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: #111111;
+            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
+        .bg-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            filter: blur(8px);
+            vertical-align: bottom;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 64px;
+            background: #1a1a1a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+
+        .logo img {
+            width: 30px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #a0a0a0;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .main-wrapper {
+            width: 100%;
+            height: 100%;
+            padding-top: 64px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .download-container {
+            background: rgba(20, 20, 20, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .download-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .btn-download {
+            display: inline-block;
+            text-decoration: none;
+            background: #5a0096;
+            color: #ffffff;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: background 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 12px rgba(90, 0, 150, 0.3);
+        }
+
+        .btn-download:hover {
+            background: #7200bf;
+        }
+
+        .btn-download:active {
+            transform: scale(0.98);
+        }
+
+        @media(max-width:900px) {
+            .navbar {
+                height: auto;
+                padding: 8px 0;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px 24px;
+            }
+            .nav-links {
+                gap: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<img src="image.png" class="bg-image" alt="Background Image">
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="ametium.png" alt="Ametium Logo">
+            <span>Ametium Development</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="features.html" style="color: #ffffff;">Features</a>
+            <a href="update.html">Updates</a>
+            <a href="credits.html">Credits</a>
+            <a href="https://discord.gg/4Wbk2x7qXn">Discord</a>
+        </div>
+    </div>
+</nav>
+
+<div class="main-wrapper">
+    <div class="download-container">
+        <h2 class="download-title">Select Version</h2>
+        <a href="Ametium-Addon-3.3-1.21.8.jar" class="btn-download" download>Download 1.21.8</a>
+        <a href="Ametium-Addon-3.3-1.21.11.jar" class="btn-download" download>Download 1.21.11</a>
+    </div>
+</div>
+
+</body>
+</html>
