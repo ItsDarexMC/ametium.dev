@@ -94,7 +94,7 @@
 
         .hero-video {
             width: 100%;
-            height: 60vh;
+            height: 55vh;
             overflow: hidden;
             position: relative;
             background: #111111;
@@ -119,7 +119,7 @@
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(17, 17, 17, 0.6);
+            background: rgba(17, 17, 17, 0.4);
             z-index: 1;
         }
 
@@ -132,23 +132,51 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 0 24px;
-            gap: 16px;
+            padding: 0 20px;
         }
 
         .hero-title {
             font-size: 52px;
             font-weight: 700;
-            line-height: 1.2;
         }
 
         .hero-description {
+            margin-top: 12px;
             color: rgba(255,255,255,0.72);
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.6;
             max-width: 620px;
         }
 
+        .discord-stats {
+            display: flex;
+            gap: 38px;
+            margin-top: 18px;
+            margin-bottom: 22px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .discord-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .discord-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.8px;
+            color: rgba(255,255,255,0.55);
+            line-height: 1;
+        }
+
+        .discord-value {
+            margin-top: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1;
+        }
 
         .hero-buttons {
             display: flex;
@@ -165,7 +193,7 @@
             text-decoration: none;
             font-size: 16px;
             font-weight: 600;
-            transition: all 0.2s ease;
+            transition: 0.2s;
             display: inline-block;
         }
 
@@ -178,14 +206,14 @@
             width: 100%;
             max-width: 800px;
             margin: auto;
-            padding: 60px 20px 30px 20px;
+            padding: 50px 20px 30px 20px;
             text-align: center;
         }
 
         .download-heading {
             font-size: 26px;
             font-weight: 400;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             color: rgba(255, 255, 255, 0.6);
         }
 
@@ -198,18 +226,18 @@
         }
 
         .download-archive-link {
-            font-size: 28px;
-            font-weight: 600;
-            color: #5a0096;
+            font-size: 32px;
+            font-weight: 500;
+            color: #0000ff;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: color 0.2s ease, transform 0.2s ease;
             display: inline-block;
             line-height: 1.2;
         }
 
         .download-archive-link:hover {
-            color: #8000d4;
-            transform: scale(1.1);
+            color: #3333ff;
+            transform: scale(1.05);
         }
 
         .info-section {
@@ -266,12 +294,11 @@
             }
 
             .hero-video {
-                height: 70vh;
+                height: 60vh;
             }
 
             .hero-content {
                 padding: 0 20px;
-                gap: 20px;
             }
 
             .hero-title {
@@ -297,6 +324,11 @@
                 gap: 16px;
                 flex-wrap: wrap;
                 justify-content: center;
+            }
+
+            .discord-stats {
+                gap: 20px;
+                flex-wrap: wrap;
             }
 
             .hero-buttons {
@@ -352,14 +384,20 @@
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
-                <h1 class="hero-title">
+                <div class="hero-title">
                     <span style="color: #5a0096;">Ametium</span> Utility Mod
-                </h1>
+                </div>
 
-                <p class="hero-description">
+                <div class="hero-description">
                     A Meteor Client Utility Addon.
-                </p>
-    
+                </div>
+
+                <div class="discord-stats">
+                    <div class="discord-block">
+                        <div class="discord-label">Discord Members</div>
+                        <div class="discord-value" id="discord-members">0</div>
+                    </div>
+                </div>
                 
                 <div class="hero-buttons">
                     <a href="https://discord.gg/4Wbk2x7Xn" class="primary-btn">Join Discord</a>
@@ -379,7 +417,7 @@
 </section>
 
 <section class="info-section">
-    <h2 class="section-heading">About our Modules</h2>
+    <h2 class="section-heading">Our Best Modules</h2>
     <div class="info-grid">
         <div class="info-card">
             <div class="info-title">InfiniteAnchor</div>
@@ -398,5 +436,21 @@
 
 <div class="footer">© 2026 Ametium Development. All rights reserved.</div>
 
+<script>
+    (function() {
+        const inviteCode = '4Wbk2x7qXn';
+        async function updateDiscordStats() {
+            try {
+                const response = await fetch(`https://discord.com/api/v9/invites/${inviteCode}?with_counts=true`);
+                const data = await response.json();
+                if (data.approximate_member_count !== undefined) {
+                    document.getElementById('discord-members').innerText = data.approximate_member_count;
+                }
+            } catch (e) {}
+        }
+        updateDiscordStats();
+        setInterval(updateDiscordStats, 60000);
+    })();
+</script>
 </body>
 </html>
