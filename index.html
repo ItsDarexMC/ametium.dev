@@ -197,27 +197,28 @@
             width: 100%;
             max-width: 800px;
             margin: auto;
-            padding: 60px 20px 20px 20px;
+            padding: 40px 20px 20px 20px;
             text-align: center;
         }
 
         .download-heading {
-            font-size: 28px;
-            font-weight: 300;
-            margin-bottom: 24px;
-            color: rgba(255, 255, 255, 0.5);
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            color: rgba(255, 255, 255, 0.6);
         }
 
         .download-links-list {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            flex-direction: row;
+            gap: 32px;
+            justify-content: center;
             align-items: center;
         }
 
         .download-archive-link {
-            font-size: 44px;
-            font-weight: 400;
+            font-size: 22px;
+            font-weight: 500;
             color: #0000ff;
             text-decoration: none;
             transition: color 0.2s ease, transform 0.2s ease;
@@ -227,7 +228,7 @@
 
         .download-archive-link:hover {
             color: #3333ff;
-            transform: scale(1.03);
+            transform: scale(1.05);
         }
 
         .info-section {
@@ -335,8 +336,12 @@
                 width: 100%;
             }
 
+            .download-links-list {
+                gap: 20px;
+            }
+
             .download-archive-link {
-                font-size: 34px;
+                font-size: 18px;
             }
 
             .info-section {
