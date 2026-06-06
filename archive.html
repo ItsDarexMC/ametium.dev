@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ametium Development - Archive</title>
+    <link rel="icon" type="image/png" href="ametium.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html,
+        body {
+            background: #111111;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 64px;
+            background: #1a1a1a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+
+        .logo img {
+            width: 30px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #a0a0a0;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .archive-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 120px 40px 60px 40px;
+            flex: 1;
+        }
+
+        .archive-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .archive-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .archive-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 16px;
+        }
+
+        .versions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .version-card {
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 18px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .version-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(90, 0, 150, 0.4);
+        }
+
+        .version-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .version-build {
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .download-btn {
+            width: 100%;
+            padding: 14px 0;
+            border-radius: 10px;
+            background: #5a0096;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s;
+            box-shadow: 0 4px 12px rgba(90, 0, 150, 0.2);
+        }
+
+        .download-btn:hover {
+            background: #6e00b8;
+            box-shadow: 0 0 20px rgba(90, 0, 150, 0.4);
+        }
+
+        .footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 13px;
+            background: #111111;
+        }
+
+        @media(max-width:900px) {
+            .versions-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .archive-section {
+                padding: 100px 20px 40px 20px;
+            }
+
+            .archive-title {
+                font-size: 32px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px 24px;
+            }
+
+            .navbar {
+                height: auto;
+                padding: 8px 0;
+            }
+
+            .nav-links {
+                gap: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="ametium.png" alt="Ametium Logo">
+            <span>Ametium Development</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="update.html">Updates</a>
+            <a href="credits.html">Credits</a>
+            <a href="https://discord.gg/4Wbk2x7qXn">Discord</a>
+        </div>
+    </div>
+</nav>
+
+<section class="archive-section">
+    <div class="archive-header">
+        <h1 class="archive-title">Version Archive</h1>
+        <p class="archive-subtitle">Download previous builds of the Ametium addon.</p>
+    </div>
+
+    <div class="versions-grid">
+        <div class="version-card">
+            <div>
+                <div class="version-number">1.21.11</div>
+                <div class="version-build">Build 3.3</div>
+            </div>
+            <a href="Ametium-Addon-3.3-1.21.11.jar" download class="download-btn">Download JAR</a>
+        </div>
+
+        <div class="version-card">
+            <div>
+                <div class="version-number">1.21.8</div>
+                <div class="version-build">Build 3.3</div>
+            </div>
+            <a href="Ametium-Addon-3.3-1.21.8.jar" download class="download-btn">Download JAR</a>
+        </div>
+
+        <div class="version-card">
+            <div>
+                <div class="version-number">1.21.1</div>
+                <div class="version-build">Build 3.3</div>
+            </div>
+            <a href="Ametium-Addon-3.3-1.21.1.jar" download class="download-btn">Download JAR</a>
+        </div>
+    </div>
+</section>
+
+<div class="footer">© 2026 Ametium Development. All rights reserved.</div>
+
+</body>
+</html>
