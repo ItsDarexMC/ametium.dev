@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ametium Development</title>
+    <title>Ametium Development - Version Archive</title>
     <link rel="icon" type="image/png" href="ametium.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -101,24 +101,25 @@
 
         .archive-section {
             width: 100%;
-            max-width: 1200px;
+            max-width: 600px;
             margin: auto;
-            padding: 140px 40px 80px 40px;
+            padding: 140px 20px 80px 20px;
             flex: 1;
             position: relative;
             z-index: 2;
+            text-align: center;
         }
 
         .archive-header {
-            text-align: center;
-            margin-bottom: 64px;
+            margin-bottom: 48px;
         }
 
         .archive-title {
             font-size: 48px;
             font-weight: 700;
             letter-spacing: -0.5px;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            color: #ffffff;
         }
 
         .archive-subtitle {
@@ -127,58 +128,26 @@
             font-weight: 400;
         }
 
-        .versions-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .version-card {
-            background: rgba(26, 26, 26, 0.65);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 40px 32px;
+        .links-list {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            gap: 24px;
             align-items: center;
-            text-align: center;
-            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
         }
 
-        .version-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(90, 0, 150, 0.4);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        .version-number {
+        .archive-link {
             font-size: 32px;
             font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 32px;
-            letter-spacing: -0.5px;
-        }
-
-        .download-btn {
-            width: 100%;
-            padding: 14px 0;
-            border-radius: 12px;
-            background: #5a0096;
-            color: white;
+            color: #5a0096;
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: 0.2s;
-            box-shadow: 0 4px 12px rgba(90, 0, 150, 0.2);
+            letter-spacing: -0.5px;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: inline-block;
         }
 
-        .download-btn:hover {
-            background: #6e00b8;
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(90, 0, 150, 0.4);
+        .archive-link:hover {
+            color: #7a1fbf;
+            transform: scale(1.05);
         }
 
         .footer {
@@ -193,11 +162,6 @@
         }
 
         @media(max-width:900px) {
-            .versions-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
             .archive-section {
                 padding: 120px 20px 60px 20px;
             }
@@ -206,8 +170,8 @@
                 font-size: 36px;
             }
 
-            .version-card {
-                padding: 32px 24px;
+            .archive-link {
+                font-size: 28px;
             }
 
             .nav-container {
@@ -253,24 +217,13 @@
 <section class="archive-section">
     <div class="archive-header">
         <h1 class="archive-title">Version Archive</h1>
-        <p class="archive-subtitle">Access previous deployment builds and stable releases.</p>
+        <p class="archive-subtitle">Download Ametium older version builds.</p>
     </div>
 
-    <div class="versions-grid">
-        <div class="version-card">
-            <div class="version-number">Minecraft 1.21.11</div>
-            <a href="Ametium-Addon-3.3-1.21.11.jar" download class="download-btn">Download Release</a>
-        </div>
-
-        <div class="version-card">
-            <div class="version-number">Minecraft 1.21.8</div>
-            <a href="Ametium-Addon-3.3-1.21.8.jar" download class="download-btn">Download Release</a>
-        </div>
-
-        <div class="version-card">
-            <div class="version-number">Minecraft 1.21.1</div>
-            <a href="Ametium-Addon-3.3-1.21.1.jar" download class="download-btn">Download Release</a>
-        </div>
+    <div class="links-list">
+        <a href="Ametium-Addon-3.3-1.21.11.jar" download class="archive-link">1.21.11</a>
+        <a href="Ametium-Addon-3.3-1.21.8.jar" download class="archive-link">1.21.8</a>
+        <a href="Ametium-Addon-3.3-1.21.1.jar" download class="archive-link">1.21.1</a>
     </div>
 </section>
 
