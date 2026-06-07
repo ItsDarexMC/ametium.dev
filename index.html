@@ -146,6 +146,10 @@
             line-height: 1.2;
         }
 
+        .hero-title span {
+            display: inline;
+        }
+
         .hero-description {
             color: rgba(255,255,255,0.72);
             font-size: 16px;
@@ -330,6 +334,10 @@
                 font-size: 46px;
             }
 
+            .hero-title span {
+                display: block;
+            }
+
             .hero-description {
                 font-size: 16px;
             }
@@ -444,10 +452,6 @@
                                     <div class="stat-label">Discord Members</div>
                                     <div class="stat-value" id="discord-members">0</div>
                                 </div>
-                                <div class="stat-block">
-                                    <div class="stat-label">Online Players</div>
-                                    <div class="stat-value" id="addon-users">0</div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -500,20 +504,8 @@
                 } catch (e) {}
             }
 
-            async function updateAddonUsers() {
-                try {
-                    const response = await fetch('https://ametium.dev/api/ping?get=1');
-                    const data = await response.json();
-                    if (data.value !== undefined) {
-                        document.getElementById('addon-users').innerText = data.value.toLocaleString();
-                    }
-                } catch (e) {}
-            }
-
             updateDiscordStats();
-            updateAddonUsers();
-            setInterval(updateDiscordStats, 1);
-            setInterval(updateAddonUsers, 1);
+            setInterval(updateDiscordStats, 30000);
         })();
     </script>
 </body>
