@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,15 +13,18 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         html, body {
             background: #111111;
             color: white;
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
         }
+
         body {
             min-height: 100vh;
         }
+
         .navbar {
             position: fixed;
             top: 0;
@@ -34,6 +38,7 @@
             justify-content: center;
             z-index: 1000;
         }
+
         .nav-container {
             width: 100%;
             max-width: 1200px;
@@ -42,6 +47,7 @@
             justify-content: space-between;
             align-items: center;
         }
+
         .logo {
             display: flex;
             align-items: center;
@@ -51,14 +57,17 @@
             letter-spacing: 0.5px;
             color: #ffffff;
         }
+
         .logo img {
             width: 30px;
             height: auto;
         }
+
         .nav-links {
             display: flex;
             gap: 28px;
         }
+
         .nav-links a {
             text-decoration: none;
             color: #a0a0a0;
@@ -66,20 +75,24 @@
             font-weight: 500;
             transition: color 0.2s ease;
         }
+
         .nav-links a:hover {
             color: #ffffff;
         }
+
         .hero {
             width: 100%;
             padding-top: 64px;
         }
+
         .hero-container {
             width: 100%;
         }
+
         .hero-video {
             width: 100%;
-            height: 38vh;
-            min-height: 420px;
+            height: 45vh;
+            min-height: 460px;
             overflow: hidden;
             position: relative;
             background: #111111;
@@ -88,6 +101,7 @@
             justify-content: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
+
         .bg-video {
             position: absolute;
             top: 50%;
@@ -100,50 +114,57 @@
             vertical-align: bottom;
             filter: blur(4px);
         }
+
         .hero-grid-wrapper {
             position: relative;
             z-index: 2;
             width: 100%;
             max-width: 1200px;
-            padding: 0 20px 20px 20px;
+            padding: 0 20px;
             display: grid;
-            grid-template-columns: 1.25fr 0.75fr;
+            grid-template-columns: 1fr;
         }
+
         .hero-content {
             text-align: left;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             justify-content: center;
-            gap: 20px;
-            transform: translateY(-10px);
+            gap: 24px;
         }
+
         .hero-title-group {
             display: flex;
             flex-direction: column;
             gap: 6px;
         }
+
         .hero-title {
             font-size: 46px;
             font-weight: 700;
             line-height: 1.2;
         }
+
         .hero-description {
             color: rgba(255,255,255,0.72);
             font-size: 16px;
             line-height: 1.4;
             max-width: 620px;
         }
-        .hero-actions-group {
+
+        .hero-actions-container {
             display: flex;
-            align-items: center;
-            gap: 28px;
-            flex-wrap: wrap;
-            margin-top: 10px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            width: 100%;
         }
+
         .discord-btn-container {
             display: inline-block;
         }
+
         .discord-btn {
             display: flex;
             align-items: center;
@@ -158,63 +179,65 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.2s ease;
         }
+
         .discord-btn:hover {
             background: #4a007a;
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(90, 0, 150, 0.35);
         }
+
         .discord-btn svg {
             width: 20px;
             height: 20px;
             fill: currentColor;
         }
-        .discord-stats {
+
+        .hero-stats-row {
             display: flex;
+            flex-direction: row;
             align-items: center;
-            position: relative;
+            gap: 32px;
+            flex-wrap: wrap;
         }
-        .discord-stats::before {
-            content: "";
-            position: absolute;
-            left: -14px;
-            top: 15%;
-            height: 70%;
-            width: 1px;
-            background: rgba(255, 255, 255, 0.15);
-        }
-        .discord-block {
+
+        .stat-block {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 2px;
+            gap: 4px;
         }
-        .discord-label {
+
+        .stat-label {
             font-size: 11px;
             font-weight: 500;
             letter-spacing: 0.5px;
             color: rgba(255, 255, 255, 0.45);
             line-height: 1;
         }
-        .discord-value {
+
+        .stat-value {
             font-size: 20px;
             font-weight: 600;
             line-height: 1;
             color: #ffffff;
         }
+
         .download-section {
             width: 100%;
-            max-width: 800px;
+            max-width: 1500px;
             margin: auto;
-            padding: 60px 20px 30px 20px;
+            padding: 60px 40px 20px 40px;
             text-align: center;
         }
-        .download-heading {
-            font-size: 22px;
-            font-weight: 400;
-            margin-bottom: 24px;
+
+        .section-heading {
+            font-size: 28px;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 32px;
             color: rgba(255, 255, 255, 0.5);
-            letter-spacing: 1px;
         }
+
         .download-links-list {
             display: flex;
             flex-direction: row;
@@ -223,6 +246,7 @@
             align-items: center;
             flex-wrap: wrap;
         }
+
         .download-archive-link {
             font-size: 22px;
             font-weight: 500;
@@ -232,129 +256,149 @@
             display: inline-block;
             line-height: 1.2;
         }
+
         .download-archive-link:hover {
-            color: rgba(150,150, 150, 0.7);
+            color: rgba(150, 150, 150, 0.7);
         }
+
         .info-section {
             width: 100%;
             max-width: 1500px;
             margin: auto;
             padding: 40px 40px 80px 40px;
         }
-        .section-heading {
-            font-size: 28px;
-            font-weight: 300;
-            text-align: center;
-            margin-bottom: 32px;
-            color: rgba(255, 255, 255, 0.5);
-        }
+
         .info-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 18px;
         }
+
         .info-card {
             background: #1a1a1a;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 24px;
             padding: 28px;
         }
+
         .info-title {
             font-size: 20px;
             font-weight: 600;
         }
+
         .info-text {
             margin-top: 12px;
-            color: rgba(255,255,255,0.68);
+            color: rgba(255, 255, 255, 0.68);
             line-height: 1.8;
             font-size: 14px;
         }
+
         .footer {
-            border-top: 1px solid rgba(255,255,255,0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding: 40px;
             text-align: center;
-            color: rgba(255,255,255,0.45);
+            color: rgba(255, 255, 255, 0.45);
             font-size: 13px;
         }
+
         @media(max-width:960px) {
-            .hero-grid-wrapper {
-                grid-template-columns: 1fr;
-                padding: 0 20px;
-            }
             .info-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
         @media(max-width:720px) {
             .hero-video {
                 height: auto;
-                min-height: 470px;
-                padding: 40px 0;
+                min-height: 460px;
+                padding: 0;
             }
+
             .hero-grid-wrapper {
+                grid-template-columns: 1fr;
                 padding: 0 24px;
             }
+
             .hero-content {
-                align-items: center;
-                text-align: center;
-                gap: 20px;
-                transform: translateY(0);
+                align-items: flex-start;
+                text-align: left;
+                gap: 24px;
+                transform: none;
             }
+
             .hero-title {
-                font-size: 36px;
+                font-size: 46px;
             }
+
             .hero-description {
-                font-size: 14px;
+                font-size: 16px;
             }
-            .hero-actions-group {
-                flex-direction: column;
+
+            .hero-actions-container {
+                align-items: flex-start;
                 gap: 20px;
-                width: 100%;
-                margin-top: 10px;
             }
-            .discord-stats {
-                justify-content: center;
+
+            .hero-stats-row {
+                flex-direction: row;
+                gap: 32px;
+                justify-content: flex-start;
             }
-            .discord-stats::before {
-                display: none;
+
+            .stat-block {
+                align-items: flex-start;
             }
-            .discord-block {
-                align-items: center;
-            }
+
             .discord-btn-container {
-                width: 100%;
-                max-width: 280px;
+                width: auto;
+                max-width: none;
             }
+
             .discord-btn {
-                justify-content: center;
-                width: 100%;
+                justify-content: flex-start;
+                width: auto;
             }
+
             .nav-container {
-                flex-direction: column;
-                gap: 12px;
-                padding: 12px 24px;
+                flex-direction: row;
+                gap: 0;
+                padding: 0 24px;
             }
+
             .navbar {
-                height: auto;
-                padding: 8px 0;
+                height: 64px;
+                padding: 0;
             }
+
             .hero {
-                padding-top: 100px;
+                padding-top: 64px;
             }
+
             .nav-links {
-                gap: 16px;
-                flex-wrap: wrap;
-                justify-content: center;
+                gap: 28px;
+                flex-wrap: nowrap;
+                justify-content: flex-end;
             }
+
+            .download-links-list {
+                gap: 24px;
+            }
+
+            .download-archive-link {
+                font-size: 18px;
+            }
+
             .info-grid {
                 grid-template-columns: 1fr;
             }
-            .info-section {
+
+            .download-section, .info-section {
                 padding: 40px 20px;
             }
         }
     </style>
 </head>
+
 <body>
 <nav class="navbar">
     <div class="nav-container">
@@ -371,6 +415,7 @@
         </div>
     </div>
 </nav>
+
 <section class="hero">
     <div class="hero-container">
         <div class="hero-video">
@@ -385,19 +430,27 @@
                             A Meteor Client Utility Addon.
                         </div>
                     </div>
-                    <div class="hero-actions-group">
+                    <div class="hero-actions-container">
                         <div class="discord-btn-container">
-                            <a href="https://discord.gg/4Wbk2x7Xn" class="discord-btn">
+                            <a href="https://discord.gg/4Wbk2x7qXn" class="discord-btn">
                                 <svg viewBox="0 0 127.14 96.36">
-                                    <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a74.37,74.37,0,0,0,6.66-10.85,68.43,68.43,0,0,1-10.51-5c.88-.65,1.72-1.34,2.53-2a75.58,75.58,0,0,0,73,0c.81.71,1.65,1.4,2.53,2a68.43,68.43,0,0,1-10.51,5,74.37,74.37,0,0,0,6.66,10.85,105.73,105.73,0,0,0,31.57-18.83C129.92,50.55,124.17,27.76,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.88,46,53.88,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.12,46,96.12,53,91,65.69,84.69,65.69Z"/>
+                                    <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a74.37,74.37,0,0,0,6.66-10.85,68.43,68.43,0,0,1-10.51-5c.88-.65,1.72-1.34,2.53-2a75.58,75.58,0,0,0,73,0c.81.71,1.65,1.4,2.53,2a68.43,68.43,0,0,1-10.51,5,74.37,74.37,0,0,0,6.66,10.85,105.73,105.73,0,0,0,31.57-18.83C129.92,50.55,124.17,27.76,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.88,46,53.88,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.12,46,96.12,53,91,65.69,84.69,65.69Z" />
                                 </svg>
                                 Join Discord
                             </a>
                         </div>
-                        <div class="discord-stats">
-                            <div class="discord-block">
-                                <div class="discord-label">Discord Members</div>
-                                <div class="discord-value" id="discord-members">1212</div>
+                        <div class="hero-stats-row">
+                            <div class="stat-block">
+                                <div class="stat-label">Discord Members</div>
+                                <div class="stat-value" id="discord-members">0</div>
+                            </div>
+                            <div class="stat-block">
+                                <div class="stat-label">Downloads Count</div>
+                                <div class="stat-value" id="total-counter">0</div>
+                            </div>
+                            <div class="stat-block">
+                                <div class="stat-label">Online Players</div>
+                                <div class="stat-value" id="online-counter">0</div>
                             </div>
                         </div>
                     </div>
@@ -406,8 +459,9 @@
         </div>
     </div>
 </section>
+
 <section class="download-section">
-    <h2 class="download-heading">Download 3.3</h2>
+    <h2 class="section-heading">Downloads</h2>
     <div class="download-links-list">
         <a href="Ametium-Addon-3.3-1.21.11.jar" download class="download-archive-link">1.21.11</a>
         <a href="Ametium-Addon-3.3-1.21.8.jar" download class="download-archive-link">1.21.8</a>
@@ -415,8 +469,9 @@
         <a href="Ametium-Addon-3.3-1.21.1.jar" download class="download-archive-link">1.21.1</a>
     </div>
 </section>
+
 <section class="info-section">
-    <h2 class="section-heading">Our Best Modules</h2>
+    <h2 class="section-heading">About Our Modules</h2>
     <div class="info-grid">
         <div class="info-card">
             <div class="info-title">InfiniteAnchor</div>
@@ -432,22 +487,40 @@
         </div>
     </div>
 </section>
+
 <div class="footer">© 2026 Ametium Development. All rights reserved.</div>
+
 <script>
-    (function() {
+    (function () {
         const inviteCode = '4Wbk2x7qXn';
+        const STATS_API = "https://api.ametium.dev/api/stats";
+
         async function updateDiscordStats() {
             try {
                 const response = await fetch(`https://discord.com/api/v9/invites/${inviteCode}?with_counts=true`);
                 const data = await response.json();
                 if (data.approximate_member_count !== undefined) {
-                    document.getElementById('discord-members').innerText = data.approximate_member_count;
+                    document.getElementById('discord-members').innerText = data.approximate_member_count.toLocaleString();
                 }
-            } catch (e) {}
+            } catch (e) { }
         }
+
+        async function updateAddonStats() {
+            try {
+                const response = await fetch(STATS_API);
+                const data = await response.json();
+                if (data.online !== undefined) document.getElementById("online-counter").innerText = data.online.toLocaleString();
+                if (data.total !== undefined) document.getElementById("total-counter").innerText = data.total.toLocaleString();
+            } catch (err) { }
+        }
+
         updateDiscordStats();
+        updateAddonStats();
+
         setInterval(updateDiscordStats, 60000);
+        setInterval(updateAddonStats, 15000);
     })();
 </script>
 </body>
+
 </html>
