@@ -4,30 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ametium Development</title>
-
     <link rel="icon" type="image/png" href="ametium.png">
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        html,
-        body {
+        html, body {
             background: #111111;
             color: white;
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
         }
-
         body {
             min-height: 100vh;
         }
-        
         .navbar {
             position: fixed;
             top: 0;
@@ -41,7 +34,6 @@
             justify-content: center;
             z-index: 1000;
         }
-
         .nav-container {
             width: 100%;
             max-width: 1200px;
@@ -50,7 +42,6 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .logo {
             display: flex;
             align-items: center;
@@ -60,17 +51,14 @@
             letter-spacing: 0.5px;
             color: #ffffff;
         }
-
         .logo img {
             width: 30px;
             height: auto;
         }
-
         .nav-links {
             display: flex;
             gap: 28px;
         }
-
         .nav-links a {
             text-decoration: none;
             color: #a0a0a0;
@@ -78,31 +66,28 @@
             font-weight: 500;
             transition: color 0.2s ease;
         }
-
         .nav-links a:hover {
             color: #ffffff;
         }
-
         .hero {
             width: 100%;
             padding-top: 64px;
         }
-
         .hero-container {
             width: 100%;
         }
-
         .hero-video {
             width: 100%;
-            height: 55vh;
+            height: 38vh;
+            min-height: 420px;
             overflow: hidden;
             position: relative;
             background: #111111;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
-
         .bg-video {
             position: absolute;
             top: 50%;
@@ -112,141 +97,150 @@
             object-fit: cover;
             transform: translate(-50%, -50%);
             z-index: 0;
-            filter: blur(8px);
             vertical-align: bottom;
+            filter: blur(4px);
         }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(17, 17, 17, 0.4);
-            z-index: 1;
-        }
-
-        .hero-content {
+        .hero-grid-wrapper {
             position: relative;
             z-index: 2;
-            max-width: 800px;
-            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px 20px 20px;
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+        }
+        .hero-content {
+            text-align: left;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
-            padding: 0 20px;
+            gap: 20px;
+            transform: translateY(-10px);
         }
-
+        .hero-title-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
         .hero-title {
-            font-size: 52px;
+            font-size: 46px;
             font-weight: 700;
+            line-height: 1.2;
         }
-
         .hero-description {
-            margin-top: 12px;
             color: rgba(255,255,255,0.72);
-            font-size: 15px;
-            line-height: 1.6;
+            font-size: 16px;
+            line-height: 1.4;
             max-width: 620px;
         }
-
+        .hero-actions-group {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+            margin-top: -4px; /* Sube ligeramente el bloque del botón y los miembros */
+        }
+        .discord-btn-container {
+            display: inline-block;
+        }
+        .discord-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 28px;
+            background: #5865F2;
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
+        }
+        .discord-btn:hover {
+            background: #4752C4;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(88, 101, 242, 0.35);
+        }
+        .discord-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
         .discord-stats {
             display: flex;
-            gap: 38px;
-            margin-top: 18px;
-            margin-bottom: 22px;
-            justify-content: center;
             align-items: center;
+            position: relative;
         }
-
+        .discord-stats::before {
+            content: "";
+            position: absolute;
+            left: -14px;
+            top: 15%;
+            height: 70%;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.15);
+        }
         .discord-block {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
+            gap: 2px;
         }
-
         .discord-label {
             font-size: 11px;
             font-weight: 500;
-            letter-spacing: 0.8px;
-            color: rgba(255,255,255,0.55);
+            letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.45);
             line-height: 1;
         }
-
         .discord-value {
-            margin-top: 8px;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 600;
             line-height: 1;
+            color: #ffffff;
         }
-
-        .hero-buttons {
-            display: flex;
-            gap: 18px;
-            width: 100%;
-            justify-content: center;
-        }
-
-        .primary-btn {
-            padding: 14px 44px;
-            border-radius: 14px;
-            background: #5a0096;
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            transition: 0.2s;
-            display: inline-block;
-        }
-
-        .primary-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(90,0,150,0.45);
-        }
-
         .download-section {
             width: 100%;
             max-width: 800px;
             margin: auto;
-            padding: 50px 20px 30px 20px;
+            padding: 60px 20px 30px 20px;
             text-align: center;
         }
-
         .download-heading {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 400;
-            margin-bottom: 20px;
-            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 24px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
         }
-
         .download-links-list {
             display: flex;
             flex-direction: row;
-            gap: 48px;
+            gap: 36px;
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
         }
-
         .download-archive-link {
-            font-size: 32px;
+            font-size: 22px;
             font-weight: 500;
-            color: #0000ff;
+            color: #fafafa;
             text-decoration: none;
-            transition: color 0.2s ease, transform 0.2s ease;
+            transition: color 0.2s ease;
             display: inline-block;
             line-height: 1.2;
         }
-
         .download-archive-link:hover {
-            color: #3333ff;
-            transform: scale(1.05);
+            color: rgba(150,150, 150, 0.7);
         }
-
         .info-section {
             width: 100%;
             max-width: 1500px;
             margin: auto;
             padding: 40px 40px 80px 40px;
         }
-
         .section-heading {
             font-size: 28px;
             font-weight: 300;
@@ -254,32 +248,27 @@
             margin-bottom: 32px;
             color: rgba(255, 255, 255, 0.5);
         }
-
         .info-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 18px;
         }
-
         .info-card {
             background: #1a1a1a;
             border: 1px solid rgba(255,255,255,0.05);
             border-radius: 24px;
             padding: 28px;
         }
-
         .info-title {
             font-size: 20px;
             font-weight: 600;
         }
-
         .info-text {
             margin-top: 12px;
             color: rgba(255,255,255,0.68);
             line-height: 1.8;
             font-size: 14px;
         }
-
         .footer {
             border-top: 1px solid rgba(255,255,255,0.05);
             padding: 40px;
@@ -287,71 +276,79 @@
             color: rgba(255,255,255,0.45);
             font-size: 13px;
         }
-
-        @media(max-width:900px) {
-            .info-grid {
+        @media(max-width:960px) {
+            .hero-grid-wrapper {
                 grid-template-columns: 1fr;
-            }
-
-            .hero-video {
-                height: 60vh;
-            }
-
-            .hero-content {
                 padding: 0 20px;
             }
-
-            .hero-title {
-                font-size: 38px;
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-
+        }
+        @media(max-width:720px) {
+            .hero-video {
+                height: auto;
+                min-height: 470px;
+                padding: 40px 0;
+            }
+            .hero-grid-wrapper {
+                padding: 0 24px;
+            }
+            .hero-content {
+                align-items: center;
+                text-align: center;
+                gap: 20px;
+                transform: translateY(0);
+            }
+            .hero-title {
+                font-size: 36px;
+            }
+            .hero-description {
+                font-size: 14px;
+            }
+            .hero-actions-group {
+                flex-direction: column;
+                gap: 20px;
+                width: 100%;
+                margin-top: 0;
+            }
+            .discord-stats {
+                justify-content: center;
+            }
+            .discord-stats::before {
+                display: none;
+            }
+            .discord-block {
+                align-items: center;
+            }
+            .discord-btn-container {
+                width: 100%;
+                max-width: 280px;
+            }
+            .discord-btn {
+                justify-content: center;
+                width: 100%;
+            }
             .nav-container {
                 flex-direction: column;
                 gap: 12px;
                 padding: 12px 24px;
             }
-
             .navbar {
                 height: auto;
                 padding: 8px 0;
             }
-
             .hero {
                 padding-top: 100px;
             }
-
             .nav-links {
                 gap: 16px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
-
-            .discord-stats {
-                gap: 20px;
-                flex-wrap: wrap;
+            .info-grid {
+                grid-template-columns: 1fr;
             }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: 12px;
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .primary-btn {
-                text-align: center;
-                width: 100%;
-                padding: 14px 26px;
-            }
-
-            .download-links-list {
-                gap: 24px;
-            }
-
-            .download-archive-link {
-                font-size: 24px;
-            }
-
             .info-section {
                 padding: 40px 20px;
             }
@@ -359,7 +356,6 @@
     </style>
 </head>
 <body>
-
 <nav class="navbar">
     <div class="nav-container">
         <div class="logo">
@@ -375,38 +371,41 @@
         </div>
     </div>
 </nav>
-
 <section class="hero">
     <div class="hero-container">
         <div class="hero-video">
             <img src="image.png" alt="Hero Background" class="bg-video">
-
-            <div class="hero-overlay"></div>
-
-            <div class="hero-content">
-                <div class="hero-title">
-                    <span style="color: #5a0096;">Ametium</span> Utility Mod
-                </div>
-
-                <div class="hero-description">
-                    A Meteor Client Utility Addon.
-                </div>
-
-                <div class="discord-stats">
-                    <div class="discord-block">
-                        <div class="discord-label">Discord Members</div>
-                        <div class="discord-value" id="discord-members">0</div>
+            <div class="hero-grid-wrapper">
+                <div class="hero-content">
+                    <div class="hero-title-group">
+                        <div class="hero-title">
+                            <span style="color: #5a0096;">Ametium</span> Utility Mod
+                        </div>
+                        <div class="hero-description">
+                            A Meteor Client Utility Addon.
+                        </div>
                     </div>
-                </div>
-                
-                <div class="hero-buttons">
-                    <a href="https://discord.gg/4Wbk2x7Xn" class="primary-btn">Join Discord</a>
+                    <div class="hero-actions-group">
+                        <div class="discord-btn-container">
+                            <a href="https://discord.gg/4Wbk2x7Xn" class="discord-btn">
+                                <svg viewBox="0 0 127.14 96.36">
+                                    <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a74.37,74.37,0,0,0,6.66-10.85,68.43,68.43,0,0,1-10.51-5c.88-.65,1.72-1.34,2.53-2a75.58,75.58,0,0,0,73,0c.81.71,1.65,1.4,2.53,2a68.43,68.43,0,0,1-10.51,5,74.37,74.37,0,0,0,6.66,10.85,105.73,105.73,0,0,0,31.57-18.83C129.92,50.55,124.17,27.76,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.88,46,53.88,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.12,46,96.12,53,91,65.69,84.69,65.69Z"/>
+                                </svg>
+                                Join Discord
+                            </a>
+                        </div>
+                        <div class="discord-stats">
+                            <div class="discord-block">
+                                <div class="discord-label">Discord Members</div>
+                                <div class="discord-value" id="discord-members">1212</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 <section class="download-section">
     <h2 class="download-heading">Download</h2>
     <div class="download-links-list">
@@ -415,7 +414,6 @@
         <a href="Ametium-Addon-3.3-1.21.1.jar" download class="download-archive-link">1.21.1</a>
     </div>
 </section>
-
 <section class="info-section">
     <h2 class="section-heading">Our Best Modules</h2>
     <div class="info-grid">
@@ -433,9 +431,7 @@
         </div>
     </div>
 </section>
-
 <div class="footer">© 2026 Ametium Development. All rights reserved.</div>
-
 <script>
     (function() {
         const inviteCode = '4Wbk2x7qXn';
