@@ -30,7 +30,7 @@ export default async function handler(req, res) {
         headers: { ...headers, 'Content-Type': 'application/json' },
         body: JSON.stringify([
             ['SET', `heartbeat:${uuid}`, Date.now()],
-            ['EXPIRE', `heartbeat:${uuid}`, 1]
+            ['EXPIRE', `heartbeat:${uuid}`, 35]
         ])
     });
  
