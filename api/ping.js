@@ -3,19 +3,32 @@ export default async function handler(req, res) {
  
     const url = process.env.KV_REST_API_URL;
     const token = process.env.KV_REST_API_TOKEN;
-    const headers = { Authorization: `Bearer ${token}` };
+    const headers = {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+    };
+ 
+    const TTL = 1; 
+ 
+    async function kv(commands) {
+        const r = await fetch(`${url}/pipeline`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(commands)
+        });
+        return r.json();
+    }
  
     if (req.query.get === '1') {
-        let cursor = 0;
-        let count = 0;
+        const now = Date.now();
+        const expiredBefore = now - TTL * 1000;
  
-        do {
-            const response = await fetch(`${url}/scan/${cursor}?match=heartbeat:*&count=100`, { headers });
-            const data = await response.json();
-            cursor = data.result[0];
-            count += data.result[1].length;
-        } while (cursor !== '0' && cursor !== 0);
+        const result = await kv([
+            ['ZREMRANGEBYSCORE', 'active_users', '-inf', expiredBefore],
+            ['ZCARD', 'active_users']
+        ]);
  
+        const count = result?.[1]?.result ?? 0;
         return res.status(200).json({ value: count });
     }
  
@@ -23,16 +36,12 @@ export default async function handler(req, res) {
     if (!uuid) return res.status(400).json({ error: 'no uuid' });
  
     const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-    if (!uuidRegex.test(uuid)) return res.status(400).json({ error: 'uuid inválido' });
+    if (!uuidRegex.test(uuid)) return res.status(400).json({ error: 'uuid invalido' });
  
-    await fetch(`${url}/pipeline`, {
-        method: 'POST',
-        headers: { ...headers, 'Content-Type': 'application/json' },
-        body: JSON.stringify([
-            ['SET', `heartbeat:${uuid}`, Date.now()],
-            ['EXPIRE', `heartbeat:${uuid}`, 35]
-        ])
-    });
+    await kv([
+        ['ZADD', 'active_users', Date.now(), uuid]
+    ]);
  
     return res.status(200).json({ ok: true });
 }
+ 
