@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ametium Development</title>
+    <link rel="icon" type="image/png" href="/ametium.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: #111111;
+            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
+        .bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            filter: blur(8px);
+            vertical-align: bottom;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 64px;
+            background: #1a1a1a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 0 24px;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: 0;
+        }
+
+        .logo img {
+            width: 30px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            margin: 0 auto;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #a0a0a0;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .main-wrapper {
+            width: 100%;
+            height: 100%;
+            padding-top: 64px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-container {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            background: rgba(20, 20, 20, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 3px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .menu-header {
+            width: 100%;
+            height: 26px;
+            background: #5a0096;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 500;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: move;
+            border-radius: 3px;
+        }
+
+        .menu-container:not(.collapsed) .menu-header {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .menu-header::after {
+            content: '';
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 4px solid #222222;
+            transition: transform 0.15s ease;
+            pointer-events: none;
+        }
+
+        .menu-container.collapsed .menu-header::after {
+            transform: translateY(-50%) rotate(-90deg);
+        }
+
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            max-height: 70vh;
+            overflow-y: auto;
+            padding: 0;
+            position: relative;
+        }
+
+        .menu-container.collapsed .menu-list {
+            display: none;
+        }
+
+        .menu-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .menu-item {
+            width: 100%;
+            padding: 1.5px 0;
+            color: #d0d0d0;
+            font-size: 12px;
+            font-weight: 400;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.1s ease, color 0.1s ease;
+        }
+
+        .menu-item:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .menu-item.active {
+            background: rgba(90, 0, 150, 0.35);
+            color: #ffffff;
+        }
+
+        .desc-box {
+            position: absolute;
+            width: auto;
+            max-width: 220px;
+            min-width: 120px;
+            height: auto;
+            background: rgba(20, 20, 20, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+            padding: 10px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.12s ease;
+            z-index: 1100;
+        }
+
+        .desc-box.visible {
+            opacity: 1;
+        }
+
+        .desc-text {
+            font-size: 11px;
+            color: #b0b0b0;
+            line-height: 1.4;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+
+        /* RESPONSIVIDAD ADAPTADA A LA PRIMERA BARRA */
+        @media(max-width:720px) {
+            .nav-container {
+                justify-content: space-between;
+            }
+            .logo {
+                position: static;
+            }
+            .nav-links {
+                margin: 0;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<video class="bg-video" autoplay muted loop playsinline>
+    <source src="https://boze.dev/assets/video/hero-rev-4.mp4" type="video/mp4">
+</video>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="../ametium.png" alt="Ametium Logo">
+        </div>
+
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../features" style="color: #ffffff;">Features</a>
+            <a href="../updates">Updates</a>
+            <a href="../credits">Credits</a>
+            <a href="https://discord.gg/4Wbk2x7qXn">Discord</a>
+        </div>
+    </div>
+</nav>
+
+<div class="main-wrapper">
+    <div class="menu-container" id="draggable-menu">
+        <div class="menu-header" id="menu-header">Ametium</div>
+        <div class="menu-list">
+            <div class="menu-item" data-desc="Help to automatically aim at nearby entities.">AimAssist</div>
+            <div class="menu-item" data-desc="Ghost & legit AnchorMacro.">AnchorMacro</div>
+            <div class="menu-item" data-desc="Automatically crafts any item.">AutoCraft</div>
+            <div class="menu-item" data-desc="Automatically enchants items with anvils.">AutoEnchant</div>
+            <div class="menu-item" data-desc="Automatically disenchants items.">AutoGrind</div>
+            <div class="menu-item" data-desc="Automatically execute /login in servers.">AutoLogin</div>
+            <div class="menu-item" data-desc="Instantly kills using mace.">AutoMace</div>
+            <div class="menu-item" data-desc="High-speed PacketMine.">AutoMine</div>
+            <div class="menu-item" data-desc="Better nametags.">BetterTags</div>
+            <div class="menu-item" data-desc="Filter selected messages and blocked words.">ChatCleaner</div>
+            <div class="menu-item" data-desc="Ghost & legit AutoCrystal.">CrystalMacro</div>
+            <div class="menu-item" data-desc="Discord Presence for Ametium.">DiscordRPC</div>
+            <div class="menu-item" data-desc="Duplicates items using item frames.">FrameDupe</div>
+            <div class="menu-item" data-desc="High reach AnchorAura.">InfiniteAnchor</div>
+            <div class="menu-item" data-desc="Better InventoryManager.">InventorySync</div>
+            <div class="menu-item" data-desc="Removes active negative effects.">NoBadEffects</div>
+            <div class="menu-item" data-desc="Teleport to a player.">PlayerTP</div>
+            <div class="menu-item" data-desc="Inmortal when passing through an end portal incompatible with nofall.">PortalGodMode</div>
+            <div class="menu-item" data-desc="Freezes your position.">PosFreeze</div>
+            <div class="menu-item" data-desc="Silent Kill Aura.">SilentAttack</div>
+            <div class="menu-item" data-desc="Silent Usages for items.">SilentHand</div>
+            <div class="menu-item" data-desc="Promote Ametium Addon.">Spammer</div>
+            <div class="menu-item" data-desc="High-Speed AnchorAura.">SuperAnchor</div>
+            <div class="menu-item" data-desc="Aura with Infinite Reach.">SuperAura</div>
+            <div class="menu-item" data-desc="High speed CrystalAura.">SuperCrystal</div>
+            <div class="menu-item" data-desc="Phase inside a wall using pearls.">SuperPearl</div>
+            <div class="menu-item" data-desc="High Speed AutoTotem with offhand and mainhand mode.">SuperTotem</div>
+            <div class="menu-item" data-desc="Better surround.">Surround+</div>
+            <div class="menu-item" data-desc="Attacks selected entities in your crosshair.">TriggerBot</div>
+        </div>
+    </div>
+
+    <div class="desc-box" id="desc-box">
+        <div class="desc-text" id="desc-text"></div>
+    </div>
+</div>
+
+<script>
+    const menu = document.getElementById('draggable-menu');
+    const header = document.getElementById('menu-header');
+    const descBox = document.getElementById('desc-box');
+    const descText = document.getElementById('desc-text');
+
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+
+        item.addEventListener('mouseenter', () => {
+            if (menu.classList.contains('collapsed')) return;
+
+            descText.innerText = item.getAttribute('data-desc');
+            descBox.classList.add('visible');
+
+            const itemRect = item.getBoundingClientRect();
+            const menuRect = menu.getBoundingClientRect();
+            const descRect = descBox.getBoundingClientRect();
+
+            let targetLeft = menuRect.right + 6;
+
+            if (targetLeft + descRect.width > window.innerWidth) {
+                targetLeft = menuRect.left - descRect.width - 6;
+            }
+
+            descBox.style.left = targetLeft + 'px';
+            descBox.style.top = itemRect.top + 'px';
+        });
+
+        item.addEventListener('mouseleave', () => {
+            descBox.classList.remove('visible');
+        });
+    });
+
+    header.addEventListener('click', (e) => {
+        if (e.button === 0 && !isDragging) {
+            menu.classList.toggle('collapsed');
+            descBox.classList.remove('visible');
+        }
+    });
+
+    function startDrag(clientX, clientY) {
+        isDragging = false;
+        descBox.classList.remove('visible');
+
+        const rect = menu.getBoundingClientRect();
+        menu.style.transform = 'none';
+        menu.style.top = rect.top + 'px';
+        menu.style.left = rect.left + 'px';
+
+        offsetX = clientX - rect.left;
+        offsetY = clientY - rect.top;
+
+        function onMouseMove(e) {
+            isDragging = true;
+            descBox.classList.remove('visible');
+            menu.style.left = (e.clientX - offsetX) + 'px';
+            menu.style.top = (e.clientY - offsetY) + 'px';
+        }
+
+        function onMouseUp() {
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+            setTimeout(() => { isDragging = false; }, 50);
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    }
+
+    header.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return;
+        startDrag(e.clientX, e.clientY);
+    });
+</script>
+
+</body>
+</html>
