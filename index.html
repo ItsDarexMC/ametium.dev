@@ -244,14 +244,16 @@
         }
         @media(max-width:720px) {
             .nav-container {
-                justify-content: space-between;
+                justify-content: center;
             }
             .logo {
-                position: static;
+                display: none;
             }
             .nav-links {
                 margin: 0;
                 gap: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             .hero-video {
                 height: auto;
@@ -272,6 +274,7 @@
                 grid-template-columns: repeat(3, 1fr);
                 gap: 10px;
                 width: 100%;
+                justify-items: center;
             }
             .hero-stat-value {
                 font-size: 18px;
