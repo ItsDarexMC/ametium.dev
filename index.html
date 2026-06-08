@@ -67,25 +67,7 @@
              .info-title {            font-size: 20px;            font-weight: 600;        }
 
              .info-text {            margin-top: 12px;            color: rgba(255, 255, 255, 0.6);            line-height: 1.7;            font-size: 14px;        }
-@media(max-width:720px) {
-    .hero-stats-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        width: 100%;
     }
-
-    .hero-stat-item {
-        text-align: center;
-    }
-
-    .hero-stat-value {
-        font-size: 20px;
-    }
-
-    .hero-stat-label {
-        font-size: 11px;
-    }
-}
             .download-section {
     width: 100%;
     max-width: 1200px;
@@ -104,8 +86,23 @@
 
              .footer {            border-top: 1px solid rgba(255, 255, 255, 0.05);            padding: 40px;            text-align: center;            color: rgba(255, 255, 255, 0.45);            font-size: 13px;        }
 
-             @media(max-width:960px) {            .info-grid {                grid-template-columns: repeat(2, 1fr);            }            .hero-stats-grid {                gap: 40px;            }        }
+@media(max-width:720px) {
+    .hero-stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        width: 100%;
+    }
 
+    .hero-stat-item {
+        text-align: center;
+    }
+
+    .hero-stat-value {
+        font-size: 20px;
+    }
+
+    .hero-stat-label {
+        font-size: 11px;
              @media(max-width:720px) {            .nav-container {                justify-content: space-between;            }            .logo {                position: static;            }            .nav-links {                margin: 0;                gap: 16px;            }            .hero-video {                height: auto;                min-height: 560px;                padding: 40px 0;            }            .hero-grid-wrapper {                padding: 0 24px;            }            .hero-content {                align-items: flex-start;                text-align: left;            }            .hero-title {                font-size: 40px;            }            .hero-stats-grid {                grid-template-columns: 1fr;                gap: 20px;                width: 100%;            }            .info-grid {                grid-template-columns: 1fr;            }            .download-links-list {                gap: 24px;            }        }
     </style>
 </head>
