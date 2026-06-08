@@ -52,8 +52,6 @@
 
              .hero-sub-links a:hover {            color: #ffffff;            text-shadow: 0 0 10px rgba(255,255,255,0.3);        }
 
-             .hero-stats-grid {            display: grid;            grid-template-columns: repeat(3, auto);            gap: 60px;            margin-top: 10px;        }
-
              .hero-stat-item {            display: flex;            flex-direction: column;            gap: 4px;        }
 
              .hero-stat-label {            font-size: 12px;            font-weight: 500;            color: rgba(255, 255, 255, 0.5);            text-transform: capitalize;        }
@@ -69,7 +67,25 @@
              .info-title {            font-size: 20px;            font-weight: 600;        }
 
              .info-text {            margin-top: 12px;            color: rgba(255, 255, 255, 0.6);            line-height: 1.7;            font-size: 14px;        }
+@media(max-width:720px) {
+    .hero-stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        width: 100%;
+    }
 
+    .hero-stat-item {
+        text-align: center;
+    }
+
+    .hero-stat-value {
+        font-size: 20px;
+    }
+
+    .hero-stat-label {
+        font-size: 11px;
+    }
+}
             .download-section {
     width: 100%;
     max-width: 1200px;
