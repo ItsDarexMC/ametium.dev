@@ -51,24 +51,66 @@
              .hero-sub-links a {            color: rgba(255, 255, 255, 0.6);            text-decoration: none;            font-size: 14px;            font-weight: 500;            transition: color 0.2s ease;        }
 
              .hero-sub-links a:hover {            color: #ffffff;            text-shadow: 0 0 10px rgba(255,255,255,0.3);        }
+.hero-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 60px;
+    margin-top: 10px;
+}
 
-             .hero-stat-item {            display: flex;            flex-direction: column;            gap: 4px;        }
+.hero-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
 
-             .hero-stat-label {            font-size: 12px;            font-weight: 500;            color: rgba(255, 255, 255, 0.5);            text-transform: capitalize;        }
+.hero-stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: capitalize;
+}
 
-             .hero-stat-value {            font-size: 24px;            font-weight: 700;            color: #ffffff;        }
+.hero-stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+}
 
-             .info-section {            width: 100%;            max-width: 1200px;            margin: auto;            padding: 60px 40px 80px 40px;        }
+.info-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 40px 80px 40px;
+}
 
-             .info-grid {            display: grid;            grid-template-columns: repeat(3, 1fr);            gap: 24px;        }
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
 
-             .info-card {            background: #1a1a1a;            border: 1px solid rgba(255, 255, 255, 0.05);            border-radius: 24px;            padding: 32px;            text-align: left;        }
+.info-card {
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 32px;
+    text-align: left;
+}
 
-             .info-title {            font-size: 20px;            font-weight: 600;        }
+.info-title {
+    font-size: 20px;
+    font-weight: 600;
+}
 
-             .info-text {            margin-top: 12px;            color: rgba(255, 255, 255, 0.6);            line-height: 1.7;            font-size: 14px;        }
-    }
-            .download-section {
+.info-text {
+    margin-top: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.download-section {
     width: 100%;
     max-width: 1200px;
     margin: 40px auto 0 auto;
@@ -76,17 +118,82 @@
     text-align: center;
 }
 
-             .section-heading {            font-size: 24px;            font-weight: 500;            margin-bottom: 32px;            color: rgba(255, 255, 255, 0.5);        }
+.section-heading {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 32px;
+    color: rgba(255, 255, 255, 0.5);
+}
 
-             .download-links-list {            display: flex;            flex-direction: row;            gap: 40px;            justify-content: center;            align-items: center;            flex-wrap: wrap;        }
+.download-links-list {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-             .download-archive-link {            font-size: 20px;            font-weight: 500;            color: #fafafa;            text-decoration: none;            transition: color 0.2s ease;            display: inline-block;        }
+.download-archive-link {
+    font-size: 20px;
+    font-weight: 500;
+    color: #fafafa;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: inline-block;
+}
 
-             .download-archive-link:hover {            color: rgba(150, 150, 150, 0.7);        }
+.download-archive-link:hover {
+    color: rgba(150, 150, 150, 0.7);
+}
 
-             .footer {            border-top: 1px solid rgba(255, 255, 255, 0.05);            padding: 40px;            text-align: center;            color: rgba(255, 255, 255, 0.45);            font-size: 13px;        }
+.footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 13px;
+}
+
+@media(max-width:960px) {
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 @media(max-width:720px) {
+    .nav-container {
+        justify-content: space-between;
+    }
+
+    .logo {
+        position: static;
+    }
+
+    .nav-links {
+        margin: 0;
+        gap: 16px;
+    }
+
+    .hero-video {
+        height: auto;
+        min-height: 560px;
+        padding: 40px 0;
+    }
+
+    .hero-grid-wrapper {
+        padding: 0 24px;
+    }
+
+    .hero-content {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .hero-title {
+        font-size: 40px;
+    }
+
     .hero-stats-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 12px;
@@ -103,8 +210,17 @@
 
     .hero-stat-label {
         font-size: 11px;
-             @media(max-width:720px) {            .nav-container {                justify-content: space-between;            }            .logo {                position: static;            }            .nav-links {                margin: 0;                gap: 16px;            }            .hero-video {                height: auto;                min-height: 560px;                padding: 40px 0;            }            .hero-grid-wrapper {                padding: 0 24px;            }            .hero-content {                align-items: flex-start;                text-align: left;            }            .hero-title {                font-size: 40px;            }            .hero-stats-grid {                grid-template-columns: 1fr;                gap: 20px;                width: 100%;            }            .info-grid {                grid-template-columns: 1fr;            }            .download-links-list {                gap: 24px;            }        }
-    </style>
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .download-links-list {
+        gap: 24px;
+    }
+}
+</style>
 </head>
 <body>
 <nav class="navbar">
