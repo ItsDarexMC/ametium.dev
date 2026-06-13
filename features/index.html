@@ -223,18 +223,26 @@
             word-wrap: break-word;
         }
 
-       @media(max-width:720px) {
-    .nav-container {
-        justify-content: center;
-    }
-    .logo {
-        display: none;
-    }
-    
-    .hero-title {
-        font-size: 40px;
-    }
-}
+      @media(max-width:720px) {
+            .nav-container {
+                justify-content: center;
+            }
+            .logo {
+                display: none;
+            }
+            .nav-links {
+                margin: 0;
+                gap: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .updates-section {
+                padding: 100px 20px 40px 20px;
+            }
+            .updates-title {
+                font-size: 32px;
+            }
+        }
     </style>
 </head>
 
