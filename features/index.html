@@ -221,9 +221,10 @@
 </head>
 <body>
     <div class="hero-image">
-        <video class="bg-image" autoplay muted loop playsinline>
-            <source src="/video.mp4" type="video/mp4">
-        </video>
+      <video class="bg-image" autoplay muted loop playsinline poster="image.webp">
+    <source src="/video.mp4" type="video/mp4">
+        <img src="image.webp" alt="Background fallback" class="bg-image">
+</video>
     </div>
     <nav class="navbar">
         <div class="nav-container">
