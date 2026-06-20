@@ -270,8 +270,9 @@
                 justify-content: center;
             }
             .hero-image {
-                height: 300px;
-                min-height: auto;
+                height: auto;
+                min-height: 440px;
+                padding: 40px 0;
             }
             .bg-image {
                 object-fit: contain;
@@ -327,6 +328,7 @@
            <div class="hero-image">
                 <video class="bg-image" autoplay muted loop playsinline poster="image.webp">
                     <source src="/video.mp4" type="video/mp4">
+                    <img src="image.webp" alt="Background fallback" class="bg-image">
                 </video>
                 <div class="hero-grid-wrapper">
                     <div class="hero-content">
@@ -372,7 +374,7 @@
     <section class="info-section">
         <div class="info-grid">
             <div class="info-card">
-                <div class="info-title">InfiniteAnchor</div>
+                <div class="info-title">InfiniteAnchor</div>height: 700px;
                 <div class="info-text">50 blocks reach AnchorAura.</div>
             </div>
             <div class="info-card">
