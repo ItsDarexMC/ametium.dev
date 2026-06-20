@@ -1,24 +1,12 @@
 {
   "cleanUrls": true,
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/home",
-      "permanent": true
-    },
-    {
-      "source": "/index.html",
-      "destination": "/home",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
-      "source": "/home",
+      "source": "/",
       "destination": "/index.html"
     },
     {
-      "source": "/((?!home|index\\.html|.*\\.).*)",
+      "source": "/((?!404\\.html|index\\.html|.*\\.).*)",
       "destination": "/404.html"
     }
   ]
