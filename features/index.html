@@ -53,6 +53,7 @@
             display: flex;
             align-items: center;
             position: relative;
+            justify-content: space-between;
         }
         .logo {
             display: flex;
@@ -197,34 +198,20 @@
             white-space: normal;
             word-wrap: break-word;
         }
-      @media(max-width:720px) {
-            .nav-container {
-                justify-content: center;
-            }
-            .logo {
-                display: none;
-            }
-            .nav-links {
-                margin: 0;
-                gap: 16px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .updates-section {
-                padding: 100px 20px 40px 20px;
-            }
-            .updates-title {
-                font-size: 32px;
-            }
+        @media(max-width: 720px) {
+            .navbar { height: auto; padding: 15px; }
+            .nav-container { flex-direction: column; gap: 15px; }
+            .logo { position: static; }
+            .nav-links { margin: 0; }
         }
     </style>
 </head>
 <body>
     <div class="hero-image">
- <video class="bg-image" autoplay muted loop playsinline poster="image.webp">
-    <source src="/video.mp4" type="video/mp4">
-        <img src="image.webp" alt="Background fallback" class="bg-image">
-</video>
+        <video class="bg-image" autoplay muted loop playsinline poster="image.webp">
+            <source src="/video.mp4" type="video/mp4">
+            <img src="image.webp" alt="Background fallback" class="bg-image">
+        </video>
     </div>
     <nav class="navbar">
         <div class="nav-container">
