@@ -1,3 +1,6 @@
+
+
+Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -171,12 +174,9 @@
                 return;
             }
  
-            function showVideo() {
-                fallbackImage.style.display = 'none';
-                video.style.display = 'block';
-            }
+            fallbackImage.style.display = 'none';
+            video.style.display = 'block';
  
-            video.addEventListener('canplaythrough', showVideo, { once: true });
             video.addEventListener('error', function () {
                 video.style.display = 'none';
                 fallbackImage.style.display = 'block';
@@ -184,7 +184,7 @@
  
             const playPromise = video.play();
             if (playPromise !== undefined) {
-                playPromise.then(showVideo).catch(function () {
+                playPromise.catch(function () {
                 });
             }
         })();
