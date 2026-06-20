@@ -13,7 +13,7 @@
     box-sizing: border-box;
     user-select: none;
 }
-
+ 
 html, body {
     width: 100%;
     height: 100%;
@@ -22,7 +22,7 @@ html, body {
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
 }
-
+ 
 .hero-image {
     width: 100%;
     height: 100%;
@@ -31,7 +31,7 @@ html, body {
     left: 0;
     z-index: 0;
 }
-
+ 
 .bg-image {
     position: absolute;
     top: 50%;
@@ -43,68 +43,15 @@ html, body {
     filter: blur(8px);
     vertical-align: bottom;
 }
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 64px;
-    background: #111111;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 24px;
-    z-index: 1000;
-}
-
-.nav-container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    left: 0;
-}
-
-.logo img {
-    width: 30px;
-    height: auto;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.nav-links {
-    display: flex;
-    gap: 28px;
-    margin: 0 auto;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #a0a0a0;
-    font-size: 13px;
-    font-weight: 500;
-    transition: color 0.2s ease;
-}
-
-.nav-links a:hover {
-    color: #ffffff;
-}
-
-@media (max-width: 600px) {
-    .logo {
-        opacity: 0;
-        pointer-events: none;
-        transform: translateX(-10px);
-    }
-}
-
+ 
+.navbar { position: fixed; top: 0; left: 0; width: 100%; height: 64px; background: #111111; border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 0 24px; }
+.nav-container { width: 100%; max-width: 100%; display: flex; align-items: center; position: relative; }
+.logo { display: flex; align-items: center; position: absolute; left: 0; }
+.logo img { width: 30px; height: auto; }
+.nav-links { display: flex; gap: 28px; margin: 0 auto; }
+.nav-links a { text-decoration: none; color: #a0a0a0; font-size: 13px; font-weight: 500; transition: color 0.2s ease; }
+.nav-links a:hover { color: #ffffff; }
+ 
 .main-wrapper {
     width: 100%;
     height: 100%;
@@ -112,7 +59,7 @@ html, body {
     position: relative;
     z-index: 1;
 }
-
+ 
 .menu-container {
     position: absolute;
     top: 55%;
@@ -128,7 +75,7 @@ html, body {
     flex-direction: column;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
-
+ 
 .menu-header {
     width: 100%;
     height: 26px;
@@ -143,12 +90,12 @@ html, body {
     cursor: move;
     border-radius: 3px;
 }
-
+ 
 .menu-container:not(.collapsed) .menu-header {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
-
+ 
 .menu-header::after {
     content: '';
     position: absolute;
@@ -163,11 +110,11 @@ html, body {
     transition: transform 0.15s ease;
     pointer-events: none;
 }
-
+ 
 .menu-container.collapsed .menu-header::after {
     transform: translateY(-50%) rotate(-90deg);
 }
-
+ 
 .menu-list {
     display: flex;
     flex-direction: column;
@@ -176,15 +123,15 @@ html, body {
     padding: 0;
     position: relative;
 }
-
+ 
 .menu-container.collapsed .menu-list {
     display: none;
 }
-
+ 
 .menu-list::-webkit-scrollbar {
     display: none;
 }
-
+ 
 .menu-item {
     width: 100%;
     padding: 1.5px 0;
@@ -196,17 +143,17 @@ html, body {
     position: relative;
     transition: background 0.1s ease, color 0.1s ease;
 }
-
+ 
 .menu-item:hover {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.02);
 }
-
+ 
 .menu-item.active {
     background: rgba(90, 0, 150, 0.35);
     color: #ffffff;
 }
-
+ 
 .desc-box {
     position: absolute;
     width: auto;
@@ -225,11 +172,11 @@ html, body {
     transition: opacity 0.12s ease;
     z-index: 1100;
 }
-
+ 
 .desc-box.visible {
     opacity: 1;
 }
-
+ 
 .desc-text {
     font-size: 11px;
     color: #b0b0b0;
@@ -237,22 +184,22 @@ html, body {
     white-space: normal;
     word-wrap: break-word;
 }
-
+ 
 @media(max-width: 720px) {
   .navbar { height: auto; padding: 15px 24px; }
   .nav-container { flex-direction: column; gap: 15px; }
-  .logo { position: static; display: none; }
-  .nav-links { margin: 0; }
+  .logo { display: none; }
+  .nav-links { margin: 0; gap: 16px; flex-wrap: wrap; justify-content: center; }
 }
 </style>
 </head>
-
+ 
 <body>
-
+ 
 <div class="hero-image">
     <img src="image.webp" class="bg-image" alt="Background">
 </div>
-
+ 
 <nav class="navbar">
     <div class="nav-container">
         <div class="logo">
@@ -266,7 +213,7 @@ html, body {
         </div>
     </div>
 </nav>
-
+ 
 <div class="main-wrapper">
     <div class="menu-container" id="draggable-menu">
         <div class="menu-header" id="menu-header">Ametium</div>
@@ -300,12 +247,12 @@ html, body {
             <div class="menu-item" data-desc="Attacks selected entities in your crosshair.">TriggerBot</div>
         </div>
     </div>
-
+ 
     <div class="desc-box" id="desc-box">
         <div class="desc-text" id="desc-text"></div>
     </div>
 </div>
-
+ 
 <script>
 const menu = document.getElementById('draggable-menu');
 const header = document.getElementById('menu-header');
@@ -313,7 +260,7 @@ const descBox = document.getElementById('desc-box');
 const descText = document.getElementById('desc-text');
 let isDragging = false;
 let offsetX, offsetY;
-
+ 
 document.querySelectorAll('.menu-item').forEach(item => {
     item.addEventListener('click', () => {
         item.classList.toggle('active');
@@ -336,14 +283,14 @@ document.querySelectorAll('.menu-item').forEach(item => {
         descBox.classList.remove('visible');
     });
 });
-
+ 
 header.addEventListener('click', (e) => {
     if (e.button === 0 && !isDragging) {
         menu.classList.toggle('collapsed');
         descBox.classList.remove('visible');
     }
 });
-
+ 
 function startDrag(clientX, clientY) {
     isDragging = false;
     descBox.classList.remove('visible');
@@ -353,29 +300,29 @@ function startDrag(clientX, clientY) {
     menu.style.left = rect.left + 'px';
     offsetX = clientX - rect.left;
     offsetY = clientY - rect.top;
-
+ 
     function onMouseMove(e) {
         isDragging = true;
         descBox.classList.remove('visible');
         menu.style.left = (e.clientX - offsetX) + 'px';
         menu.style.top = (e.clientY - offsetY) + 'px';
     }
-
+ 
     function onMouseUp() {
         document.removeEventListener('mousemove', onMouseMove);
         document.removeEventListener('mouseup', onMouseUp);
         setTimeout(() => { isDragging = false; }, 50);
     }
-
+ 
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
 }
-
+ 
 header.addEventListener('mousedown', (e) => {
     if (e.button !== 0) return;
     startDrag(e.clientX, e.clientY);
 });
 </script>
-
+ 
 </body>
 </html>
