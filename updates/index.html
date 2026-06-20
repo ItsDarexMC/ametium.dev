@@ -13,30 +13,33 @@
         .navbar { 
             position: fixed; top: 0; left: 0; width: 100%; height: 64px; 
             background: #111111; border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
-            display: flex; align-items: center; justify-content: space-between; 
-            z-index: 1000; padding: 0 40px; 
+            display: flex; align-items: center; justify-content: center; 
+            z-index: 1000; padding: 0 40px;
         }
-        .logo { display: flex; align-items: center; }
+        .logo { position: absolute; left: 40px; display: flex; align-items: center; }
         .logo img { width: 30px; height: auto; }
-        .nav-links { display: flex; gap: 40px; }
+        .nav-links { display: flex; gap: 28px; }
         .nav-links a { text-decoration: none; color: #a0a0a0; font-size: 13px; font-weight: 500; transition: color 0.2s ease; }
         .nav-links a:hover { color: #ffffff; }
-        .lang-selector { display: flex; align-items: center; }
-        .lang-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 13px; font-weight: 500; padding: 6px 12px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
         
         .main-wrapper { width: 100%; height: 100%; padding-top: 64px; overflow-y: auto; }
         .updates-section { width: 100%; max-width: 1200px; margin: auto; padding: 60px 40px; }
         .updates-title { font-size: 42px; font-weight: 700; color: #ffffff; }
-        .update-box { background: #161616; border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; margin-top: 40px; }
-        .update-header { padding: 24px; font-size: 24px; font-weight: 700; color: #ffffff; cursor: default; }
+        
+        .update-box { background: #161616; border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; margin-top: 40px; position: relative; }
+        .update-header { padding: 24px; font-size: 24px; font-weight: 700; color: #ffffff; cursor: default; display: flex; justify-content: space-between; align-items: center; }
         .update-inner { padding: 24px; border-top: 1px solid rgba(255,255,255,0.04); color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 12px; }
         .footer { border-top: 1px solid rgba(255,255,255,0.05); padding: 40px; text-align: center; color: rgba(255,255,255,0.45); font-size: 13px; }
         .changelog { font-family: inherit; white-space: pre-wrap; word-break: break-word; }
         .plus, .plus-group{color:#00cc52;font-weight:600;}.minus, .minus-group{color:#ff3b3b;font-weight:600;}.warn, .warn-group{color:#4da3ff;font-weight:600;}
-                
-        @media(max-width: 768px) {
-            .navbar { height: auto; flex-direction: column; padding: 15px; gap: 15px; }
-            .nav-links { gap: 20px; }
+        
+        .lang-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+
+        @media(max-width: 720px) {
+            .navbar { height: auto; padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .logo { position: static; }
+            .nav-links { gap: 15px; }
+            .main-wrapper { padding-top: 120px; }
         }
     </style>
 </head>
@@ -46,21 +49,21 @@
         <div class="nav-links">
             <a href="../home">Home</a>
             <a href="../features">Features</a>
-            <a href="../updates">Updates</a>
+            <a href="../updates" style="color: #ffffff;">Updates</a>
             <a href="https://discord.gg/4Wbk2x7qXn">Discord</a>
-        </div>
-        <div class="lang-selector">
-            <button class="lang-btn" onclick="toggleLanguage()">
-                <img id="lang-flag" src="https://flagcdn.com/w20/es.png" alt="Flag">
-                <span id="lang-text">Español</span>
-            </button>
         </div>
     </nav>
     <div class="main-wrapper">
         <section class="updates-section">
             <div class="updates-title" id="page-title">Changelogs</div>
             <div class="update-box">
-                <div class="update-header">3.3</div>
+                <div class="update-header">
+                    <span>3.3</span>
+                    <button class="lang-btn" onclick="toggleLanguage()">
+                        <img id="lang-flag" src="https://flagcdn.com/w20/es.png" alt="Flag">
+                        <span id="lang-text">Español</span>
+                    </button>
+                </div>
                 <div class="update-inner"><pre class="changelog" id="log-3.3"></pre></div>
             </div>
         </section>
