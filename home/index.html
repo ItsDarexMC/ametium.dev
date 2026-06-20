@@ -250,11 +250,17 @@
             }
         }
         @media(max-width:720px) {
+            .navbar {
+                height: auto;
+                padding: 15px 24px;
+            }
             .nav-container {
-                justify-content: center;
+                flex-direction: column;
+                gap: 15px;
             }
             .logo {
-                display: none;
+                position: static;
+                margin-bottom: 5px;
             }
             .nav-links {
                 margin: 0;
