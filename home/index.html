@@ -84,7 +84,7 @@
         <div class="hero-container">
            <div class="hero-image">
                 <img class="bg-image" id="hero-fallback-image" src="image.webp" alt="Background fallback">
-                <video class="bg-image" id="hero-video" autoplay muted loop playsinline preload="auto" poster="image.webp">
+                <video class="bg-image" id="hero-video" autoplay muted loop playsinline preload="auto">
                     <source src="/video.mp4" type="video/mp4">
                 </video>
                 <div class="hero-grid-wrapper">
@@ -162,7 +162,23 @@
             setInterval(updateDiscordStats, 30000);
         })();
  
+        (function () {
+            const video = document.getElementById('hero-video');
+            const tryPlay = function () {
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(function () {});
+                }
+            };
+            tryPlay();
+            video.addEventListener('loadedmetadata', tryPlay);
+            video.addEventListener('canplay', tryPlay);
+            document.addEventListener('visibilitychange', function () {
+                if (!document.hidden) {
+                    tryPlay();
+                }
+            });
+        })();
     </script>
 </body>
 </html>
- 
