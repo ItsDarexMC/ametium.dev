@@ -1,11 +1,18 @@
-<!DOCTYPE html><html lang="en">
-<head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Ametium Development</title>    <link rel="icon" type="image/png" href="/ametium.png">    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">    <style>        * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ametium Development</title>
+    <link rel="icon" type="image/png" href="/ametium.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; }
         html, body { width: 100%; height: 100%; background: #111111; color: #e0e0e0; font-family: 'Poppins', sans-serif; overflow: hidden; }
-        .navbar { position: fixed; top: 0; left: 0; width: 100%; height: 80px; background: #111111; border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 0 24px; }
-        .nav-container { width: 100%; max-width: 1200px; display: flex; align-items: center; justify-content: space-between; }
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; height: 80px; background: #111111; border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; z-index: 1000; padding: 0 40px; }
         .logo { display: flex; align-items: center; }
         .logo img { width: 35px; height: auto; }
-        .nav-links { display: flex; gap: 28px; }
+        .nav-links { display: flex; gap: 40px; }
         .nav-links a { text-decoration: none; color: #a0a0a0; font-size: 13px; font-weight: 500; transition: color 0.2s ease; }
         .nav-links a:hover { color: #ffffff; }
         .lang-selector { display: flex; align-items: center; }
@@ -20,31 +27,26 @@
         .changelog { font-family: inherit; white-space: pre-wrap; word-break: break-word; }
         .plus, .plus-group{color:#00cc52;font-weight:600;}.minus, .minus-group{color:#ff3b3b;font-weight:600;}.warn, .warn-group{color:#4da3ff;font-weight:600;}
         
-        /* Ajustes para móviles */
-        @media(max-width: 720px) {
-            .navbar { height: auto; padding: 15px 20px; }
-            .nav-container { flex-direction: column; gap: 15px; }
-            .logo { display: flex; order: 1; }
-            .nav-links { order: 2; gap: 20px; }
-            .lang-selector { order: 3; }
+        @media(max-width: 768px) {
+            .navbar { height: auto; flex-direction: column; padding: 20px; gap: 20px; }
+            .nav-links { gap: 20px; }
         }
-    </style></head>
+    </style>
+</head>
 <body>
 <nav class="navbar">
-    <div class="nav-container">
-        <div class="logo"><img src="/ametium.png" alt="Ametium Logo"></div>
-        <div class="nav-links">
-            <a href="../home">Home</a>
-            <a href="../features">Features</a>
-            <a href="../updates">Updates</a>
-            <a href="https://discord.gg/4Wbk2x7qXn">Discord</a>
-        </div>
-        <div class="lang-selector">
-            <button class="lang-btn" onclick="toggleLanguage()">
-                <img id="lang-flag" src="https://flagcdn.com/w20/es.png" alt="Flag">
-                <span id="lang-text">Español</span>
-            </button>
-        </div>
+    <div class="logo"><img src="/ametium.png" alt="Ametium Logo"></div>
+    <div class="nav-links">
+        <a href="../home">Home</a>
+        <a href="../features">Features</a>
+        <a href="../updates">Updates</a>
+        <a href="https://discord.gg/4Wbk2x7qXn">Discord</a>
+    </div>
+    <div class="lang-selector">
+        <button class="lang-btn" onclick="toggleLanguage()">
+            <img id="lang-flag" src="https://flagcdn.com/w20/es.png" alt="Flag">
+            <span id="lang-text">Español</span>
+        </button>
     </div>
 </nav>
 
@@ -75,4 +77,5 @@
     function toggleLanguage() { currentLang = (currentLang === 'es') ? 'en' : 'es'; updateContent(); }
     window.addEventListener('DOMContentLoaded', updateContent);
 </script>
-</body></html>
+</body>
+</html>
