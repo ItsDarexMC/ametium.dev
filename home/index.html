@@ -261,6 +261,7 @@
             .logo {
                 position: static;
                 margin-bottom: 5px;
+                display: none;
             }
             .nav-links {
                 margin: 0;
@@ -306,101 +307,101 @@
     </style>
 </head>
 <body>
-<nav class="navbar">
-    <div class="nav-container">
-        <div class="logo">
-            <img src="../ametium.png" alt="Ametium Logo">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../ametium.png" alt="Ametium Logo">
+            </div>
+            <div class="nav-links">
+                <a href="../home" style="color: #ffffff;">Home</a>
+                <a href="../features">Features</a>
+                <a href="../updates">Updates</a>
+                <a href="https://discord.gg/4Wbk2x7qXn">Discord</a>
+            </div>
         </div>
-        <div class="nav-links">
-            <a href="../home" style="color: #ffffff;">Home</a>
-            <a href="../features">Features</a>
-            <a href="../updates">Updates</a>
-            <a href="https://discord.gg/4Wbk2x7qXn">Discord</a>
-        </div>
-    </div>
-</nav>
-<section class="hero">
-    <div class="hero-container">
-       <div class="hero-image">
-   <video class="bg-image" autoplay muted loop playsinline poster="image.webp">
-    <source src="/video.mp4" type="video/mp4">
-        <img src="image.webp" alt="Background fallback" class="bg-image">
-</video>
-            <div class="hero-grid-wrapper">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        <span style="color: #5a0096;">Ametium</span> Utility Mod
-                    </h1>
-                    <p class="hero-description">
-                        An addon for Meteor Client that adds some of the most advanced modules to Minecraft.
-                    </p>
-                    <div class="hero-sub-links">
-                        <a href="../features">Features →</a>
-                        <a href="../updates">Updates →</a>
-                        <a href="https://discord.gg/4Wbk2x7qXn">Discord →</a>
-                    </div>
-                    <div class="hero-stats-grid">
-                        <div class="hero-stat-item">
-                            <span class="hero-stat-label">Features</span>
-                            <span class="hero-stat-value">30+</span>
+    </nav>
+    <section class="hero">
+        <div class="hero-container">
+           <div class="hero-image">
+                <video class="bg-image" autoplay muted loop playsinline poster="image.webp">
+                    <source src="/video.mp4" type="video/mp4">
+                    <img src="image.webp" alt="Background fallback" class="bg-image">
+                </video>
+                <div class="hero-grid-wrapper">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            <span style="color: #5a0096;">Ametium</span> Utility Mod
+                        </h1>
+                        <p class="hero-description">
+                            An addon for Meteor Client that adds some of the most advanced modules to Minecraft.
+                        </p>
+                        <div class="hero-sub-links">
+                            <a href="../features">Features →</a>
+                            <a href="../updates">Updates →</a>
+                            <a href="https://discord.gg/4Wbk2x7qXn">Discord →</a>
                         </div>
-                        <div class="hero-stat-item">
-                            <span class="hero-stat-label">Launches</span>
-                            <span class="hero-stat-value">1,400+</span>
-                        </div>
-                        <div class="hero-stat-item">
-                            <span class="hero-stat-label">Discord Users</span>
-                            <span class="hero-stat-value" id="discord-members">Loading...</span>
+                        <div class="hero-stats-grid">
+                            <div class="hero-stat-item">
+                                <span class="hero-stat-label">Features</span>
+                                <span class="hero-stat-value">30+</span>
+                            </div>
+                            <div class="hero-stat-item">
+                                <span class="hero-stat-label">Launches</span>
+                                <span class="hero-stat-value">1,400+</span>
+                            </div>
+                            <div class="hero-stat-item">
+                                <span class="hero-stat-label">Discord Users</span>
+                                <span class="hero-stat-value" id="discord-members">Loading...</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section class="download-section">
-    <h2 class="section-heading">Downloads</h2>
-    <div class="download-links-list">
-        <a class="download-archive-link" download="" href="/Ametium-Addon-3.3-1.21.11.jar">1.21.11</a>
-        <a class="download-archive-link" download="" href="/Ametium-Addon-3.3-1.21.6-1.21.8.jar">1.21.8</a>
-        <a class="download-archive-link" download="" href="/Ametium-Addon-3.3-1.21.6-1.21.8.jar">1.21.6</a>
-        <a class="download-archive-link" download="" href="/Ametium-Addon-3.3-1.21.1.jar">1.21.1</a>
-    </div>
-</section>
-<section class="info-section">
-    <div class="info-grid">
-        <div class="info-card">
-            <div class="info-title">InfiniteAnchor</div>
-            <div class="info-text">50 blocks reach AnchorAura.</div>
+    </section>
+    <section class="download-section">
+        <h2 class="section-heading">Downloads</h2>
+        <div class="download-links-list">
+            <a class="download-archive-link" download="" href="/Ametium-Addon-3.3-1.21.11.jar">1.21.11</a>
+            <a class="download-archive-link" download="" href="/Ametium-Addon-3.3-1.21.6-1.21.8.jar">1.21.8</a>
+            <a class="download-archive-link" download="" href="/Ametium-Addon-3.3-1.21.6-1.21.8.jar">1.21.6</a>
+            <a class="download-archive-link" download="" href="/Ametium-Addon-3.3-1.21.1.jar">1.21.1</a>
         </div>
-        <div class="info-card">
-            <div class="info-title">PlayerTP</div>
-            <div class="info-text">Teleport to the near player.</div>
+    </section>
+    <section class="info-section">
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-title">InfiniteAnchor</div>
+                <div class="info-text">50 blocks reach AnchorAura.</div>
+            </div>
+            <div class="info-card">
+                <div class="info-title">PlayerTP</div>
+                <div class="info-text">Teleport to the near player.</div>
+            </div>
+            <div class="info-card">
+                <div class="info-title">AutoMace</div>
+                <div class="info-text">Instantly kills using mace.</div>
+            </div>
         </div>
-        <div class="info-card">
-            <div class="info-title">AutoMace</div>
-            <div class="info-text">Instantly kills using mace.</div>
-        </div>
+    </section>
+    <div class="footer">
+        © 2026 Ametium Development. All rights reserved.
     </div>
-</section>
-<div class="footer">
-    © 2026 Ametium Development. All rights reserved.
-</div>
-<script>
-    (function () {
-        const inviteCode = '4Wbk2x7qXn';
-        async function updateDiscordStats() {
-            try {
-                const response = await fetch(`https://discord.com/api/v9/invites/${inviteCode}?with_counts=true`);
-                const data = await response.json();
-                if (data.approximate_member_count !== undefined) {
-                    document.getElementById('discord-members').innerText = data.approximate_member_count.toLocaleString();
-                }
-            } catch (e) {}
-        }
-        updateDiscordStats();
-        setInterval(updateDiscordStats, 30000);
-    })();
-</script>
+    <script>
+        (function () {
+            const inviteCode = '4Wbk2x7qXn';
+            async function updateDiscordStats() {
+                try {
+                    const response = await fetch(`https://discord.com/api/v9/invites/${inviteCode}?with_counts=true`);
+                    const data = await response.json();
+                    if (data.approximate_member_count !== undefined) {
+                        document.getElementById('discord-members').innerText = data.approximate_member_count.toLocaleString();
+                    }
+                } catch (e) {}
+            }
+            updateDiscordStats();
+            setInterval(updateDiscordStats, 30000);
+        })();
+    </script>
 </body>
 </html>
