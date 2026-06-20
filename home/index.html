@@ -1,6 +1,3 @@
-
-
-Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,10 +83,10 @@ Index · HTML
     <section class="hero">
         <div class="hero-container">
            <div class="hero-image">
-                <video class="bg-image" id="hero-video" muted loop playsinline preload="auto" poster="image.webp" style="display:none;">
+                <img class="bg-image" id="hero-fallback-image" src="image.webp" alt="Background fallback">
+                <video class="bg-image" id="hero-video" autoplay muted loop playsinline preload="auto" poster="image.webp">
                     <source src="/video.mp4" type="video/mp4">
                 </video>
-                <img class="bg-image" id="hero-fallback-image" src="image.webp" alt="Background fallback">
                 <div class="hero-grid-wrapper">
                     <div class="hero-content">
                         <h1 class="hero-title">
@@ -165,30 +162,6 @@ Index · HTML
             setInterval(updateDiscordStats, 30000);
         })();
  
-        (function () {
-            const video = document.getElementById('hero-video');
-            const fallbackImage = document.getElementById('hero-fallback-image');
-            const canPlayMp4 = video.canPlayType && video.canPlayType('video/mp4').replace(/no/, '') !== '';
- 
-            if (!canPlayMp4) {
-                return;
-            }
- 
-            fallbackImage.style.display = 'none';
-            video.style.display = 'block';
- 
-            video.addEventListener('error', function () {
-                video.style.display = 'none';
-                fallbackImage.style.display = 'block';
-            });
- 
-            const playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(function () {
-                });
-            }
-        })();
     </script>
 </body>
 </html>
- 
