@@ -30,7 +30,7 @@
         .download-section {
             flex: 1; 
             width: 100%;
-            max-width: 1200px;
+            max-width: 600px;
             margin: 100px auto 0 auto; 
             padding: 0 40px;
             text-align: center;
@@ -40,34 +40,48 @@
         }
 
         .section-heading { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 42px; font-weight: 700; margin-bottom: 30px; color: #ffffff; }
-        .download-links-list { display: flex; flex-direction: column; gap: 12px; align-items: center; }
-        .download-archive-link { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 28px; font-weight: 500; color: #000088; text-decoration: none; transition: opacity 0.2s ease; padding: 10px; }
+        .download-links-list { display: flex; flex-direction: column; gap: 15px; align-items: center; width: 100%; }
+        
+        .download-archive-link { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            font-size: 24px; 
+            font-weight: 600; 
+            color: #3b82f6; 
+            text-decoration: none; 
+            padding: 16px 0;
+            width: 100%;
+            display: block;
+            text-align: center;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 8px;
+            transition: opacity 0.2s ease;
+        }
         .download-archive-link:hover { opacity: 0.7; }
 
-      @media(max-width: 720px) {
-    .navbar { height: auto; padding: 15px 24px; }
-    .nav-container { flex-direction: column; gap: 15px; }
-    .logo { display: none; }
-    .nav-links { margin: 0; gap: 16px; flex-wrap: wrap; justify-content: center; }
-    
-    .download-section { margin-top: 80px; padding: 20px; }
-    
-    .section-heading { font-size: 36px; margin-bottom: 30px; }
-    
-    .download-links-list { width: 100%; gap: 15px; }
-    
-    .download-archive-link { 
-        font-size: 24px; 
-        width: 100%; 
-        display: block; 
-        text-align: center; 
-        padding: 16px 0; 
-        color: #3b82f6;
-        font-weight: 600;
-        background: rgba(59, 130, 246, 0.1);
-        border-radius: 8px;
-    }
-}
+        @media(max-width: 720px) {
+            .navbar { height: auto; padding: 15px 24px; }
+            .nav-container { flex-direction: column; gap: 15px; }
+            .logo { display: none; }
+            .nav-links { margin: 0; gap: 16px; flex-wrap: wrap; justify-content: center; }
+            
+            .download-section { margin-top: 80px; padding: 20px; }
+            
+            .section-heading { font-size: 36px; margin-bottom: 30px; }
+            
+            .download-links-list { width: 100%; gap: 15px; }
+            
+            .download-archive-link { 
+                font-size: 24px; 
+                width: 100%; 
+                display: block; 
+                text-align: center; 
+                padding: 16px 0; 
+                color: #3b82f6;
+                font-weight: 600;
+                background: rgba(59, 130, 246, 0.1);
+                border-radius: 8px;
+            }
+        }
     </style>
 </head>
 <body>
