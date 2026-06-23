@@ -27,14 +27,17 @@
         .download-archive-link { font-size: 35px; font-weight: 400; color: #000088; text-decoration: none; transition: opacity 0.2s ease; padding: 10px; }
         .download-archive-link:hover { opacity: 0.7; }
 
-        @media(max-width:720px) {
-            .navbar { height: auto; padding: 20px; }
-            .nav-container { flex-direction: column; gap: 20px; }
-            .logo { display: none; }
-            .nav-links { margin: 0; gap: 25px; flex-wrap: wrap; justify-content: center; }
-            .section-heading { font-size: 32px; }
-            .download-archive-link { font-size: 24px; }
-        }
+       @media(max-width:720px) {
+    .navbar { height: auto; padding: 25px 20px; }
+    .nav-container { flex-direction: column; gap: 20px; }
+    .logo { display: none; }
+    .nav-links { margin: 0; gap: 30px; flex-wrap: wrap; justify-content: center; }
+    .nav-links a { font-size: 18px; }
+    
+    .download-section { margin-top: 100px; padding: 20px; }
+    .section-heading { font-size: 40px; margin-bottom: 40px; }
+    .download-archive-link { font-size: 35px; padding: 15px; display: block; }
+}
     </style>
 </head>
 <body>
