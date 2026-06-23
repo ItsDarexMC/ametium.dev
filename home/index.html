@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7130541895187665"
+     crossorigin="anonymous"></script>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Ametium Development</title>
@@ -161,24 +163,23 @@
             updateDiscordStats();
             setInterval(updateDiscordStats, 30000);
         })();
- 
+
         (function () {
             const video = document.getElementById('bg-video');
             const fallbackImg = document.getElementById('bg-image-fallback');
- 
+
             function showFallback() {
                 video.style.display = 'none';
                 fallbackImg.style.display = 'block';
             }
- 
+
             const playPromise = video.play();
             if (playPromise !== undefined) {
                 playPromise.catch(showFallback);
             }
- 
+
             video.addEventListener('error', showFallback);
         })();
     </script>
 </body>
 </html>
- 
