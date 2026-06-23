@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7130541895187665"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7130541895187665" crossorigin="anonymous"></script>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Ametium Development</title>
@@ -37,15 +36,15 @@
         .hero-stat-value { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 24px; font-weight: 700; color: #ffffff; }
         .info-section { width: 100%; max-width: 1200px; margin: auto; padding: 60px 40px 80px 40px; }
         .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        .info-card { background: #1a1a1a; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; padding: 32px; text-align: left; }
+        
+        /* Modificación: Eliminado fondo, borde y radio de las tarjetas */
+        .info-card { background: transparent; border: none; padding: 0; text-align: left; }
         .info-title { font-size: 20px; font-weight: 600; }
         .info-text { margin-top: 12px; color: rgba(255, 255, 255, 0.6); line-height: 1.7; font-size: 14px; }
+        
         .footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px; text-align: center; color: rgba(255, 255, 255, 0.45); font-size: 13px; }
         
-        @media(max-width:960px) {
-            .info-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero-stats-grid { gap: 40px; }
-        }
+        @media(max-width:960px) { .info-grid { grid-template-columns: repeat(2, 1fr); } .hero-stats-grid { gap: 40px; } }
         @media(max-width:720px) {
             .navbar { height: auto; padding: 15px 24px; }
             .nav-container { flex-direction: column; gap: 15px; }
@@ -66,34 +65,28 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <img src="../ametium.png" alt="Ametium Logo">
-            </div>
+            <div class="logo"><img src="../ametium.png" alt="Ametium Logo"></div>
             <div class="nav-links">
                 <a href="../home" style="color: #ffffff;">Home</a>
-                      <a href="../download">Download</a>
-                                <a href="../features">Features</a>
+                <a href="../download">Download</a>
+                <a href="../features">Features</a>
             </div>
         </div>
     </nav>
     <section class="hero">
         <div class="hero-container">
            <div class="hero-image">
-                <video class="bg-image" id="bg-video" muted loop playsinline preload="auto">
+                <video class="bg-image" id="bg-video" autoplay muted loop playsinline preload="auto">
                     <source src="/video.mp4" type="video/mp4">
                 </video>
                 <img src="image.webp" alt="Background fallback" class="bg-image" id="bg-image-fallback" style="display: none;">
                 <div class="hero-grid-wrapper">
                     <div class="hero-content">
-                        <h1 class="hero-title">
-                            <span style="color: #5a0096;">Ametium</span> Utility Mod
-                        </h1>
-                        <p class="hero-description">
-                            An addon for Meteor Client that adds some of the most advanced modules to Minecraft.
-                        </p>
+                        <h1 class="hero-title"><span style="color: #5a0096;">Ametium</span> Utility Mod</h1>
+                        <p class="hero-description">An addon for Meteor Client that adds some of the most advanced modules to Minecraft.</p>
                         <div class="hero-sub-links">
                             <a href="../features">Features →</a>
-                                                <a href="../download">Download →</a>
+                            <a href="../download">Download →</a>
                             <a href="https://discord.gg/4Wbk2x7qXn">Discord →</a>
                         </div>
                         <div class="hero-stats-grid">
@@ -131,9 +124,7 @@
             </div>
         </div>
     </section>
-    <div class="footer">
-        © 2026 Ametium Development. All rights reserved.
-    </div>
+    <div class="footer">© 2026 Ametium Development. All rights reserved.</div>
     <script>
         (function () {
             const inviteCode = '4Wbk2x7qXn';
@@ -149,21 +140,12 @@
             updateDiscordStats();
             setInterval(updateDiscordStats, 30000);
         })();
-
         (function () {
             const video = document.getElementById('bg-video');
             const fallbackImg = document.getElementById('bg-image-fallback');
-
-            function showFallback() {
-                video.style.display = 'none';
-                fallbackImg.style.display = 'block';
-            }
-
+            function showFallback() { video.style.display = 'none'; fallbackImg.style.display = 'block'; }
             const playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(showFallback);
-            }
-
+            if (playPromise !== undefined) { playPromise.catch(showFallback); }
             video.addEventListener('error', showFallback);
         })();
     </script>
