@@ -21,49 +21,48 @@
         .nav-links a:hover { color: #ffffff; }
 
         .download-section { width: 100%; max-width: 1200px; margin: 125px auto 0 auto; padding: 60px; text-align: center; }
-        .section-heading { font-size: 42px; font-weight: 400; margin-bottom: px; color: #ffffff; }
+        .section-heading { font-size: 42px; font-weight: 400; margin-bottom: 20px; color: #ffffff; }
         .download-links-list { display: flex; flex-direction: column; gap: 5px; align-items: center; }
-        
         .download-archive-link { font-size: 35px; font-weight: 400; color: #000088; text-decoration: none; transition: opacity 0.2s ease; padding: 10px; }
         .download-archive-link:hover { opacity: 0.7; }
 
-       @media(max-width:720px) {
-    .navbar { height: auto; padding: 25px 20px; }
-    .nav-container { flex-direction: column; gap: 20px; }
-    .logo { display: none; }
-    .nav-links { margin: 0; gap: 30px; flex-wrap: wrap; justify-content: center; }
-    .nav-links a { font-size: 18px; }
-    
-    .download-section { margin-top: 100px; padding: 20px; }
-    .section-heading { font-size: 40px; margin-bottom: 40px; }
-    .download-archive-link { font-size: 35px; padding: 15px; display: block; }
-}
+        @media(max-width:720px) {
+            .navbar { height: auto; padding: 15px; width: 100%; }
+            .nav-container { flex-direction: column; gap: 15px; width: 100%; }
+            .logo { display: none; }
+            .nav-links { margin: 0; width: 100%; display: flex; justify-content: space-evenly; gap: 10px; }
+            .nav-links a { font-size: 14px; }
+            .download-section { margin-top: 80px; padding: 20px; width: 100%; }
+            .section-heading { font-size: 26px; margin-bottom: 20px; }
+            .download-links-list { width: 100%; gap: 8px; }
+            .download-archive-link { font-size: 20px; width: 100%; display: block; text-align: center; padding: 12px 0; }
+        }
     </style>
 </head>
 <body>
-<nav class="navbar">
-    <div class="nav-container">
-        <div class="logo">
-            <img src="../ametium.png" alt="Ametium Logo">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../ametium.png" alt="Ametium Logo">
+            </div>
+            <div class="nav-links">
+                <a href="../home">Home</a>
+                <a href="../download" style="color: #ffffff;">Download</a>
+                <a href="../features">Features</a>
+            </div>
         </div>
-        <div class="nav-links">
-            <a href="../home">Home</a>
-                        <a href="../download" style="color: #ffffff;">Download</a>
-            <a href="../features">Features</a>
+    </nav>
+
+    <section class="download-section">
+        <h2 class="section-heading">Downloads</h2>
+        <div class="download-links-list">
+            <a class="download-archive-link" download href="/Ametium-Addon-3.4-1.21.11.jar">1.21.11</a>
+            <a class="download-archive-link" download href="/Ametium-Addon-3.4-1.21.6-1.21.8.jar">1.21.8</a>
+            <a class="download-archive-link" download href="/Ametium-Addon-3.4-1.21.6-1.21.8.jar">1.21.6</a>
+            <a class="download-archive-link" download href="/Ametium-Addon-3.4-1.21.1.jar">1.21.1</a>
         </div>
-    </div>
-</nav>
+    </section>
 
-<section class="download-section">
-    <h2 class="section-heading">Downloads</h2>
-    <div class="download-links-list">
-        <a class="download-archive-link" download href="/Ametium-Addon-3.4-1.21.11.jar">1.21.11</a>
-        <a class="download-archive-link" download href="/Ametium-Addon-3.4-1.21.6-1.21.8.jar">1.21.8</a>
-        <a class="download-archive-link" download href="/Ametium-Addon-3.4-1.21.6-1.21.8.jar">1.21.6</a>
-        <a class="download-archive-link" download href="/Ametium-Addon-3.4-1.21.1.jar">1.21.1</a>
-    </div>
-</section>
-
-<div class="footer"></div>
+    <div class="footer"></div>
 </body>
 </html>
