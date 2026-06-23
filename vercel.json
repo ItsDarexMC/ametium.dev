@@ -1,30 +1,25 @@
 {
-  "cleanUrls": true,
-  "redirects": [
-    { "source": "/", "destination": "/home", "permanent": true },
-    { "source": "/index.html", "destination": "/home", "permanent": true }
-  ],
-  "rewrites": [
-    { "source": "/home", "destination": "/index.html" }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)\\.(mp4|png|jpg|jpeg|webp|gif|svg)$",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        }
-      ]
-    }
-  ]
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/home",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/home",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/home",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/((?!home|index\\.html|.*\\.).*)",
+      "destination": "/404.html"
+    }
+  ]
 }
