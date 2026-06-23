@@ -45,16 +45,27 @@
 
         .footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px; text-align: center; color: rgba(255, 255, 255, 0.45); font-size: 13px; }
 
-        @media(max-width:720px) {
-            .navbar { height: auto; padding: 15px 24px; }
-            .nav-container { flex-direction: column; gap: 15px; }
-            .logo { display: none; }
-            .nav-links { margin: 0; gap: 16px; flex-wrap: wrap; justify-content: center; }
-            .hero-image { height: auto; min-height: 440px; padding: 0; }
-            .hero-grid-wrapper { padding: 0 24px; margin-top: 0; }
-            .hero-title { font-size: 40px; }
-            .discord-section { flex-direction: column; text-align: center; gap: 20px; }
-        }
+       @media(max-width:720px) {
+    .navbar { height: auto; padding: 15px 24px; }
+    .nav-container { flex-direction: column; gap: 15px; }
+    .logo { display: none; }
+    .nav-links { margin: 0; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .hero-image { height: auto; min-height: 440px; padding: 0; }
+    .hero-grid-wrapper { padding: 0 24px; margin-top: 0; }
+    .hero-title { font-size: 40px; }
+    .discord-section { 
+        flex-direction: row; 
+        padding: 20px; 
+        gap: 15px; 
+        margin: 20px 15px;
+        text-align: left;
+    }
+    .discord-info { gap: 12px; }
+    .discord-info img { width: 45px; height: 45px; }
+    .discord-text h3 { font-size: 16px; }
+    .discord-stats { gap: 10px; font-size: 12px; }
+    .join-btn { padding: 8px 16px; font-size: 13px; white-space: nowrap; }
+}
     </style>
 </head>
 <body>
