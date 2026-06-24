@@ -56,12 +56,31 @@
         .join-btn { background: #5a0096; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; flex-shrink: 0; }
         .footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px; text-align: center; color: rgba(255, 255, 255, 0.45); font-size: 13px; }
         @media(max-width:720px) {
-            .hero-description {font-size: 14px;max-width: 100%;width: 100%;
+            .hero-grid-wrapper {
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 100%;
+    width: 100%;
+}
+
+.hero-description {
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 100%;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.hero-title {
+    font-size: 28px;
+    line-height: 1.1;
+}
             .navbar { height: auto; padding: 15px 24px; }
             .nav-container { flex-direction: column; gap: 15px; }
             .logo { display: none; }
             .nav-links { margin: 0; gap: 16px; flex-wrap: wrap; justify-content: center; }
-            .hero-title { font-size: 32px; }
             .features-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
             .feature-card { padding: 10px; }
             .feature-card h3 { font-size: 13px; }
