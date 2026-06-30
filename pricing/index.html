@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7130541895187665" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Ametium.dev</title>
+    <link rel="icon" type="image/png" href="../ametium.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { background: #111111; color: white; font-family: 'Poppins', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; height: 64px; background: #111111; border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 0 24px; }
+        .nav-container { width: 100%; max-width: 100%; display: flex; align-items: center; position: relative; }
+        .logo { display: flex; align-items: center; position: absolute; left: 0; }
+        .logo img { width: 30px; height: auto; }
+        .nav-links { display: flex; gap: 28px; margin: 0 auto; }
+        .nav-links a { text-decoration: none; color: #a0a0a0; font-size: 13px; font-weight: 500; transition: color 0.2s ease; }
+        .nav-links a:hover { color: #ffffff; }
+        .pricing-section { padding: 120px 20px 60px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+        .card { background: #222222; border-radius: 8px; padding: 40px; width: 350px; text-align: center; }
+        .icon-wrapper { width: 100px; height: 100px; background: #111111; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; }
+        .icon-wrapper img { width: 90px; }
+        .card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 24px; margin-bottom: 20px; }
+        .monthly-title { color: #ffffff; }
+        .lifetime-title { color: #ffffff; }
+        .features { text-align: left; list-style: none; margin-bottom: 30px; font-size: 14px; color: #a0a0a0; min-height: 120px; }
+        .features li { margin-bottom: 10px; display: flex; align-items: center; }
+        .features li::before { content: "✓"; margin-right: 10px; color: #ffffff; }
+        .price { font-size: 20px; font-weight: 700; margin-bottom: 20px; }
+        .btn { display: inline-block; padding: 8px 30px; border-radius: 20px; text-decoration: none; color: white; font-weight: 600; background: #22c55e; transition: opacity 0.2s; cursor: pointer; border: none; }
+        .btn:hover { opacity: 0.8; }
+        @media(max-width: 720px) {
+            .navbar { height: auto; padding: 15px 24px; }
+            .nav-container { flex-direction: column; gap: 15px; }
+            .logo { display: none; }
+            .nav-links { margin: 0; gap: 16px; flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo"><img src="../ametium.png" alt="Ametium Logo"></div>
+        <div class="nav-links">
+            <a href="../home">Home</a>
+            <a href="../download">Download</a>
+            <a href="../features">Features</a>
+            <a href="../pricing" style="color: #ffffff;">Pricing</a>
+        </div>
+    </div>
+</nav>
+
+<section class="pricing-section">
+    <div class="card">
+        <div class="icon-wrapper"><img src="../ametium.png" alt="Ametium Logo"></div>
+        <h3 class="monthly-title">Ametium Monthly</h3>
+        <ul class="features">
+            <li>Monthly access to Ametium Premium Addon</li>
+            <li>Full access to all features</li>
+            <li>Monthly updates</li>
+            <li>Standard developer support</li>
+        </ul>
+        <div class="price">Price: 6€</div>
+        <button onclick="document.getElementById('waitlist-modal').style.display='flex'" class="btn">Buy</button>
+    </div>
+    <div class="card">
+        <div class="icon-wrapper"><img src="../premium.png" alt="Ametium Logo"></div>
+        <h3 class="lifetime-title">Ametium Lifetime</h3>
+        <ul class="features">
+            <li>Lifetime access to Ametium Premium Addon</li>
+            <li>Full access to all features</li>
+            <li>Early beta access</li>
+            <li>Priority developers support</li>
+        </ul>
+        <div class="price">Price: 12€</div>
+        <button onclick="document.getElementById('waitlist-modal').style.display='flex'" class="btn">Buy</button>
+    </div>
+</section>
+
+<div id="waitlist-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:2000; padding: 20px;">
+    <div style="background:#222222; padding:40px; border-radius:10px; text-align:center; max-width:400px; width: 100%;">
+        <h3 style="margin-bottom: 15px;">Ametium Premium aún no está disponible</h3>
+        <button onclick="document.getElementById('waitlist-modal').style.display='none'" style="width: 100%; padding:12px; background:#5a0096; border:none; color:white; border-radius:5px; cursor:pointer; font-weight: 600;">Entendido</button>
+    </div>
+</div>
+
+</body>
+</html>
