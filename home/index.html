@@ -53,20 +53,102 @@
         .stat-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 5px; }
         .join-btn { background: #5a0096; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; flex-shrink: 0; }
         .footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px; text-align: center; color: rgba(255, 255, 255, 0.45); font-size: 13px; }
-        @media(max-width:720px) {
-            .navbar { height: auto; padding: 15px 24px; }
-            .nav-container { flex-direction: column; gap: 15px; }
-            .logo { display: none; }
-            .nav-links { margin: 0; gap: 16px; flex-wrap: wrap; justify-content: center; }
-            .hero-title { font-size: 32px; }
-            .hero-content { max-width: 100%; }
-            .hero-description { font-size: 14px; line-height: 1.6; max-width: 100%; width: 100%; }
-            .feature-card h3 { font-size: 13px; }
-            .feature-card p { font-size: 11px; }
-            .discord-section { flex-direction: column; text-align: center; gap: 20px; }
-            .discord-info { flex-direction: column; gap: 10px; }
-            .discord-info img { display: none; }
-            .join-btn { width: 100%; }
+    @media(max-width:720px) {
+    .navbar {
+        height: auto;
+        padding: 15px 24px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .nav-links {
+        margin: 0;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .feature-card h3 {
+        font-size: 13px;
+    }
+
+    .feature-card p {
+        font-size: 11px;
+    }
+
+    /* Discord */
+    .discord-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        gap: 16px;
+    }
+
+    .discord-info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        min-width: 0;
+        flex: 1;
+    }
+
+    .discord-info img {
+        display: block;
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+        flex-shrink: 0;
+    }
+
+    .discord-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .discord-text h3 {
+        font-size: 16px;
+    }
+
+    .discord-stats {
+        display: flex;
+        gap: 12px;
+        font-size: 12px;
+        flex-wrap: nowrap;
+    }
+
+    .join-btn {
+        width: auto;
+        white-space: nowrap;
+        padding: 10px 18px;
+        flex-shrink: 0;
+    }
+}
         }
     </style>
 </head>
