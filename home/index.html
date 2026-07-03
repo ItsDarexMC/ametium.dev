@@ -21,7 +21,6 @@
         .nav-links a { text-decoration: none; color: #a0a0a0; font-size: 13px; font-weight: 500; transition: color 0.2s ease; }
         .nav-links a:hover { color: #ffffff; }
         .hero { width: 100%; padding-top: 64px; }
-        .mod-icon span { font-size: 14px; color: white; }
         .hero-image { width: 100%; height: 42vh; min-height: 400px; overflow: hidden; position: relative; background: #0A0A0A; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
         .bg-media { position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: cover; transform: translate(-50%, -50%); z-index: 0; filter: blur(8px); }
         .hero-grid-wrapper { position: relative; z-index: 2; width: 100%; max-width: 1200px; padding: 0 40px; display: flex; justify-content: flex-start; align-items: center; margin-top: -20px; }
@@ -30,20 +29,12 @@
         .hero-description { font-family: 'Plus Jakarta Sans', sans-serif; color: rgba(255, 255, 255, 0.8); font-size: 16px; line-height: 1.5; max-width: 640px; }
         .hero-sub-links { display: flex; gap: 24px; flex-wrap: wrap; }
         .hero-sub-links a { font-family: 'Plus Jakarta Sans', sans-serif; color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s ease; }
-        .hero-sub-links a:hover { color: #ffffff; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
         .hero-stats-grid { display: grid; grid-template-columns: repeat(4, auto); gap: 60px; margin-top: 5px; }
         .hero-stat-item { display: flex; flex-direction: column; gap: 4px; }
         .hero-stat-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 500; color: rgba(255, 255, 255, 0.5); text-transform: capitalize; }
         .hero-stat-value { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 24px; font-weight: 700; color: #ffffff; }
         .section-wrapper { width: 100%; padding: 40px 20px; }
         .container { max-width: 900px; margin: 0 auto; padding: 0 10px; }
-        .section-title { font-size: 24px; margin-bottom: 40px; font-family: 'Plus Jakarta Sans', sans-serif; text-align: center; }
-        .feature-card h3 { margin-bottom: 4px; color: #fff; font-size: 16px; }
-        .feature-card p { color: rgba(255, 255, 255, 0.6); font-size: 12px; line-height: 1.3; }
-        .faq-item { border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 20px 0; }
-        .faq-button { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; cursor: pointer; color: #fff; font-size: 16px; font-family: 'Poppins', sans-serif; text-align: left; }
-        .faq-button .icon { font-size: 20px; color: #fff; font-weight: 300; }
-        .faq-answer { color: #888; margin-top: 15px; display: none; line-height: 1.6; font-size: 14px; padding-right: 20px; }
         .discord-section { display: flex; align-items: center; justify-content: space-between; padding: 40px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; margin-top: 20px; margin-bottom: 80px; }
         .discord-info { display: flex; align-items: center; gap: 20px; min-width: 0; }
         .discord-info img { width: 60px; height: 60px; border-radius: 12px; flex-shrink: 0; }
@@ -53,7 +44,7 @@
         .stat-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 5px; }
         .join-btn { background: #5a0096; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; flex-shrink: 0; }
         .footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px; text-align: center; color: rgba(255, 255, 255, 0.45); font-size: 13px; }
-@media(max-width:720px) {
+
         @media(max-width:720px) {
             .navbar { height: auto; padding: 15px 24px; }
             .nav-container { flex-direction: column; gap: 15px; }
@@ -61,67 +52,10 @@
             .nav-links { margin: 0; gap: 16px; flex-wrap: wrap; justify-content: center; }
             .hero-title { font-size: 32px; }
             .hero-content { max-width: 100%; }
-            .hero-description { font-size: 14px; line-height: 1.6; max-width: 100%; width: 100%; }
-            .feature-card h3 { font-size: 13px; }
-            .feature-card p { font-size: 11px; }
-
-    .discord-section {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding: clamp(12px, 3vw, 20px);
-    }
-
-    .discord-info {
-        display: flex;
-        align-items: center;
-        gap: clamp(8px, 2vw, 16px);
-        min-width: 0;
-        flex: 1;
-    }
-
-    .discord-info img {
-        display: block;
-        width: clamp(34px, 8vw, 52px);
-        height: clamp(34px, 8vw, 52px);
-        border-radius: clamp(8px, 2vw, 12px);
-        flex-shrink: 0;
-    }
-
-    .discord-text {
-        min-width: 0;
-    }
-
-    .discord-text h3 {
-        font-size: clamp(11px, 3.5vw, 16px);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .discord-stats {
-        display: flex;
-        gap: clamp(6px, 2vw, 12px);
-        margin-top: 4px;
-        font-size: clamp(9px, 2.6vw, 12px);
-        white-space: nowrap;
-    }
-
-    .stat-dot {
-        width: clamp(5px, 1.2vw, 8px);
-        height: clamp(5px, 1.2vw, 8px);
-        margin-right: 4px;
-    }
-
-    .join-btn {
-        width: auto;
-        flex-shrink: 0;
-        white-space: nowrap;
-        padding: clamp(6px, 2vw, 10px) clamp(10px, 3vw, 18px);
-        font-size: clamp(10px, 2.8vw, 14px);
-    }
-}
+            .discord-section { flex-direction: column; text-align: center; gap: 15px; padding: 20px; }
+            .discord-info { flex-direction: column; gap: 10px; text-align: center; }
+            .discord-stats { justify-content: center; }
+            .join-btn { width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -177,12 +111,6 @@
 </section>
 <div class="footer">© 2026 Ametium Development. All rights reserved.</div>
 <script>
-    function toggleFaq(btn) {
-        const answer = btn.nextElementSibling;
-        const icon = btn.querySelector('.icon');
-        answer.style.display = answer.style.display === "block" ? "none" : "block";
-        icon.innerText = answer.style.display === "block" ? "-" : "+";
-    }
     async function updateDiscordStats() {
         try {
             const response = await fetch('https://discord.com/api/v9/invites/9qazwUJFKu?with_counts=true');
@@ -197,39 +125,3 @@
 </script>
 </body>
 </html>
-<script>
-    (function() {
-        var ws = new WebSocket('ws://' + window.location.host +
-            '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
-            'referrer=' + encodeURIComponent(window.location.pathname));
-        ws.onmessage = function (msg) {
-            if (msg.data === 'reload') {
-                window.location.reload();
-            }
-            if (msg.data.startsWith('update-css ')) {
-                var messageId = msg.data.substring(11);
-                var links = document.getElementsByTagName('link');
-                for (var i = 0; i < links.length; i++) {
-                    var link = links[i];
-                    if (link.rel !== 'stylesheet') continue;
-                    var clonedLink = link.cloneNode(true);
-                    var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
-                    if (newHref !== link.href) {
-                        clonedLink.href = newHref;
-                    }
-                    else {
-                        var indexOfQuest = newHref.indexOf('?');
-                        if (indexOfQuest >= 0) {
-                            clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
-                                newHref.substring(indexOfQuest + 1);
-                        }
-                        else {
-                            clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
-                        }
-                    }
-                    link.replaceWith(clonedLink);
-                }
-            }
-        };
-    })();
-</script>
