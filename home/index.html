@@ -53,7 +53,7 @@
         .stat-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 5px; }
         .join-btn { background: #5a0096; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; flex-shrink: 0; }
         .footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px; text-align: center; color: rgba(255, 255, 255, 0.45); font-size: 13px; }
-    @media(max-width:720px) {
+@media(max-width:720px) {
     .navbar {
         height: auto;
         padding: 15px 24px;
@@ -98,55 +98,61 @@
         font-size: 11px;
     }
 
-    /* Discord */
     .discord-section {
         display: flex;
-        flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding: 20px;
-        gap: 16px;
+        gap: 12px;
+        padding: clamp(12px, 3vw, 20px);
     }
 
     .discord-info {
         display: flex;
-        flex-direction: row;
         align-items: center;
-        gap: 16px;
+        gap: clamp(8px, 2vw, 16px);
         min-width: 0;
         flex: 1;
     }
 
     .discord-info img {
         display: block;
-        width: 52px;
-        height: 52px;
-        border-radius: 12px;
+        width: clamp(34px, 8vw, 52px);
+        height: clamp(34px, 8vw, 52px);
+        border-radius: clamp(8px, 2vw, 12px);
         flex-shrink: 0;
     }
 
     .discord-text {
+        min-width: 0;
+    }
+
+    .discord-text h3 {
+        font-size: clamp(11px, 3.5vw, 16px);
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
 
-    .discord-text h3 {
-        font-size: 16px;
-    }
-
     .discord-stats {
         display: flex;
-        gap: 12px;
-        font-size: 12px;
-        flex-wrap: nowrap;
+        gap: clamp(6px, 2vw, 12px);
+        margin-top: 4px;
+        font-size: clamp(9px, 2.6vw, 12px);
+        white-space: nowrap;
+    }
+
+    .stat-dot {
+        width: clamp(5px, 1.2vw, 8px);
+        height: clamp(5px, 1.2vw, 8px);
+        margin-right: 4px;
     }
 
     .join-btn {
         width: auto;
-        white-space: nowrap;
-        padding: 10px 18px;
         flex-shrink: 0;
+        white-space: nowrap;
+        padding: clamp(6px, 2vw, 10px) clamp(10px, 3vw, 18px);
+        font-size: clamp(10px, 2.8vw, 14px);
     }
 }
         }
