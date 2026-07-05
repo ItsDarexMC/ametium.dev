@@ -89,7 +89,7 @@
                 <div class="hero-sub-links">
                     <a href="../features">Features →</a>
                     <a href="../download">Download →</a>
-                    <a href="https://discord.gg/9qazwUJFKu">Discord →</a>
+                    <a href="https://discord.gg/ametium">Discord →</a>
                 </div>
                 <div class="hero-stats-grid">
                     <div class="hero-stat-item"><span class="hero-stat-label">Features</span><span class="hero-stat-value">25+</span></div>
@@ -113,7 +113,7 @@
                     </div>
                 </div>
             </div>
-            <a href="https://discord.gg/9qazwUJFKu" class="join-btn">Join Discord</a>
+            <a href="https://discord.gg/ametium" class="join-btn">Join Discord</a>
         </div>
     </div>
 </section>
@@ -121,7 +121,7 @@
 <script>
     async function updateDiscordStats() {
         try {
-            const response = await fetch('https://discord.com/api/v9/invites/9qazwUJFKu?with_counts=true');
+            const response = await fetch('https://discord.com/api/v9/invites/ametium?with_counts=true');
             const data = await response.json();
             document.getElementById('discord-count').innerText = data.approximate_member_count.toLocaleString();
             document.getElementById('total-members').innerText = data.approximate_member_count.toLocaleString();
