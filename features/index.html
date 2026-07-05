@@ -188,10 +188,11 @@ html, body {
 }
  
 @media(max-width: 720px) {
- .navbar { height: auto; padding: 15px 24px; }
- .nav-container { flex-direction: column; gap: 15px; }
+ .navbar { padding: 0 16px; }
+ .nav-container { justify-content: center; }
  .logo { display: none; }
- .nav-links { margin: 0; gap: 16px; flex-wrap: wrap; justify-content: center; }
+ .nav-links { margin: 0; gap: 14px; flex-wrap: nowrap; justify-content: center; }
+ .nav-links a { font-size: 12px; }
 }
 </style>
 </head>
