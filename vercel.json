@@ -1,24 +1,14 @@
-{
-  "cleanUrls": true,
-  "redirects": [
-    {
-      "source": "/index.html",
-      "destination": "/home",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/home/index.html"
-    },
-    {
-      "source": "/home",
-      "destination": "/home/index.html"
-    },
-    {
-      "source": "/((?!home|index\\.html|.*\\.).*)",
-      "destination": "/404.html"
-    }
-  ]
-}
+"rewrites": [
+  {
+    "source": "/",
+    "destination": "/home/index.html"
+  },
+  {
+    "source": "/home",
+    "destination": "/home/index.html"
+  },
+  {
+    "source": "/((?!home|index\\.html|.*\\.).*)",
+    "destination": "/404.html"
+  }
+]
