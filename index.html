@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7130541895187665"
-     crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7130541895187665" crossorigin="anonymous"></script>
+    <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Ametium.dev</title>
-    <link rel="icon" type="image/png" href="/ametium.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="ametium.png" rel="icon" type="image/png"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html, body {
-            background: #111111;
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
+        html, body { background: #111111; color: white; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        body { min-height: 100vh; }
         .navbar { position: fixed; top: 0; left: 0; width: 100%; height: 64px; background: #111111; border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 0 24px; }
         .nav-container { width: 100%; max-width: 100%; display: flex; align-items: center; position: relative; }
         .logo { display: flex; align-items: center; position: absolute; left: 0; }
@@ -28,89 +20,116 @@
         .nav-links { display: flex; gap: 28px; margin: 0 auto; }
         .nav-links a { text-decoration: none; color: #a0a0a0; font-size: 13px; font-weight: 500; transition: color 0.2s ease; }
         .nav-links a:hover { color: #ffffff; }
+        .hero { width: 100%; padding-top: 64px; }
+        .hero-image { width: 100%; height: 44vh; min-height: 420px; overflow: hidden; position: relative; background: #0A0A0A; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+        .bg-media { position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: cover; transform: translate(-50%, -50%); z-index: 0; filter: blur(4px); }
+        .hero-grid-wrapper { position: relative; z-index: 2; width: 100%; max-width: 1200px; padding: 0 40px; display: flex; justify-content: flex-start; align-items: center; margin-top: -20px; }
+        .hero-content { text-align: left; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 24px; max-width: 800px; }
+        .hero-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(24px, 6vw, 56px); font-weight: 700; line-height: 1.1; letter-spacing: -0.5px; white-space: nowrap; }
+        .hero-description { font-family: 'Plus Jakarta Sans', sans-serif; color: rgba(255, 255, 255, 0.8); font-size: 16px; line-height: 1.5; max-width: 640px; }
+        .hero-sub-links { display: flex; gap: 24px; flex-wrap: wrap; }
+        .hero-sub-links a { font-family: 'Plus Jakarta Sans', sans-serif; color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s ease; }
+        .hero-stats-grid { display: flex; flex-wrap: wrap; column-gap: 60px; row-gap: 16px; margin-top: 5px; }
+        .hero-stat-item { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; }
+        .hero-stat-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 500; color: rgba(255, 255, 255, 0.5); text-transform: capitalize; white-space: nowrap; }
+        .hero-stat-value { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 24px; font-weight: 700; color: #ffffff; white-space: nowrap; }
+        .section-wrapper { width: 100%; padding: 70px 20px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 10px; }
+        .discord-section { display: flex; align-items: center; justify-content: space-between; padding: 40px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; margin-top: 20px; margin-bottom: 80px; }
+        .discord-info { display: flex; align-items: center; gap: 20px; min-width: 0; }
+        .discord-info img { width: 60px; height: 60px; border-radius: 12px; flex-shrink: 0; }
+        .discord-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .discord-text h3 { font-size: 20px; }
+        .discord-stats { display: flex; gap: 15px; margin-top: 8px; color: rgba(255,255,255,0.6); font-size: 14px; }
+        .stat-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 5px; }
+        .join-btn { background: #5a0096; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; flex-shrink: 0; }
+        .footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px; text-align: center; color: rgba(255, 255, 255, 0.45); font-size: 13px; }
 
-        .download-section {
-            flex: 1; 
-            width: 100%;
-            max-width: 600px;
-            margin: 100px auto 0 auto; 
-            padding: 0 40px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .section-heading { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 42px; font-weight: 700; margin-bottom: 30px; color: #ffffff; }
-        .download-links-list { display: flex; flex-direction: column; gap: 15px; align-items: center; width: 100%; }
-        
-        .download-archive-link { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            font-size: 24px; 
-            font-weight: 600; 
-          color: #5a0096; 
-            text-decoration: none; 
-            padding: 16px 0;
-            width: 100%;
-            display: block;
-            text-align: center;
-            background: rgba(90, 0, 150, 0.2);
-            border-radius: 8px;
-            transition: opacity 0.2s ease;
-        }
-        .download-archive-link:hover { opacity: 0.7; }
-
-        @media(max-width: 720px) {
+        @media(max-width:720px) {
             .navbar { padding: 0 16px; }
             .nav-container { justify-content: center; }
             .logo { display: none; }
             .nav-links { margin: 0; gap: 14px; flex-wrap: nowrap; justify-content: center; }
             .nav-links a { font-size: 12px; }
-            
-            .download-section { margin-top: 80px; padding: 20px; }
-            
-            .section-heading { font-size: 36px; margin-bottom: 30px; }
-            
-            .download-links-list { width: 100%; gap: 15px; }
-            
-            .download-archive-link { 
-                font-size: 24px; 
-                width: 100%; 
-                display: block; 
-                text-align: center; 
-                padding: 16px 0; 
-                color: #5a0096; 
-                font-weight: 600;
-                   background: rgba(90, 0, 150, 0.1);
-                border-radius: 8px;
-            }
+            .hero-title { font-size: clamp(20px, 7vw, 32px); }
+            .hero-content { max-width: 100%; }
+            .hero-sub-links { flex-wrap: nowrap; gap: 14px; overflow-x: auto; width: 100%; }
+            .hero-sub-links a { white-space: nowrap; font-size: 13px; }
+            .hero-stats-grid { flex-wrap: nowrap; column-gap: 20px; row-gap: 14px; overflow-x: auto; width: 100%; }
+            .section-wrapper { padding: 24px 20px; }
+            .discord-section { flex-direction: column; align-items: stretch; gap: 20px; padding: 24px; border-radius: 14px; margin-top: 0; }
+            .discord-info { gap: 14px; text-align: left; }
+            .discord-info img { width: 48px; height: 48px; border-radius: 10px; }
+            .discord-text { white-space: normal; }
+            .discord-text h3 { font-size: 17px; }
+            .discord-stats { justify-content: flex-start; gap: 12px; font-size: 13px; }
+            .join-btn { width: 100%; text-align: center; padding: 13px 24px; }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo"><img src="../ametium.png" alt="Ametium Logo"></div>
-            <div class="nav-links">
-                <a href="../home">Home</a>
-                <a href="../download" style="color: #ffffff;">Download</a>
-                <a href="../features">Features</a>
-
-                 
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo"><img src="ametium.png" alt="Logo"></div>
+        <div class="nav-links">
+            <a href="index.html" style="color: #ffffff;">Home</a>
+            <a href="download.html">Download</a>
+            <a href="features.html">Features</a>
+        </div>
+    </div>
+</nav>
+<section class="hero">
+    <div class="hero-image">
+        <img src="image.webp" class="bg-media" alt="">
+        <video autoplay loop muted playsinline class="bg-media"><source src="video.mp4" type="video/mp4"></video>
+        <div class="hero-grid-wrapper">
+            <div class="hero-content">
+                <h1 class="hero-title"><span style="color: #5a0096;">Ametium</span> Utility Mod</h1>
+                <p class="hero-description">An addon for Meteor Client that adds some of the most advanced modules to Minecraft.</p>
+                <div class="hero-sub-links">
+                    <a href="download.html">Download</a>
+                    <a href="features.html">Features</a>
+                    <a href="https://discord.gg/ametium">Discord →</a>
+                </div>
+                <div class="hero-stats-grid">
+                    <div class="hero-stat-item"><span class="hero-stat-label">Features</span><span class="hero-stat-value">25+</span></div>
+                    <div class="hero-stat-item"><span class="hero-stat-label">Launches</span><span class="hero-stat-value">1,400+</span></div>
+                    <div class="hero-stat-item"><span class="hero-stat-label">Discord</span><span class="hero-stat-value" id="discord-count">...</span></div>
+                </div>
             </div>
         </div>
-    </nav>
-
-    <section class="download-section">
-        <h2 class="section-heading">Downloads</h2>
-        <div class="download-links-list">
-            <a class="download-archive-link" download href="/versions/Ametium-Addon-3.6-1.21.11.jar">1.21.11</a>
-            <a class="download-archive-link" download href="/versions/Ametium-Addon-3.6-1.21.8.jar">1.21.8</a>
-            <a class="download-archive-link" download href="/versions/Ametium-Addon-3.6-1.21.6.jar">1.21.6</a>
-               <a class="download-archive-link" download href="/versions/Ametium-Addon-3.6-1.21.5.jar">1.21.5</a>
-               <a class="download-archive-link" download href="/versions/Ametium-Addon-3.6-1.21.4.jar">1.21.4</a>
-            <a class="download-archive-link" download href="/versions/Ametium-Addon-3.6-1.21.1.jar">1.21.1</a>
+    </div>
+</section>
+<section class="section-wrapper">
+    <div class="container">
+        <div class="discord-section">
+            <div class="discord-info">
+                <img src="ametium.png" alt="Logo">
+                <div class="discord-text">
+                    <h3>Ametium Development</h3>
+                    <div class="discord-stats">
+                        <span><span class="stat-dot" style="background:#888;"></span><span id="total-members">...</span> Total</span>
+                        <span><span class="stat-dot" style="background:#22c55e;"></span><span id="online-members">...</span> Online</span>
+                    </div>
+                </div>
+            </div>
+            <a href="https://discord.gg/ametium" class="join-btn">Join Discord</a>
         </div>
-    </section>
+    </div>
+</section>
+<div class="footer">© 2026 Ametium Development. All rights reserved.</div>
+<script>
+    async function updateDiscordStats() {
+        try {
+            const response = await fetch('https://discord.com/api/v9/invites/ametium?with_counts=true');
+            const data = await response.json();
+            document.getElementById('discord-count').innerText = data.approximate_member_count.toLocaleString();
+            document.getElementById('total-members').innerText = data.approximate_member_count.toLocaleString();
+            document.getElementById('online-members').innerText = data.approximate_presence_count.toLocaleString();
+        } catch (e) {}
+    }
+    updateDiscordStats();
+    setInterval(updateDiscordStats, 60000);
+</script>
 </body>
 </html>

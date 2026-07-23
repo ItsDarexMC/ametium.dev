@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7130541895187665"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Ametium.dev</title>
+    <link rel="icon" type="image/png" href="ametium.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            background: #111111;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; height: 64px; background: #111111; border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 0 24px; }
+        .nav-container { width: 100%; max-width: 100%; display: flex; align-items: center; position: relative; }
+        .logo { display: flex; align-items: center; position: absolute; left: 0; }
+        .logo img { width: 30px; height: auto; }
+        .nav-links { display: flex; gap: 28px; margin: 0 auto; }
+        .nav-links a { text-decoration: none; color: #a0a0a0; font-size: 13px; font-weight: 500; transition: color 0.2s ease; }
+        .nav-links a:hover { color: #ffffff; }
+
+        .download-section {
+            flex: 1; 
+            width: 100%;
+            max-width: 600px;
+            margin: 100px auto 0 auto; 
+            padding: 0 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .section-heading { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 42px; font-weight: 700; margin-bottom: 30px; color: #ffffff; }
+        .download-links-list { display: flex; flex-direction: column; gap: 15px; align-items: center; width: 100%; }
+        
+        .download-archive-link { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            font-size: 24px; 
+            font-weight: 600; 
+          color: #5a0096; 
+            text-decoration: none; 
+            padding: 16px 0;
+            width: 100%;
+            display: block;
+            text-align: center;
+            background: rgba(90, 0, 150, 0.2);
+            border-radius: 8px;
+            transition: opacity 0.2s ease;
+        }
+        .download-archive-link:hover { opacity: 0.7; }
+
+        @media(max-width: 720px) {
+            .navbar { padding: 0 16px; }
+            .nav-container { justify-content: center; }
+            .logo { display: none; }
+            .nav-links { margin: 0; gap: 14px; flex-wrap: nowrap; justify-content: center; }
+            .nav-links a { font-size: 12px; }
+            
+            .download-section { margin-top: 80px; padding: 20px; }
+            
+            .section-heading { font-size: 36px; margin-bottom: 30px; }
+            
+            .download-links-list { width: 100%; gap: 15px; }
+            
+            .download-archive-link { 
+                font-size: 24px; 
+                width: 100%; 
+                display: block; 
+                text-align: center; 
+                padding: 16px 0; 
+                color: #5a0096; 
+                font-weight: 600;
+                   background: rgba(90, 0, 150, 0.1);
+                border-radius: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><img src="ametium.png" alt="Ametium Logo"></div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="download.html" style="color: #ffffff;">Download</a>
+                <a href="features.html">Features</a>
+
+                 
+            </div>
+        </div>
+    </nav>
+
+    <section class="download-section">
+        <h2 class="section-heading">Downloads</h2>
+        <div class="download-links-list">
+            <a class="download-archive-link" download href="versions/Ametium-Addon-3.6-1.21.11.jar">1.21.11</a>
+            <a class="download-archive-link" download href="versions/Ametium-Addon-3.6-1.21.8.jar">1.21.8</a>
+            <a class="download-archive-link" download href="versions/Ametium-Addon-3.6-1.21.6.jar">1.21.6</a>
+               <a class="download-archive-link" download href="versions/Ametium-Addon-3.6-1.21.5.jar">1.21.5</a>
+               <a class="download-archive-link" download href="versions/Ametium-Addon-3.6-1.21.4.jar">1.21.4</a>
+            <a class="download-archive-link" download href="versions/Ametium-Addon-3.6-1.21.1.jar">1.21.1</a>
+        </div>
+    </section>
+</body>
+</html>
