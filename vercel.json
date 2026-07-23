@@ -6,9 +6,5 @@
   {
     "source": "/home",
     "destination": "/home/index.html"
-  },
-  {
-    "source": "/((?!home|index\\.html|.*\\.).*)",
-    "destination": "/404.html"
   }
 ]
