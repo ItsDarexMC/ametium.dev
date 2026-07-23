@@ -10,11 +10,11 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/index.html"
+      "destination": "/home/index.html"
     },
     {
       "source": "/home",
-      "destination": "/index.html"
+      "destination": "/home/index.html"
     },
     {
       "source": "/((?!home|index\\.html|.*\\.).*)",
