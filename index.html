@@ -145,6 +145,7 @@
 <div class="aurora-layer aurora-3"></div>
 <div class="noise-bg"></div>
 
+<!-- Nav -->
 <nav class="fixed top-4 left-4 right-4 z-50 glass-card px-4 py-2.5 flex items-center justify-between" id="dynamic-island">
     <a href="index.html" class="flex items-center gap-2">
         <img src="ametium.png" alt="Ametium" class="w-6 h-6 rounded">
@@ -160,18 +161,21 @@
     </div>
 </nav>
 
+<!-- Hero -->
 <div class="min-h-screen flex items-center relative overflow-hidden">
     <div class="absolute inset-0 grid-bg"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-purple-900/10 via-transparent to-transparent"></div>
 
     <div class="relative z-10 w-full max-w-7xl mx-auto px-6 py-16 md:py-24">
         <div class="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
+            <!-- Logo -->
             <div class="w-full lg:w-2/5 flex justify-center lg:justify-end lg:order-2">
                 <div class="hero-glow w-[180px] h-[180px] sm:w-64 sm:h-64 lg:w-80 lg:h-80 flex items-center justify-center">
                     <img src="ametium.png" alt="Ametium" class="w-full h-full object-contain drop-shadow-2xl rounded-2xl">
                 </div>
             </div>
 
+            <!-- Text -->
             <div class="w-full lg:w-3/5 text-center lg:text-left lg:order-1">
                 <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-white">
                     <span style="color:#5a0096;">Ametium</span><br>Utility Mod
@@ -203,7 +207,7 @@
                     <img src="ametium.png" alt="Ametium" class="w-14 h-14 rounded-xl flex-shrink-0">
                     <div>
                         <p class="text-white font-semibold text-base">Ametium Development</p>
-                        <div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-4 mt-1.5">
+                        <div class="flex items-center gap-4 mt-1.5">
                                 <span class="flex items-center gap-1.5 text-xs text-white/50">
                                     <span class="w-2 h-2 rounded-full bg-white/30 inline-block"></span>
                                     <span id="total-members">...</span> Total
@@ -251,39 +255,4 @@
     setInterval(updateDiscordStats, 60000);
 </script>
 </body>
-</html><script>
-(function() {
-  var ws = new WebSocket('ws://' + window.location.host + 
-             '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
-             'referrer=' + encodeURIComponent(window.location.pathname));
-  ws.onmessage = function (msg) {
-      if (msg.data === 'reload') {
-          window.location.reload();
-      }
-      if (msg.data.startsWith('update-css ')) {
-          var messageId = msg.data.substring(11);
-          var links = document.getElementsByTagName('link');
-          for (var i = 0; i < links.length; i++) {
-              var link = links[i];
-              if (link.rel !== 'stylesheet') continue;
-              var clonedLink = link.cloneNode(true);
-              var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
-              if (newHref !== link.href) {
-                clonedLink.href = newHref;
-              }
-              else {
-                var indexOfQuest = newHref.indexOf('?');
-                if (indexOfQuest >= 0) {
-                  clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' + 
-                                    newHref.substring(indexOfQuest + 1);
-                }
-                else {
-                  clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
-                }
-              }
-              link.replaceWith(clonedLink);
-          }
-      }
-  };
-})();
-</script>
+</html>
