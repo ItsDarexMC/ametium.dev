@@ -149,7 +149,7 @@
 <nav class="fixed top-4 left-4 right-4 z-50 glass-card px-4 py-2.5 flex items-center justify-between" id="dynamic-island">
     <a href="index.html" class="flex items-center gap-2">
         <img src="ametium.png" alt="Ametium" class="w-6 h-6 rounded">
-        <span class="font-semibold text-sm text-white tracking-wide">Ametium</span>
+        <span id="site-name" class="font-semibold text-sm text-white tracking-wide">ametium.com</span>
     </a>
     <div class="flex items-center gap-1">
         <a href="https://discord.gg/ametium" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-8 h-8 rounded-md bg-white/[0.06] border border-white/[0.08] text-white/60 hover:text-purple-400 hover:bg-white/[0.1] hover:border-purple-500/40 transition-all">
@@ -253,6 +253,14 @@
     }
     updateDiscordStats();
     setInterval(updateDiscordStats, 60000);
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"83b9591899a14092b0d28138f93d8629","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script>
+    const host = location.hostname.replace(/^www\./, '');
+    if (host === 'ametium.dev' || host === 'ametiumdevelopment.com') {
+        document.getElementById('site-name').textContent = host;
+        document.title = host;
+    }
 </script>
 </body>
 </html>
