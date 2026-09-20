@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = async (req, res) => {
   const ua = req.headers['user-agent'] || '';
   if (!ua.startsWith('Java/')) {
+    res.setHeader('x-vercel-skip-tooling', '1');
     return res.status(404).end();
   }
 
