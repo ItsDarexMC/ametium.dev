@@ -1,4 +1,5 @@
 const { Client } = require('pg');
+const crypto = require('crypto');
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -23,7 +24,7 @@ module.exports = async (req, res) => {
       return res.status(403).json({ error: 'invalid license' });
     }
 
-    const license = result.rows[0];
+    let license = result.rows[0];
 
     if (!license.hwid) {
       await client.query('UPDATE licenses SET hwid = $1 WHERE id = $2', [hwid, license.id]);
@@ -31,7 +32,13 @@ module.exports = async (req, res) => {
       return res.status(403).json({ error: 'hwid mismatch' });
     }
 
-    return res.status(200).json({ ok: true, session_key: license_key });
+    if (!license.secret) {
+      const newSecret = crypto.randomBytes(32).toString('hex');
+      await client.query('UPDATE licenses SET secret = $1 WHERE id = $2', [newSecret, license.id]);
+      license.secret = newSecret;
+    }
+
+    return res.status(200).json({ ok: true, session_key: license.secret });
   } finally {
     await client.end();
   }
