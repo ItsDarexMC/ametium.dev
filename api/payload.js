@@ -1,6 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 module.exports = async (req, res) => {
+  const ua = req.headers['user-agent'] || '';
+  if (!ua.startsWith('Java/')) {
+    return res.status(404).json({ error: 'not found' });
+  }
+
   const file = path.join(process.cwd(), 'data', 'payload.dat');
   if (!fs.existsSync(file)) {
     return res.status(404).json({ error: 'no payload' });
