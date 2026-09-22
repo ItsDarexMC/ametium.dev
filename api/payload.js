@@ -1,4 +1,3 @@
-@@ -1,47 +0,0 @@
 const fs = require('fs');
 const path = require('path');
 module.exports = async (req, res) => {
