@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+const GITHUB_RAW_URL = 'https://raw.githubusercontent.com/ItsDarexMC/AmetiumDevelopment/main/data/payload.dat';
+
 module.exports = async (req, res) => {
   const ua = req.headers['user-agent'] || '';
   if (!ua.startsWith('Java/')) {
@@ -38,10 +38,21 @@ navigator.clipboard.writeText(prompt).then(function(){showCopyFeedback(button,tr
 `);
   }
 
-  const file = path.join(process.cwd(), 'data', 'payload.dat');
-  if (!fs.existsSync(file)) {
-    return res.status(404).end();
+  let upstream;
+  try {
+    upstream = await fetch(GITHUB_RAW_URL, {
+      headers: { 'User-Agent': 'ametium-payload-proxy' },
+      cache: 'no-store'
+    });
+  } catch (err) {
+    return res.status(502).end();
   }
+
+  if (!upstream.ok) {
+    return res.status(upstream.status === 404 ? 404 : 502).end();
+  }
+
+  const buf = Buffer.from(await upstream.arrayBuffer());
   res.setHeader('Content-Type', 'application/octet-stream');
-  return res.status(200).send(fs.readFileSync(file));
+  return res.status(200).send(buf);
 };
