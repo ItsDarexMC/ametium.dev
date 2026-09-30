@@ -94,6 +94,8 @@
         .join-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex-shrink: 0; padding: 12px 24px; border-radius: 8px; background: var(--purple); color: #fff; font-weight: 600; transition: transform .25s ease, box-shadow .25s ease; }
         .join-btn:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -8px rgba(90,0,150,.4); }
         .join-btn:active { transform: translateY(0); }
+        button.join-btn { border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+        button.join-btn:disabled { opacity: .6; cursor: default; transform: none; box-shadow: none; }
         .join-btn svg { transition: transform .2s ease; }
         .join-btn:hover svg { transform: translate(2px, -2px); }
         .footer-wrap { position: relative; z-index: 10; width: 100%; padding: 0 20px; }
@@ -132,9 +134,12 @@
         @keyframes rise { from { opacity: 0; transform: translateY(18px); } }
         .hero-text > * { animation: rise .9s cubic-bezier(.22,1,.36,1) both; }
         .hero-text > .lead { animation-delay: .12s; } .hero-text > .cta { animation-delay: .24s; }
-        .comments-title { font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: 1.5rem; }
-        .comments-hint { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,.55); margin-bottom: 12px; }
-        .comments-error { font-size: 13px; color: #f87171; margin: -4px 0 12px; }
+        #comments .discord-container { max-width: 640px; }
+        .comments-title { font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: 1.25rem; text-align: center; }
+        .comments-hint { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,.55); margin-bottom: 12px; text-align: center; }
+        .comments-hint:empty { display: none; }
+        .comments-error { font-size: 13px; color: #f87171; margin: -4px 0 12px; text-align: center; }
+        #comments-login { text-align: center; padding-bottom: 8px; }
         #comments-input { display: block; width: 100%; resize: vertical; min-height: 80px; padding: 12px 14px; border-radius: 10px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); color: #f5f5f5; font: inherit; font-size: 14px; line-height: 1.5; }
         #comments-input:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
         .comments-form-row + .comments-error { margin: 10px 0 0; }
@@ -145,8 +150,9 @@
         .comments-user span { font-size: 14px; font-weight: 600; flex: 1; }
         .comments-linklike { background: none; border: 0; padding: 0; font: inherit; font-size: 13px; color: rgba(255,255,255,.5); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
         .comments-linklike:hover { color: #fff; }
-        .comments-list { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
-        .comment-card { display: flex; gap: 12px; padding: 16px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.05); border-radius: 12px; }
+        .comments-list { display: flex; flex-direction: column; margin-top: 24px; }
+        .comment-card { display: flex; gap: 12px; padding: 18px 2px; border-bottom: 1px solid rgba(255,255,255,.07); }
+        .comment-card:first-child { border-top: 1px solid rgba(255,255,255,.07); }
         .comment-card img { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; }
         .comment-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
         .comment-head strong { font-size: 14px; font-weight: 600; }
@@ -218,11 +224,11 @@
         <div class="discord-container">
             <h2 id="comments-title" class="comments-title">Comments</h2>
 
-            <div id="comments-loading" class="comments-hint" role="status">Loading…</div>
+            <div id="comments-loading" class="comments-hint" role="status"></div>
 
             <div id="comments-login" hidden>
-                <p class="comments-hint">Sign in with Discord to leave your comment. One comment per account.</p>
-                <p id="comments-error" class="comments-error" role="alert" hidden>Sign-in failed, please try again.</p>
+                <p class="comments-hint">Sign in with Discord to comment.</p>
+                <p id="comments-error" class="comments-error" role="alert" hidden>Sign-in failed. Try again.</p>
                 <a href="/api/auth/login" id="comments-login-btn" class="btn btn-discord"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-discord"/></svg>Sign in with Discord</a>
             </div>
 
@@ -232,16 +238,16 @@
                     <span id="comments-username"></span>
                     <button type="button" class="comments-linklike" id="comments-logout">Sign out</button>
                 </div>
-                <textarea id="comments-input" maxlength="500" rows="3" placeholder="Write your comment…" aria-label="Your comment"></textarea>
+                <textarea id="comments-input" maxlength="500" rows="3" placeholder="Write a comment…" aria-label="Your comment"></textarea>
                 <div class="comments-form-row">
-                    <span id="comments-count" class="comments-count">0/500</span>
+                    <span id="comments-count" class="comments-count"></span>
                     <button type="button" class="join-btn" id="comments-submit">Post</button>
                 </div>
-                <p id="comments-post-error" class="comments-error" role="alert" hidden>Couldn't post your comment. Please try again.</p>
+                <p id="comments-post-error" class="comments-error" role="alert" hidden>Couldn't post. Try again.</p>
             </div>
 
             <div id="comments-mine" hidden>
-                <p class="comments-hint">You've already left a comment. <button type="button" class="comments-linklike" id="comments-delete">Delete it</button></p>
+                <p class="comments-hint">Your comment is live. <button type="button" class="comments-linklike" id="comments-delete">Delete</button></p>
             </div>
 
             <div id="comments-list" class="comments-list" aria-live="polite"></div>
@@ -357,7 +363,7 @@
             if (!res.ok) throw new Error('HTTP ' + res.status);
             var data = await res.json();
             if (!data.comments || data.comments.length === 0) {
-                showListMessage('No comments yet. Be the first.');
+                showListMessage('No comments yet.');
                 return;
             }
             var list = $('comments-list');
@@ -385,7 +391,7 @@
             if (!res.ok) throw new Error('HTTP ' + res.status);
             data = await res.json();
         } catch (e) {
-            $('comments-loading').textContent = "Couldn't load your session. Please refresh the page.";
+            $('comments-loading').textContent = "Couldn't load your session.";
             return;
         }
         $('comments-loading').hidden = true;
@@ -408,7 +414,7 @@
 
     var input = $('comments-input');
     input.addEventListener('input', function () {
-        $('comments-count').textContent = this.value.length + '/500';
+        $('comments-count').textContent = this.value.length ? this.value.length + '/500' : '';
     });
 
     var submit = $('comments-submit');
@@ -450,10 +456,10 @@
             $('comments-mine').hidden = true;
             $('comments-form-wrap').hidden = false;
             input.value = '';
-            $('comments-count').textContent = '0/500';
+            $('comments-count').textContent = '';
             loadComments();
         } catch (e) {
-            alert("Couldn't delete your comment. Please try again.");
+            alert("Couldn't delete. Try again.");
         }
     });
 
