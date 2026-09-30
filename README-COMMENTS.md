@@ -6,8 +6,8 @@ archivo que no existe en tu repo (tu `index.html` está en la raíz). Con esa
 regla, ninguna llamada a `/api/comments`, `/api/session`, etc. habría
 funcionado nunca: Vercel las habría contestado con esa redirección rota antes
 de que llegaran a las funciones. Lo dejé así de simple:
-
-```json
+adsdas21
+```json 
 { "cleanUrls": true }
 ```
 
