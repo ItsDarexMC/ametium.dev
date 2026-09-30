@@ -12,8 +12,21 @@ module.exports = async (req, res) => {
 
     const redirectUri = `https://${req.headers.host}/api/auth/callback`;
 
+    // Diagnóstico: el Client ID de Discord son solo dígitos (17-20).
+    const clientId = (process.env.DISCORD_CLIENT_ID || '').trim();
+    if (!clientId) {
+        res.statusCode = 500;
+        res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+        return res.end('Falta la variable DISCORD_CLIENT_ID en Vercel (o no se redesplegó después de crearla).');
+    }
+    if (!/^\d{17,20}$/.test(clientId)) {
+        res.statusCode = 500;
+        res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+        return res.end(`DISCORD_CLIENT_ID no es válido: tiene ${clientId.length} caracteres y debe ser un número de 17 a 20 dígitos (Discord Developer Portal > OAuth2 > Client ID). Probablemente pegaste el Client Secret u otro valor.`);
+    }
+
     const params = new URLSearchParams({
-        client_id: process.env.DISCORD_CLIENT_ID,
+        client_id: clientId,
         redirect_uri: redirectUri,
         response_type: 'code',
         scope: 'identify',
