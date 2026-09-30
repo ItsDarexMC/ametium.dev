@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Ametium – Utility Mod for Meteor Client</title>
+    <title>ametium.dev</title>
     <meta name="description" content="Ametium is an addon for Meteor Client that adds some of the most advanced modules to Minecraft.">
     <meta name="theme-color" content="#0d0d0d">
     <meta name="color-scheme" content="dark">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Ametium – Utility Mod">
+    <meta property="og:title" content="ametium.dev">
     <meta property="og:description" content="An addon for Meteor Client that adds some of the most advanced modules to Minecraft.">
     <meta property="og:url" content="https://ametium.dev/">
     <meta property="og:image" content="https://ametium.dev/ametium.png">
@@ -127,6 +127,9 @@
             .discord-stats { gap: 4px 12px; font-size: 13px; }
             .join-btn { width: 100%; padding: 13px 24px; }
         }
+        @keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+        .hero-text > * { animation: rise .9s cubic-bezier(.22,1,.36,1) both; }
+        .hero-text > .lead { animation-delay: .12s; } .hero-text > .cta { animation-delay: .24s; }
         @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
     </style>
 </head>
