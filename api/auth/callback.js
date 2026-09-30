@@ -31,7 +31,7 @@ module.exports = async (req, res) => {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams({
-                client_id: process.env.DISCORD_CLIENT_ID,
+                client_id: '1493461067735633970',
                 client_secret: process.env.DISCORD_CLIENT_SECRET,
                 grant_type: 'authorization_code',
                 code,
