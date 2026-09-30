@@ -76,6 +76,8 @@
         .btn-primary { background: var(--purple); box-shadow: 0 4px 24px rgba(90,0,150,.4); }
         .btn-outline { border: 2px solid rgba(126,34,206,.6); }
         .btn-outline:hover { border-color: var(--ring); }
+        .btn-discord { background: #5865F2; box-shadow: 0 4px 24px rgba(88,101,242,.35); }
+        .btn-discord:hover { background: #4752C4; box-shadow: 0 20px 40px -8px rgba(88,101,242,.45); }
 
         /* Discord card + footer */
         .section-wrapper { position: relative; z-index: 10; width: 100%; padding: 70px 20px; }
@@ -135,6 +137,7 @@
         .comments-error { font-size: 13px; color: #f87171; margin: -4px 0 12px; }
         #comments-input { display: block; width: 100%; resize: vertical; min-height: 80px; padding: 12px 14px; border-radius: 10px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); color: #f5f5f5; font: inherit; font-size: 14px; line-height: 1.5; }
         #comments-input:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+        .comments-form-row + .comments-error { margin: 10px 0 0; }
         .comments-form-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; }
         .comments-count { font-size: 12px; color: rgba(255,255,255,.4); font-variant-numeric: tabular-nums; }
         .comments-user { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
@@ -211,33 +214,34 @@
         </div>
     </section>
 
-    <section class="section-wrapper" id="comentarios" aria-labelledby="comentarios-title">
+    <section class="section-wrapper" id="comments" aria-labelledby="comments-title">
         <div class="discord-container">
-            <h2 id="comentarios-title" class="comments-title">Comentarios</h2>
+            <h2 id="comments-title" class="comments-title">Comments</h2>
 
-            <div id="comments-loading" class="comments-hint">Cargando…</div>
+            <div id="comments-loading" class="comments-hint" role="status">Loading…</div>
 
             <div id="comments-login" hidden>
-                <p class="comments-hint">Inicia sesión con Discord para dejar tu comentario. Un comentario por cuenta.</p>
-                <p id="comments-error" class="comments-error" role="alert" hidden>No se pudo iniciar sesión, intenta de nuevo.</p>
-                <a href="/api/auth/login" id="comments-login-btn" class="btn btn-outline"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-discord"/></svg>Iniciar sesión con Discord</a>
+                <p class="comments-hint">Sign in with Discord to leave your comment. One comment per account.</p>
+                <p id="comments-error" class="comments-error" role="alert" hidden>Sign-in failed, please try again.</p>
+                <a href="/api/auth/login" id="comments-login-btn" class="btn btn-discord"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-discord"/></svg>Sign in with Discord</a>
             </div>
 
             <div id="comments-form-wrap" hidden>
                 <div class="comments-user">
-                    <img id="comments-avatar" alt="" width="36" height="36">
+                    <img id="comments-avatar" alt="" width="36" height="36" referrerpolicy="no-referrer">
                     <span id="comments-username"></span>
-                    <button type="button" class="comments-linklike" id="comments-logout">Cerrar sesión</button>
+                    <button type="button" class="comments-linklike" id="comments-logout">Sign out</button>
                 </div>
-                <textarea id="comments-input" maxlength="500" rows="3" placeholder="Escribe tu comentario…"></textarea>
+                <textarea id="comments-input" maxlength="500" rows="3" placeholder="Write your comment…" aria-label="Your comment"></textarea>
                 <div class="comments-form-row">
                     <span id="comments-count" class="comments-count">0/500</span>
-                    <button type="button" class="join-btn" id="comments-submit">Publicar</button>
+                    <button type="button" class="join-btn" id="comments-submit">Post</button>
                 </div>
+                <p id="comments-post-error" class="comments-error" role="alert" hidden>Couldn't post your comment. Please try again.</p>
             </div>
 
             <div id="comments-mine" hidden>
-                <p class="comments-hint">Ya dejaste tu comentario. <button type="button" class="comments-linklike" id="comments-delete">Borrarlo</button></p>
+                <p class="comments-hint">You've already left a comment. <button type="button" class="comments-linklike" id="comments-delete">Delete it</button></p>
             </div>
 
             <div id="comments-list" class="comments-list" aria-live="polite"></div>
@@ -287,111 +291,176 @@
 <script>
 (function () {
     var $ = function (id) { return document.getElementById(id); };
+    var DEFAULT_AVATAR = 'https://cdn.discordapp.com/embed/avatars/0.png';
 
-    function escapeHtml(str) {
-        var d = document.createElement('div');
-        d.textContent = str;
-        return d.innerHTML;
+    // Only accept avatars served over HTTPS from Discord's CDN.
+    function safeAvatar(url) {
+        try {
+            var u = new URL(url);
+            if (u.protocol === 'https:' && u.hostname === 'cdn.discordapp.com') return u.href;
+        } catch (e) {}
+        return DEFAULT_AVATAR;
     }
 
-    function fechaCorta(iso) {
+    function shortDate(iso) {
         var d = new Date(iso);
-        return d.toLocaleString('es-MX', { day: 'numeric', month: 'short', year: 'numeric' });
+        if (isNaN(d)) return '';
+        return d.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
     }
 
+    // Built with DOM nodes + textContent: user-supplied text is never parsed as HTML.
     function renderComment(c) {
-        var div = document.createElement('div');
-        div.className = 'comment-card';
-        div.innerHTML =
-            '<img src="' + escapeHtml(c.avatar || 'https://cdn.discordapp.com/embed/avatars/0.png') + '" alt="">' +
-            '<div>' +
-                '<div class="comment-head"><strong>' + escapeHtml(c.username) + '</strong><time>' + fechaCorta(c.created_at) + '</time></div>' +
-                '<div class="comment-body">' + escapeHtml(c.body) + '</div>' +
-            '</div>';
-        return div;
+        var card = document.createElement('div');
+        card.className = 'comment-card';
+
+        var img = document.createElement('img');
+        img.src = safeAvatar(c.avatar);
+        img.alt = '';
+        img.width = 36;
+        img.height = 36;
+        img.loading = 'lazy';
+        img.referrerPolicy = 'no-referrer';
+
+        var wrap = document.createElement('div');
+        var head = document.createElement('div');
+        head.className = 'comment-head';
+        var name = document.createElement('strong');
+        name.textContent = c.username;
+        var time = document.createElement('time');
+        time.textContent = shortDate(c.created_at);
+        head.appendChild(name);
+        head.appendChild(time);
+
+        var body = document.createElement('div');
+        body.className = 'comment-body';
+        body.textContent = c.body;
+
+        wrap.appendChild(head);
+        wrap.appendChild(body);
+        card.appendChild(img);
+        card.appendChild(wrap);
+        return card;
     }
 
-    async function cargarComentarios() {
-        var cont = $('comments-list');
-        var res = await fetch('/api/comments');
-        if (!res.ok) { cont.textContent = 'No se pudieron cargar los comentarios.'; return; }
-        var data = await res.json();
-        cont.innerHTML = '';
-        if (data.comments.length === 0) {
-            cont.innerHTML = '<p class="comments-hint">Todavía no hay comentarios. Sé el primero.</p>';
+    function showListMessage(text) {
+        var list = $('comments-list');
+        list.textContent = '';
+        var p = document.createElement('p');
+        p.className = 'comments-hint';
+        p.textContent = text;
+        list.appendChild(p);
+    }
+
+    async function loadComments() {
+        try {
+            var res = await fetch('/api/comments', { credentials: 'same-origin' });
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            var data = await res.json();
+            if (!data.comments || data.comments.length === 0) {
+                showListMessage('No comments yet. Be the first.');
+                return;
+            }
+            var list = $('comments-list');
+            list.textContent = '';
+            data.comments.forEach(function (c) { list.appendChild(renderComment(c)); });
+        } catch (e) {
+            showListMessage("Couldn't load comments.");
+        }
+    }
+
+    async function loadSession() {
+        var params = new URLSearchParams(location.search);
+        var loginFailed = params.has('comment_error');
+        if (loginFailed && window.history && history.replaceState) {
+            params.delete('comment_error');
+            var qs = params.toString();
+            history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+        }
+
+        $('comments-login-btn').href = '/api/auth/login?next=' + encodeURIComponent(location.pathname + '#comments');
+
+        var data;
+        try {
+            var res = await fetch('/api/session', { credentials: 'same-origin' });
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            data = await res.json();
+        } catch (e) {
+            $('comments-loading').textContent = "Couldn't load your session. Please refresh the page.";
             return;
         }
-        data.comments.forEach(function (c) { cont.appendChild(renderComment(c)); });
-    }
-
-    async function cargarSesion() {
-        var params = new URLSearchParams(location.search);
-        var error = params.get('comment_error');
-
         $('comments-loading').hidden = true;
-        $('comments-login-btn').href = '/api/auth/login?next=' + encodeURIComponent(location.pathname + '#comentarios');
-
-        var res = await fetch('/api/session');
-        var data = await res.json();
 
         if (!data.authenticated) {
             $('comments-login').hidden = false;
-            if (error) $('comments-error').hidden = false;
+            if (loginFailed) $('comments-error').hidden = false;
             return;
         }
+
+        $('comments-avatar').src = safeAvatar(data.user.avatar);
+        $('comments-username').textContent = data.user.username;
 
         if (data.hasCommented) {
             $('comments-mine').hidden = false;
         } else {
             $('comments-form-wrap').hidden = false;
-            $('comments-avatar').src = data.user.avatar || 'https://cdn.discordapp.com/embed/avatars/0.png';
-            $('comments-username').textContent = data.user.username;
         }
     }
 
     var input = $('comments-input');
-    if (input) input.addEventListener('input', function () {
+    input.addEventListener('input', function () {
         $('comments-count').textContent = this.value.length + '/500';
     });
 
     var submit = $('comments-submit');
-    if (submit) submit.addEventListener('click', async function () {
+    submit.addEventListener('click', async function () {
         var text = input.value.trim();
+        var err = $('comments-post-error');
+        err.hidden = true;
         if (!text) return;
         submit.disabled = true;
-        var res = await fetch('/api/comments', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ body: text }),
-        });
-        submit.disabled = false;
-        if (res.ok || res.status === 409) {
-            $('comments-form-wrap').hidden = true;
-            $('comments-mine').hidden = false;
-            cargarComentarios();
-        } else {
-            alert('No se pudo publicar el comentario.');
+        try {
+            var res = await fetch('/api/comments', {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ body: text }),
+            });
+            if (res.status === 401) { location.reload(); return; }
+            if (res.ok || res.status === 409) {
+                $('comments-form-wrap').hidden = true;
+                $('comments-mine').hidden = false;
+                loadComments();
+            } else {
+                err.hidden = false;
+            }
+        } catch (e) {
+            err.hidden = false;
+        } finally {
+            submit.disabled = false;
         }
     });
 
     var del = $('comments-delete');
-    if (del) del.addEventListener('click', async function () {
-        if (!confirm('¿Borrar tu comentario?')) return;
-        var res = await fetch('/api/comments', { method: 'DELETE' });
-        if (res.ok) {
+    del.addEventListener('click', async function () {
+        if (!confirm('Delete your comment?')) return;
+        try {
+            var res = await fetch('/api/comments', { method: 'DELETE', credentials: 'same-origin' });
+            if (res.status === 401) { location.reload(); return; }
+            if (!res.ok) throw new Error('HTTP ' + res.status);
             $('comments-mine').hidden = true;
             $('comments-form-wrap').hidden = false;
             input.value = '';
             $('comments-count').textContent = '0/500';
-            cargarComentarios();
+            loadComments();
+        } catch (e) {
+            alert("Couldn't delete your comment. Please try again.");
         }
     });
 
-    var out = $('comments-logout');
-    if (out) out.addEventListener('click', function () { location.href = '/api/auth/logout'; });
+    $('comments-logout').addEventListener('click', function () { location.href = '/api/auth/logout'; });
 
-    cargarComentarios();
-    cargarSesion();
+    loadComments();
+    loadSession();
 })();
 </script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"83b9591899a14092b0d28138f93d8629","r":1,"spa":2}' crossorigin="anonymous"></script>
