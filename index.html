@@ -40,7 +40,6 @@
         .aurora-2 { width: 400px; height: 400px; bottom: -150px; right: -100px; background: radial-gradient(circle, rgba(124,0,200,.2) 0%, transparent 70%); animation: blob-breathe 16s infinite alternate-reverse ease-in-out; }
         .aurora-3 { width: 350px; height: 350px; top: 40%; left: 50%; margin-left: -175px; background: radial-gradient(circle, rgba(90,0,150,.15) 0%, transparent 70%); animation: blob-breathe 20s 4s infinite alternate ease-in-out; }
 
-        /* Nav */
         .nav { position: fixed; top: max(1rem, env(safe-area-inset-top)); left: 1rem; right: 1rem; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 10px 16px;
             background: rgba(255,255,255,.07); -webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%);
             border: 1px solid rgba(255,255,255,.14); border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.18);
@@ -53,7 +52,6 @@
         .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; color: rgba(255,255,255,.6); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); transition: color .2s, background .2s, border-color .2s; }
         .icon-btn:hover { color: #c084fc; background: rgba(255,255,255,.1); border-color: rgba(168,85,247,.4); }
 
-        /* Hero */
         .hero { position: relative; display: flex; align-items: center; min-height: 100vh; min-height: 100svh; overflow: hidden; }
         .hero-grid { position: absolute; inset: 0; background-size: 60px 60px; animation: grid-fade 8s ease-in-out infinite;
             background-image: linear-gradient(rgba(90,0,150,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(90,0,150,.08) 1px, transparent 1px);
@@ -77,7 +75,6 @@
         .btn-outline { border: 2px solid rgba(126,34,206,.6); }
         .btn-outline:hover { border-color: var(--ring); }
 
-        /* Discord card + footer */
         .section-wrapper { position: relative; z-index: 10; width: 100%; padding: 70px 20px; }
         .discord-container { max-width: 1040px; margin: 0 auto; padding: 0 10px; }
         .discord-section { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 40px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.05); border-radius: 16px; }
@@ -147,7 +144,7 @@
 
 <header>
     <nav class="nav" id="nav" aria-label="Main">
-        <a href="index.html" class="brand"><img src="ametium.png" alt="" width="24" height="24"><span>Ametium</span></a>
+        <a href="index.html" class="brand"><img src="ametium.png" alt="" width="24" height="24" onerror="this.style.display='none'"><span>Ametium</span></a>
         <div class="nav-links">
             <a href="https://discord.gg/ametium" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="Discord (opens in a new tab)"><svg class="icon" width="14" height="14" aria-hidden="true"><use href="#i-discord"/></svg></a>
             <a href="https://youtube.com/@itsdarexmc" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="YouTube (opens in a new tab)"><svg class="icon" width="14" height="14" aria-hidden="true"><use href="#i-youtube"/></svg></a>
@@ -161,7 +158,7 @@
         <div class="hero-tint" aria-hidden="true"></div>
         <div class="hero-inner">
             <div class="hero-logo">
-                <div class="hero-glow"><img src="ametium.png" alt="Ametium logo" width="320" height="320" fetchpriority="high"></div>
+                <div class="hero-glow"><img src="ametium.png" alt="" width="320" height="320" fetchpriority="high" onerror="this.style.display='none'"></div>
             </div>
             <div class="hero-text">
                 <h1><span>Ametium</span><br>Utility Mod</h1>
@@ -178,7 +175,7 @@
         <div class="discord-container">
             <div class="discord-section">
                 <div class="discord-info">
-                    <img src="ametium.png" alt="" width="60" height="60">
+                    <img src="ametium.png" alt="" width="60" height="60" onerror="this.style.display='none'">
                     <div class="discord-text">
                         <h2 id="discord-title">Ametium Development</h2>
                         <div class="discord-stats" aria-live="polite">
