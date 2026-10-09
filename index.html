@@ -68,12 +68,13 @@
         h1 span { color: var(--purple); }
         .lead { margin: 1.5rem auto 0; max-width: 32rem; font-size: .875rem; line-height: 1.65; color: #a1a1aa; text-wrap: pretty; }
         .cta { display: flex; flex-direction: column; gap: .75rem; margin-top: 2rem; justify-content: center; }
-        .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .875rem 2rem; border-radius: 8px; font-size: .875rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: #fff; transition: transform .25s ease, box-shadow .25s ease, border-color .2s; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -8px rgba(90,0,150,.4); }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; white-space: nowrap; min-height: 52px; padding: 0 1.6rem; border-radius: 12px; font-size: 1rem; font-weight: 600; color: #fff; transition: transform .25s ease, background-color .2s ease; }
+        .btn:hover { transform: translateY(-1px); }
         .btn:active { transform: translateY(0); }
-        .btn-primary { background: var(--purple); box-shadow: 0 4px 24px rgba(90,0,150,.4); }
-        .btn-outline { border: 2px solid rgba(126,34,206,.6); }
-        .btn-outline:hover { border-color: var(--ring); }
+        .btn-discord { background: #5865f2; box-shadow: 0 10px 30px -12px rgba(88,101,242,.7); }
+        .btn-discord:hover { background: #6b77f5; }
+        .btn-youtube { background: #e11d2e; box-shadow: 0 10px 30px -12px rgba(225,29,46,.7); }
+        .btn-youtube:hover { background: #f03a49; }
 
         .section-wrapper { position: relative; z-index: 10; width: 100%; padding: 70px 20px; }
         .discord-container { max-width: 1040px; margin: 0 auto; padding: 0 10px; }
@@ -161,8 +162,8 @@
                 <h1><span>Ametium</span><br>Utility Mod</h1>
                 <p class="lead">An addon for Meteor Client that adds some of the most advanced modules to Minecraft.</p>
                 <div class="cta">
-                    <a href="https://discord.gg/ametium" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-discord"/></svg>Discord</a>
-                    <a href="https://youtube.com/@itsdarexmc" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-youtube"/></svg>YouTube</a>
+                    <a href="https://discord.gg/ametium" target="_blank" rel="noopener noreferrer" class="btn btn-discord"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-discord"/></svg>Discord</a>
+                    <a href="https://youtube.com/@itsdarexmc" target="_blank" rel="noopener noreferrer" class="btn btn-youtube"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-youtube"/></svg>YouTube</a>
                 </div>
             </div>
         </div>
@@ -173,7 +174,7 @@
             <div class="discord-section">
                 <div class="discord-info">
                     <div class="discord-text">
-                        <h2 id="discord-title">Join the Ametium community</h2>
+                        <h2 id="discord-title">Ametium Development</h2>
                         <p class="discord-desc">Chat with other users, share configs, and get the latest updates directly from the developers.</p>
                         <div class="discord-stats" aria-live="polite">
                             <span><span class="stat-dot" aria-hidden="true"></span><span id="total-members">…</span> Total</span>
