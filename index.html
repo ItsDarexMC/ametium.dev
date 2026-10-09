@@ -77,20 +77,18 @@
 
         .section-wrapper { position: relative; z-index: 10; width: 100%; padding: 70px 20px; }
         .discord-container { max-width: 1040px; margin: 0 auto; padding: 0 10px; }
-        .discord-section { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 40px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.05); border-radius: 16px; }
+        .discord-section { display: flex; align-items: center; justify-content: space-between; gap: clamp(2rem, 5vw, 4rem); padding: clamp(1.75rem, 5vw, 3.5rem); background: radial-gradient(34rem 18rem at 100% 0%, rgba(88,101,242,.16), transparent 70%), #141210; border: 1px solid rgba(255,255,255,.1); border-radius: 24px; }
         .discord-info { display: flex; align-items: center; gap: 20px; min-width: 0; }
-        .discord-info img { width: 60px; height: 60px; border-radius: 12px; flex-shrink: 0; }
         .discord-text { min-width: 0; }
-        .discord-text h2 { font-size: 20px; font-weight: 600; color: #fff; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .discord-stats { display: flex; flex-wrap: wrap; gap: 4px 15px; margin-top: 8px; color: rgba(255,255,255,.6); font-size: 14px; font-variant-numeric: tabular-nums; }
+        .discord-text h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 700; color: #fff; line-height: 1.1; letter-spacing: -.03em; text-wrap: balance; }
+        .discord-desc { margin-top: 1rem; max-width: 34rem; color: #a1a1aa; font-size: clamp(1rem, 1.5vw, 1.1rem); text-wrap: pretty; }
+        .discord-stats { display: flex; flex-wrap: wrap; gap: 4px 15px; margin-top: 1.25rem; color: rgba(255,255,255,.6); font-size: 14px; font-variant-numeric: tabular-nums; }
         .discord-stats > span { display: inline-flex; align-items: center; gap: 6px; }
         .stat-dot { width: 8px; height: 8px; border-radius: 50%; background: #888; }
         .stat-dot.online { background: #22c55e; }
-        .join-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex-shrink: 0; padding: 12px 24px; border-radius: 8px; background: var(--purple); color: #fff; font-weight: 600; transition: transform .25s ease, box-shadow .25s ease; }
-        .join-btn:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -8px rgba(90,0,150,.4); }
+        .join-btn { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; flex-shrink: 0; white-space: nowrap; min-height: 52px; padding: 0 1.6rem; border-radius: 12px; background: #5865f2; color: #fff; font-size: 1rem; font-weight: 600; box-shadow: 0 10px 30px -12px rgba(88,101,242,.7); transition: transform .25s ease, background-color .2s ease; }
+        .join-btn:hover { background: #6b77f5; transform: translateY(-1px); }
         .join-btn:active { transform: translateY(0); }
-        .join-btn svg { transition: transform .2s ease; }
-        .join-btn:hover svg { transform: translate(2px, -2px); }
         .footer-wrap { position: relative; z-index: 10; width: 100%; padding: 0 20px; }
         .footer-line { height: 1px; background: rgba(255,255,255,.12); }
         .footer-text { padding: 32px 0; font-size: 12px; color: rgba(255,255,255,.45); }
@@ -117,12 +115,9 @@
         }
         @media (max-width: 720px) {
             .section-wrapper { padding: 24px 20px; }
-            .discord-section { flex-direction: column; align-items: stretch; gap: 20px; padding: 24px; border-radius: 14px; }
-            .discord-info { gap: 14px; }
-            .discord-info img { width: 48px; height: 48px; border-radius: 10px; }
-            .discord-text h2 { font-size: 17px; white-space: normal; }
+            .discord-section { flex-direction: column; align-items: stretch; gap: 24px; border-radius: 20px; }
             .discord-stats { gap: 4px 12px; font-size: 13px; }
-            .join-btn { width: 100%; padding: 13px 24px; }
+            .join-btn { width: 100%; }
         }
         @keyframes rise { from { opacity: 0; transform: translateY(18px); } }
         .hero-text > * { animation: rise .9s cubic-bezier(.22,1,.36,1) both; }
@@ -135,6 +130,7 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="i-discord" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/></symbol>
     <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M7 7h10v10"/></symbol>
 </svg>
 <div class="aurora aurora-1" aria-hidden="true"></div>
@@ -146,6 +142,7 @@
     <nav class="nav" id="nav" aria-label="Main">
         <a href="/" class="brand"><img src="ametium.png" alt="" width="24" height="24" onerror="this.style.display='none'"><span>Ametium</span></a>
         <div class="nav-links">
+            <a href="https://github.com/ItsDarexMC" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="GitHub (opens in a new tab)"><svg class="icon" width="14" height="14" aria-hidden="true"><use href="#i-github"/></svg></a>
             <a href="https://discord.gg/ametium" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="Discord (opens in a new tab)"><svg class="icon" width="14" height="14" aria-hidden="true"><use href="#i-discord"/></svg></a>
             <a href="https://youtube.com/@itsdarexmc" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="YouTube (opens in a new tab)"><svg class="icon" width="14" height="14" aria-hidden="true"><use href="#i-youtube"/></svg></a>
         </div>
@@ -175,16 +172,16 @@
         <div class="discord-container">
             <div class="discord-section">
                 <div class="discord-info">
-                    <img src="ametium.png" alt="" width="60" height="60" onerror="this.style.display='none'">
                     <div class="discord-text">
-                        <h2 id="discord-title">Ametium Development</h2>
+                        <h2 id="discord-title">Join the Ametium community</h2>
+                        <p class="discord-desc">Chat with other users, share configs, and get the latest updates directly from the developers.</p>
                         <div class="discord-stats" aria-live="polite">
                             <span><span class="stat-dot" aria-hidden="true"></span><span id="total-members">…</span> Total</span>
                             <span><span class="stat-dot online" aria-hidden="true"></span><span id="online-members">…</span> Online</span>
                         </div>
                     </div>
                 </div>
-                <a href="https://discord.gg/ametium" target="_blank" rel="noopener noreferrer" class="join-btn">Join Discord<svg class="icon" width="13" height="13" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"> (opens in a new tab)</span></a>
+                <a href="https://discord.gg/ametium" target="_blank" rel="noopener noreferrer" class="join-btn"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-discord"/></svg>Join server<span class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"> (opens in a new tab)</span></a>
             </div>
         </div>
     </section>
